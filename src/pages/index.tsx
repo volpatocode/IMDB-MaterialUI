@@ -1,7 +1,14 @@
 import * as React from "react";
+import Appbar from "../components/Appbar";
+import MovieContainer from "../components/MovieContainer";
 
 type propsType = {};
 
-export default function Home(): propsType {
-  return <>Teste</>;
+export default function index({}: propsType) {
+  return (
+    <>
+      <Appbar />
+      <MovieContainer/>
+    </>
+  );
 }
