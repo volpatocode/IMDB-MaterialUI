@@ -32,7 +32,7 @@ export default function index({
           {poster_path ? (
             <CardImage
               component="img"
-              image={API_IMG + poster_path}
+              image={poster_path ? API_IMG + poster_path : "cu"}
               alt={title + " poster"}
             />
           ) : (

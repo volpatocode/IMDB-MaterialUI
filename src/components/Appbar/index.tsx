@@ -29,9 +29,8 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
       const url = `https://api.themoviedb.org/3/search/movie?api_key=f04297956f564d66b4a51ff3da1c6c30&query=${query}`;
       const res = await fetch(url);
       const data = await res.json();
-      console.log(data);
       setMovies(data.results);
-      if (!data.results) {
+      if (!data.results || data.results.length === 0) {
         return forceHome();
       }
     } catch (e) {
