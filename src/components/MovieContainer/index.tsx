@@ -17,7 +17,6 @@ export default function index({ movies, setMovies }: propsType) {
       .then((res) => res.json())
       .then((data) => {
         setMovies(data.results);
-        console.log(data.results);
       });
   }, []);
 
@@ -29,8 +28,8 @@ export default function index({ movies, setMovies }: propsType) {
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
         {movies?.map((movieReq) => (
-          <Grid item xs={4}>
-            <MovieCard key={movieReq.id} {...movieReq} />
+          <Grid key={movieReq.id} item xs={4}>
+            <MovieCard {...movieReq} />
           </Grid>
         ))}
       </Grid>
