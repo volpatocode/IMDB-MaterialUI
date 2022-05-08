@@ -7,40 +7,97 @@ import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import { Search, SearchIconWrapper, StyledInputBase } from "./styles";
+import { useState } from "react";
+import Link from "next/link";
 
-export default function SearchAppBar() {
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar sx={{ backgroundColor: "#000" }}>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
+type propsType = {
+  movies: any;
+  setMovies: any;
+  page: "index" | "details";
+};
+
+export default function SearchAppBar({ movies, setMovies, page }: propsType) {
+  const [query, setQuery] = useState("");
+
+  const searchMovie = async (e) => {
+    e.preventDefault();
+    console.log("Searching");
+    try {
+      const url = `https://api.themoviedb.org/3/search/movie?api_key=f04297956f564d66b4a51ff3da1c6c30&query=${query}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      console.log(data);
+      setMovies(data.results);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  if (page === "index") {
+    return (
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar sx={{ backgroundColor: "#000" }}>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            >
             Movies
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-        </Toolbar>
-      </AppBar>
-    </Box>
-  );
+            </Typography>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <form onSubmit={searchMovie}>
+                <StyledInputBase
+                  type="text"
+                  placeholder="Search…"
+                  inputProps={{ "aria-label": "search" }}
+                  onChange={(e) => setQuery(e.target.value)}
+                  value={query}
+                />
+              </form>
+            </Search>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    );
+  } else {
+    return (
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar sx={{ backgroundColor: "#000" }}>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            >
+              Movies
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    );
+  }
 }

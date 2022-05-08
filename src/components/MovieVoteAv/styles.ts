@@ -7,6 +7,7 @@ export const MovieVoteAv = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 1rem;
 `;
 
 export const VoteTypography= styled(Typography)`

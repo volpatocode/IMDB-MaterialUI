@@ -12,6 +12,10 @@ export const MovieCard = styled(Card)`
   :hover {
     transform: scale(1.01);
   }
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const BoxTitle = styled(Box)`
@@ -19,11 +23,13 @@ export const BoxTitle = styled(Box)`
   align-items: center;
   justify-content: center;
   color: #f6f6f6;
+  text-align: center;
 `;
 
 export const CardImage = styled(CardMedia)`
   width: 90%;
   margin: 0 auto;
+  height: 75%;
 `;
 
 export const TitleTypography = styled(Typography)`

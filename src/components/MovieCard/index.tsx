@@ -2,26 +2,75 @@ import * as React from "react";
 import CardContent from "@mui/material/CardContent";
 import { BoxTitle, MovieCard, CardImage, TitleTypography } from "./styles";
 import MovieVoteAv from "../MovieVoteAv";
+import Link from "next/link";
 
-type propsType = {};
+type propsType = {
+  title: string;
+  vote_average: string;
+  poster_path: string;
+  id: string;
+};
 
-export default function index({}: propsType) {
-  return (
-    <MovieCard>
-      <CardContent>
-        <BoxTitle>
-          <TitleTypography component="h3">
-            Lizard
-          </TitleTypography>
-        </BoxTitle>
-      </CardContent>
-      <CardImage
-        component="img"
-        image="https://image.tmdb.org/t/p/w500//6DrHO1jr3qVrViUO6s6kFiAGM7.jpg"
-      />
-      <CardContent>
-        <MovieVoteAv/>
-      </CardContent>
-    </MovieCard>
-  );
+export default function index({
+  title,
+  vote_average,
+  poster_path,
+  id,
+}: propsType) {
+  const API_IMG = "https://image.tmdb.org/t/p/w500/";
+  const movieId = `${id}`;
+
+  if (!title || !vote_average || !poster_path || !id) {
+    return (
+      <Link href={`/movie?movie=${movieId}`}>
+        <MovieCard>
+          <CardContent>
+            <BoxTitle>
+              <TitleTypography component="h3">{title}</TitleTypography>
+            </BoxTitle>
+          </CardContent>
+          {poster_path ? (
+            <CardImage
+              component="img"
+              image={API_IMG + poster_path}
+              alt={title + " poster"}
+            />
+          ) : (
+            <CardImage
+              component="img"
+              image="https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
+              alt={title + " poster"}
+            />
+          )}
+          <CardContent>
+            {vote_average ? (
+              <MovieVoteAv voteAverage={vote_average} />
+            ) : (
+              <MovieVoteAv voteAverage="No rating yet" />
+            )}
+          </CardContent>
+        </MovieCard>
+      </Link>
+    );
+  } else {
+    return (
+      <Link href={`/movie?movie=${movieId}`}>
+        <MovieCard>
+          <CardContent>
+            <BoxTitle>
+              <TitleTypography component="h3">{title}</TitleTypography>
+            </BoxTitle>
+          </CardContent>
+          <CardImage
+            component="img"
+            image={API_IMG + poster_path}
+            alt={title + " poster"}
+          />
+          <CardContent>
+            <MovieVoteAv voteAverage={vote_average} />
+          </CardContent>
+        </MovieCard>
+      </Link>
+    );
+  }
 }
