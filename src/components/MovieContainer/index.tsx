@@ -28,7 +28,7 @@ export default function index({ movies, setMovies }: propsType) {
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
-        {movies.map((movieReq) => (
+        {movies?.map((movieReq) => (
           <Grid item xs={4}>
             <MovieCard key={movieReq.id} {...movieReq} />
           </Grid>

@@ -8,7 +8,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import { Search, SearchIconWrapper, StyledInputBase } from "./styles";
 import { useState } from "react";
-import Link from "next/link";
 
 type propsType = {
   movies: any;
@@ -18,6 +17,10 @@ type propsType = {
 
 export default function SearchAppBar({ movies, setMovies, page }: propsType) {
   const [query, setQuery] = useState("");
+  const forceHome = () => {
+    alert("No results found");
+    document.location.href = "/";
+  };
 
   const searchMovie = async (e) => {
     e.preventDefault();
@@ -28,6 +31,9 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
       const data = await res.json();
       console.log(data);
       setMovies(data.results);
+      if (!data.results) {
+        return forceHome();
+      }
     } catch (e) {
       console.log(e);
     }
@@ -53,7 +59,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
               component="div"
               sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
             >
-            Movies
+              Movies
             </Typography>
             <Search>
               <SearchIconWrapper>
