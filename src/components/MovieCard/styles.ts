@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 
 export const MovieCard = styled(Card)`
   background-color: #000;
-  border-radius: 10px;
   cursor: pointer;
   transition: 200ms;
   :hover {

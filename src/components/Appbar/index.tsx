@@ -108,7 +108,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
               variant="h6"
               noWrap
               component="div"
-              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+              sx={{ flexGrow: 1}}
             >
               Movies
             </Typography>

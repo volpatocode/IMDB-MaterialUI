@@ -52,10 +52,11 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const ButtonOutlined = styled(Button)`
   text-transform: none;
   text-align: left;
-  background-color: #666666;
-  color: #f6f6f6;
-  :hover{
-    background: #000;
+  background-color: #969696;
+  color: #eaebe5;
+  font-weight: 600;
+  :hover {
+    background: #666666;
   }
 `;
 
@@ -63,8 +64,9 @@ export const ButtonContained = styled(Button)`
   background-color: red;
   text-transform: none;
   text-align: left;
-  color: #f6f6f6;
-  :hover{
-    background: #000;
+  color: #eaebe5;
+  font-weight: 600;
+  :hover {
+    background: #a8251d;
   }
 `;
