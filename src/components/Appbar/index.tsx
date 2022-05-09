@@ -1,13 +1,20 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import { Search, SearchIconWrapper, StyledInputBase } from "./styles";
+import {
+  Search,
+  SearchIconWrapper,
+  StyledInputBase,
+  ToolbarColor,
+  ButtonContained,
+  ButtonOutlined,
+} from "./styles";
 import { useState } from "react";
+import Stack from "@mui/material/Stack";
 
 type propsType = {
   movies?: any;
@@ -42,7 +49,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
     return (
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
-          <Toolbar sx={{ backgroundColor: "#000" }}>
+          <ToolbarColor>
             <IconButton
               size="large"
               edge="start"
@@ -60,21 +67,26 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
             >
               Movies
             </Typography>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <form onSubmit={searchMovie}>
-                <StyledInputBase
-                  type="text"
-                  placeholder="Search…"
-                  inputProps={{ "aria-label": "search" }}
-                  onChange={(e) => setQuery(e.target.value)}
-                  value={query}
-                />
-              </form>
-            </Search>
-          </Toolbar>
+
+            <Stack spacing={2} direction="row">
+              <Search>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <form onSubmit={searchMovie}>
+                  <StyledInputBase
+                    type="text"
+                    placeholder="Search…"
+                    inputProps={{ "aria-label": "search" }}
+                    onChange={(e) => setQuery(e.target.value)}
+                    value={query}
+                  />
+                </form>
+              </Search>
+              <ButtonOutlined variant="text">Login</ButtonOutlined>
+              <ButtonContained variant="contained">Register</ButtonContained>
+            </Stack>
+          </ToolbarColor>
         </AppBar>
       </Box>
     );
@@ -82,7 +94,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
     return (
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
-          <Toolbar sx={{ backgroundColor: "#000" }}>
+          <ToolbarColor>
             <IconButton
               size="large"
               edge="start"
@@ -100,7 +112,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
             >
               Movies
             </Typography>
-          </Toolbar>
+          </ToolbarColor>
         </AppBar>
       </Box>
     );

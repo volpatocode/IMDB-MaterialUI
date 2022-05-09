@@ -3,7 +3,7 @@ import Appbar from "../../components/Appbar";
 import { useEffect, useState } from "react";
 import { movieDetailsType } from "../../types/services";
 import { useRouter } from "next/router";
-import { ContainerDetails, BoxDetails, CardImage } from "./styles";
+import { ContainerDetails, BoxDetails, CardImage, BoxBackdrop } from "./styles";
 
 export default function movie({
   title,
@@ -45,9 +45,12 @@ export default function movie({
     return (
       <>
         <Appbar page="details" />
-        <ContainerDetails>
-          <CardImage component="img" image={API_IMG + movieDetails.backdrop_path}/>
-        </ContainerDetails>
+        <BoxBackdrop>
+          <CardImage
+            component="img"
+            image={API_IMG + movieDetails.backdrop_path}
+          />
+        </BoxBackdrop>
       </>
     );
   }
