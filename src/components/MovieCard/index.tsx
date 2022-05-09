@@ -20,57 +20,29 @@ export default function index({
   const API_IMG = "https://image.tmdb.org/t/p/w500/";
   const movieId = `${id}`;
 
-  if (!title || !vote_average || !poster_path || !id) {
-    return (
-      <Link href={`/movie?movie=${movieId}`}>
-        <MovieCard>
-          <CardContent>
-            <BoxTitle>
-              <TitleTypography component="h3">{title}</TitleTypography>
-            </BoxTitle>
-          </CardContent>
-          {poster_path ? (
-            <CardImage
-              component="img"
-              image={poster_path ? API_IMG + poster_path : "cu"}
-              alt={title + " poster"}
-            />
-          ) : (
-            <CardImage
-              component="img"
-              image="https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-              alt={title + " poster"}
-            />
-          )}
-          <CardContent>
-            {vote_average ? (
-              <MovieVoteAv voteAverage={vote_average} />
-            ) : (
-              <MovieVoteAv voteAverage="No rating yet" />
-            )}
-          </CardContent>
-        </MovieCard>
-      </Link>
-    );
-  } else {
-    return (
-      <Link href={`/movie?movie=${movieId}`}>
-        <MovieCard>
-          <CardContent>
-            <BoxTitle>
-              <TitleTypography component="h3">{title}</TitleTypography>
-            </BoxTitle>
-          </CardContent>
-          <CardImage
-            component="img"
-            image={API_IMG + poster_path}
-            alt={title + " poster"}
+  return (
+    <Link href={`/movie?movie=${movieId}`}>
+      <MovieCard>
+        <CardContent>
+          <BoxTitle>
+            <TitleTypography component="h3">{title}</TitleTypography>
+          </BoxTitle>
+        </CardContent>
+        <CardImage
+          component="img"
+          image={
+            poster_path
+              ? API_IMG + poster_path
+              : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
+          }
+          alt={title + " poster"}
+        />
+        <CardContent>
+          <MovieVoteAv
+            voteAverage={vote_average ? vote_average : "No rating yet"}
           />
-          <CardContent>
-            <MovieVoteAv voteAverage={vote_average} />
-          </CardContent>
-        </MovieCard>
-      </Link>
-    );
-  }
+        </CardContent>
+      </MovieCard>
+    </Link>
+  );
 }
