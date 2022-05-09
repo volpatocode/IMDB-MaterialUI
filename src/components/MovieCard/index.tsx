@@ -21,7 +21,7 @@ export default function index({
   const movieId = `${id}`;
 
   return (
-    <Link href={`/movie?movie=${movieId}`}>
+    <Link href={`/movies/movie?movie=${movieId}`}>
       <MovieCard>
         <CardContent>
           <BoxTitle>

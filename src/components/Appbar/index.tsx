@@ -10,8 +10,8 @@ import { Search, SearchIconWrapper, StyledInputBase } from "./styles";
 import { useState } from "react";
 
 type propsType = {
-  movies: any;
-  setMovies: any;
+  movies?: any;
+  setMovies?: any;
   page: "index" | "details";
 };
 

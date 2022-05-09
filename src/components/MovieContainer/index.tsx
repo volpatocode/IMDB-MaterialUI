@@ -17,6 +17,7 @@ export default function index({ movies, setMovies }: propsType) {
       .then((res) => res.json())
       .then((data) => {
         setMovies(data.results);
+        console.log(data.results)
       });
   }, []);
 
