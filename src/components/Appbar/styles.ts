@@ -1,6 +1,7 @@
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import Button from "@mui/material/Button";
+import { propsType } from "./index";
 
 export const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -44,7 +45,7 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export const ButtonOutlined = styled(Button)`
+export const ButtonOutlined = styled(Button)<propsType>`
   text-transform: none;
   text-align: left;
   background-color: #969696;
@@ -54,12 +55,12 @@ export const ButtonOutlined = styled(Button)`
     background: #666666;
   }
 
-  @media (max-width: 700px) {
-    display: none;
+  @media (max-width: 715px) {
+    display: ${(props) => (props.page === "index" ? "none" : "initial")};
   }
 `;
 
-export const ButtonContained = styled(Button)`
+export const ButtonContained = styled(Button)<propsType>`
   background-color: red;
   text-transform: none;
   text-align: left;
@@ -68,7 +69,7 @@ export const ButtonContained = styled(Button)`
   :hover {
     background: #a8251d;
   }
-  @media (max-width: 700px) {
-    display: none;
+  @media (max-width: 715px) {
+    display: ${(props) => (props.page === "index" ? "none" : "initial")};
   }
 `;

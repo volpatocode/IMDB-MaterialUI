@@ -4,7 +4,6 @@ import Container from "@mui/material/Container";
 import CardMedia from "@mui/material/CardMedia";
 
 export const ContainerDetails = styled(Container)`
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;

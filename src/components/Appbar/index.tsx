@@ -16,7 +16,7 @@ import {
 import { useState } from "react";
 import Stack from "@mui/material/Stack";
 
-type propsType = {
+export type propsType = {
   movies?: any;
   setMovies?: any;
   page: "index" | "details";
@@ -45,6 +45,8 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
     }
   };
 
+  const Logo = "VMovies";
+
   if (page === "index") {
     return (
       <Box sx={{ flexGrow: 1 }}>
@@ -65,7 +67,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
               component="div"
               sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
             >
-              Movies
+              {Logo}
             </Typography>
 
             <Stack spacing={2} direction="row">
@@ -83,8 +85,8 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
                   />
                 </form>
               </Search>
-              <ButtonOutlined variant="text">Login</ButtonOutlined>
-              <ButtonContained variant="contained">Register</ButtonContained>
+              <ButtonOutlined page="index" variant="text">Login</ButtonOutlined>
+              <ButtonContained page="index" variant="contained">Register</ButtonContained>
             </Stack>
           </Toolbar>
         </AppBar>
@@ -110,11 +112,11 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
               component="div"
               sx={{ flexGrow: 1 }}
             >
-              Movies
+              {Logo}
             </Typography>
             <Stack spacing={2} direction="row">
-              <ButtonOutlined variant="text">Login</ButtonOutlined>
-              <ButtonContained variant="contained">Register</ButtonContained>
+              <ButtonOutlined page="details"variant="text">Login</ButtonOutlined>
+              <ButtonContained page="details" variant="contained">Register</ButtonContained>
             </Stack>
           </Toolbar>
         </AppBar>
