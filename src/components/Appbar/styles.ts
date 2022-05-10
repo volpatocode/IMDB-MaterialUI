@@ -1,11 +1,6 @@
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
-import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-
-export const ToolbarColor = styled(Toolbar)`
-  background-color: #000;
-`;
 
 export const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -58,6 +53,10 @@ export const ButtonOutlined = styled(Button)`
   :hover {
     background: #666666;
   }
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 `;
 
 export const ButtonContained = styled(Button)`
@@ -68,5 +67,8 @@ export const ButtonContained = styled(Button)`
   font-weight: 600;
   :hover {
     background: #a8251d;
+  }
+  @media (max-width: 700px) {
+    display: none;
   }
 `;

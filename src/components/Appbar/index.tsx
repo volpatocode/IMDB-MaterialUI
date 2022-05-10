@@ -5,11 +5,11 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
+import Toolbar from "@mui/material/Toolbar";
 import {
   Search,
   SearchIconWrapper,
   StyledInputBase,
-  ToolbarColor,
   ButtonContained,
   ButtonOutlined,
 } from "./styles";
@@ -48,8 +48,8 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
   if (page === "index") {
     return (
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <ToolbarColor>
+        <AppBar sx={{ backgroundColor: "#000" }} position="static">
+          <Toolbar>
             <IconButton
               size="large"
               edge="start"
@@ -86,15 +86,15 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
               <ButtonOutlined variant="text">Login</ButtonOutlined>
               <ButtonContained variant="contained">Register</ButtonContained>
             </Stack>
-          </ToolbarColor>
+          </Toolbar>
         </AppBar>
       </Box>
     );
   } else {
     return (
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <ToolbarColor>
+        <AppBar sx={{ color: "#fff" }} color="transparent" position="absolute">
+          <Toolbar>
             <IconButton
               size="large"
               edge="start"
@@ -108,11 +108,15 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
               variant="h6"
               noWrap
               component="div"
-              sx={{ flexGrow: 1}}
+              sx={{ flexGrow: 1 }}
             >
               Movies
             </Typography>
-          </ToolbarColor>
+            <Stack spacing={2} direction="row">
+              <ButtonOutlined variant="text">Login</ButtonOutlined>
+              <ButtonContained variant="contained">Register</ButtonContained>
+            </Stack>
+          </Toolbar>
         </AppBar>
       </Box>
     );

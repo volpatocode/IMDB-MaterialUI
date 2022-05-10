@@ -44,8 +44,8 @@ export default function movie({
   } else {
     return (
       <>
-        <Appbar page="details" />
-        <BoxBackdrop>
+        <BoxBackdrop position="relative">
+          <Appbar page="details" />
           <CardImage
             component="img"
             image={API_IMG + movieDetails.backdrop_path}

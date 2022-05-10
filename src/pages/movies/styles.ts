@@ -25,7 +25,7 @@ export const BoxDetails = styled(Box)`
 
 export const CardImage = styled(CardMedia)`
   width: 100%;
-  opacity: 20%;
+  opacity: 30%;
 `;
 
 export const BoxBackdrop = styled(Box)`
