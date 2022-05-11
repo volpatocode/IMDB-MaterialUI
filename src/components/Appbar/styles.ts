@@ -48,11 +48,11 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const ButtonOutlined = styled(Button)<propsType>`
   text-transform: none;
   text-align: left;
-  background-color: #666666;
+  background-color: rgba(0, 0, 0, 0.05);
   color: #eaebe5;
   font-weight: 600;
   :hover {
-    background: #3e3e3e;
+    background-color: rgba(0, 0, 0, 0.25)
   }
   @media (max-width: 715px) {
     display: ${(props) => (props.page === "index" ? "none" : "initial")};
@@ -60,13 +60,13 @@ export const ButtonOutlined = styled(Button)<propsType>`
 `;
 
 export const ButtonContained = styled(Button)<propsType>`
-  background-color: red;
+  background-color: rgba(0, 0, 0, 0.05);
   text-transform: none;
   text-align: left;
   color: #eaebe5;
   font-weight: 600;
   :hover {
-    background: #a8251d;
+    background: rgba(0, 0, 0, 0.25);
   }
   @media (max-width: 715px) {
     display: ${(props) => (props.page === "index" ? "none" : "initial")};

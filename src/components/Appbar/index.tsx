@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import Toolbar from "@mui/material/Toolbar";
+import Link from "next/link";
 import {
   Search,
   SearchIconWrapper,
@@ -61,17 +62,16 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
             >
               <MenuIcon />
             </IconButton>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{
-                flexGrow: 1,
-                display: { xs: "none", sm: "block" },
-              }}
-            >
-              {Logo}
-            </Typography>
+            <Link href="/">
+              <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{ flexGrow: 1, ":hover": { cursor: "pointer" } }}
+              >
+                {Logo}
+              </Typography>
+            </Link>
 
             <Stack spacing={2} direction="row">
               <Search>
@@ -113,14 +113,16 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
             >
               <MenuIcon />
             </IconButton>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ flexGrow: 1 }}
-            >
-              {Logo}
-            </Typography>
+            <Link href="/">
+              <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{ flexGrow: 1, ":hover": { cursor: "pointer" } }}
+              >
+                {Logo}
+              </Typography>
+            </Link>
             <Stack spacing={2} direction="row">
               <ButtonOutlined page="details" variant="text">
                 Login

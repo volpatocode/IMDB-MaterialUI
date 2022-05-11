@@ -17,7 +17,7 @@ export default function index({
   poster_path,
   id,
 }: propsType) {
-  const API_IMG = "https://image.tmdb.org/t/p/w500/";
+  const API_IMG = "https://image.tmdb.org/t/p/original/";
   const movieId = `${id}`;
 
   return (
