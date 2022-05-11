@@ -2,6 +2,14 @@ import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import CardMedia from "@mui/material/CardMedia";
+import { movieDetailsType } from "../../types/services";
+
+export const MovieContainer = styled.div<movieDetailsType>`
+  width: 100%;
+  position: absolute;
+  height:100%;
+  background: url(${(props) => props.backdrop_path}) no-repeat center center / cover;
+`;
 
 export const ContainerDetails = styled(Container)`
   display: flex;
@@ -22,13 +30,8 @@ export const BoxDetails = styled(Box)`
   font-size: 2rem;
 `;
 
-export const CardImage = styled(CardMedia)`
-  width: 100%;
-  opacity: 30%;
-`;
-
-export const BoxBackdrop = styled(Box)`
+export const OpacityProvider = styled(Box)`
   background-color: hsla(0, 0%, 0%, 0.99);
-`
-
-
+  height: 100%;
+  width:100%;
+`;

@@ -3,7 +3,12 @@ import Appbar from "../../components/Appbar";
 import { useEffect, useState } from "react";
 import { movieDetailsType } from "../../types/services";
 import { useRouter } from "next/router";
-import { ContainerDetails, BoxDetails, CardImage, BoxBackdrop } from "./styles";
+import {
+  ContainerDetails,
+  BoxDetails,
+  MovieContainer,
+  OpacityProvider,
+} from "./styles";
 
 export default function movie({
   title,
@@ -12,11 +17,11 @@ export default function movie({
   backdrop_path,
   overview,
   vote_average,
-  release_date,
+  release_date
 }: movieDetailsType) {
   const [movieDetails, setMovieDetails] = useState({} as movieDetailsType);
   const router = useRouter();
-  const API_IMG = "https://image.tmdb.org/t/p/w500/";
+  const API_IMG = "http://image.tmdb.org/t/p/original/"
   const movieDuration = (movieDetails.runtime / 60).toFixed(1);
   // const movieYear = (movieDetails.release_date).slice(-4);
 
@@ -44,13 +49,9 @@ export default function movie({
   } else {
     return (
       <>
-        <BoxBackdrop position="relative">
-          <Appbar page="details" />
-          <CardImage
-            component="img"
-            image={API_IMG + movieDetails.backdrop_path}
-          />
-        </BoxBackdrop>
+        <MovieContainer backdrop_path={API_IMG + movieDetails.backdrop_path}>
+            <Appbar page="details" />
+        </MovieContainer>
       </>
     );
   }
