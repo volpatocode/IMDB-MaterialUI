@@ -2,6 +2,8 @@ import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import Button from "@mui/material/Button";
 import { propsType } from "./index";
+import MenuItem from "@mui/material/MenuItem";
+import ListIconItem from "@mui/material/ListItemIcon";
 
 export const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -47,12 +49,13 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export const ButtonOutlined = styled(Button)<propsType>`
   text-transform: none;
+  background-color: transparent;
   text-align: left;
-  background-color: rgba(0, 0, 0, 0.05);
   color: #eaebe5;
   font-weight: 600;
+  box-shadow: none;
   :hover {
-    background-color: rgba(0, 0, 0, 0.25)
+    background-color: rgba(0, 0, 0, 0.25);
   }
   @media (max-width: 715px) {
     display: ${(props) => (props.page === "index" ? "none" : "initial")};
@@ -60,10 +63,11 @@ export const ButtonOutlined = styled(Button)<propsType>`
 `;
 
 export const ButtonContained = styled(Button)<propsType>`
-  background-color: rgba(0, 0, 0, 0.05);
   text-transform: none;
+  background-color: transparent;
   text-align: left;
   color: #eaebe5;
+  box-shadow: none;
   font-weight: 600;
   :hover {
     background: rgba(0, 0, 0, 0.25);
@@ -71,4 +75,13 @@ export const ButtonContained = styled(Button)<propsType>`
   @media (max-width: 715px) {
     display: ${(props) => (props.page === "index" ? "none" : "initial")};
   }
+`;
+
+
+export const StyledMenuItem = styled(MenuItem)`
+  color: #f6f6f6;
+`;
+
+export const StyledListItemIcon = styled(ListIconItem)`
+color: #f6f6f6;
 `;

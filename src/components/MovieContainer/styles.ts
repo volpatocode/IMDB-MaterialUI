@@ -3,6 +3,8 @@ import Container from "@mui/material/Container";
 
 export const MovieContainer = styled(Container)`
   margin: 1.6rem auto;
+  height: 100%;
+  width: 100%;
 `;
 
 
