@@ -48,13 +48,12 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const ButtonOutlined = styled(Button)<propsType>`
   text-transform: none;
   text-align: left;
-  background-color: #969696;
+  background-color: #666666;
   color: #eaebe5;
   font-weight: 600;
   :hover {
-    background: #666666;
+    background: #3e3e3e;
   }
-
   @media (max-width: 715px) {
     display: ${(props) => (props.page === "index" ? "none" : "initial")};
   }

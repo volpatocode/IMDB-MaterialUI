@@ -7,8 +7,9 @@ import { movieDetailsType } from "../../types/services";
 export const MovieContainer = styled.div<movieDetailsType>`
   width: 100%;
   position: absolute;
-  height:100%;
-  background: url(${(props) => props.backdrop_path}) no-repeat center center / cover;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
+    url(${(props) => props.backdrop_path}) no-repeat center center / cover;
 `;
 
 export const ContainerDetails = styled(Container)`
@@ -33,5 +34,5 @@ export const BoxDetails = styled(Box)`
 export const OpacityProvider = styled(Box)`
   background-color: hsla(0, 0%, 0%, 0.99);
   height: 100%;
-  width:100%;
+  width: 100%;
 `;

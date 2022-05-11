@@ -65,7 +65,10 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
               variant="h6"
               noWrap
               component="div"
-              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", sm: "block" },
+              }}
             >
               {Logo}
             </Typography>
@@ -85,8 +88,12 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
                   />
                 </form>
               </Search>
-              <ButtonOutlined page="index" variant="text">Login</ButtonOutlined>
-              <ButtonContained page="index" variant="contained">Register</ButtonContained>
+              <ButtonOutlined page="index" variant="text">
+                Login
+              </ButtonOutlined>
+              <ButtonContained page="index" variant="contained">
+                Register
+              </ButtonContained>
             </Stack>
           </Toolbar>
         </AppBar>
@@ -115,8 +122,12 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
               {Logo}
             </Typography>
             <Stack spacing={2} direction="row">
-              <ButtonOutlined page="details"variant="text">Login</ButtonOutlined>
-              <ButtonContained page="details" variant="contained">Register</ButtonContained>
+              <ButtonOutlined page="details" variant="text">
+                Login
+              </ButtonOutlined>
+              <ButtonContained page="details" variant="contained">
+                Register
+              </ButtonContained>
             </Stack>
           </Toolbar>
         </AppBar>
