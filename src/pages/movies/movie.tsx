@@ -3,23 +3,36 @@ import Appbar from "../../components/Appbar";
 import { useEffect, useState } from "react";
 import { movieDetailsType } from "../../types/services";
 import { useRouter } from "next/router";
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import {
-  ContainerDetails,
-  BoxDetails,
   BoxTitle,
   BoxOverview,
   MovieContainer,
   TitleTypography,
   OverviewTypography,
   DetailsTypography,
+  BoxDetailsMovie,
+  BoxDetailsGenre,
 } from "./styles";
+import BadgeGenre from "../../components/BadgeGenre";
 
 export default function movie() {
   const [movieDetails, setMovieDetails] = useState({} as movieDetailsType);
   const router = useRouter();
   const API_IMG = "http://image.tmdb.org/t/p/original/";
-  const movieDuration = (movieDetails.runtime / 60).toFixed(1) + "hr";
+
+  function timeConvert() {
+    var num = movieDetails.runtime;
+    var hours = num / 60;
+    var rhours = Math.floor(hours);
+    var minutes = (hours - rhours) * 60;
+    var rminutes = Math.round(minutes);
+    return (
+      rhours + " hour(s) and " + rminutes + " minute(s)."
+    );
+  }
+
+  const movieDuration = timeConvert();
 
   useEffect(() => {
     const movie = router.query.movie;
@@ -37,9 +50,6 @@ export default function movie() {
     return (
       <>
         <Appbar page="details" />
-        <ContainerDetails>
-          <BoxDetails>Wait until we find the best results...</BoxDetails>
-        </ContainerDetails>
       </>
     );
   } else {
@@ -61,17 +71,17 @@ export default function movie() {
                 {movieDetails.title}
               </TitleTypography>
             </BoxTitle>
-            <BoxDetails>
+            <BoxDetailsMovie>
+              <DetailsTypography variant="h6">{movieDuration}</DetailsTypography>
               <DetailsTypography variant="h6">
-                A VMovies movie
+                {movieDetails.release_date.slice(0, 4)}
               </DetailsTypography>
-              <DetailsTypography variant="h6">
-                {movieDuration}
-              </DetailsTypography>
-              <DetailsTypography variant="h6">
-                {(movieDetails.release_date).slice(0, 4)}
-              </DetailsTypography>
-            </BoxDetails>
+            </BoxDetailsMovie>
+            <BoxDetailsGenre>
+              {movieDetails?.genres?.map((genre) => (
+                <BadgeGenre key={genre.id} genre={genre.name} />
+              ))}
+            </BoxDetailsGenre>
             <BoxOverview>
               <OverviewTypography variant="h6">
                 {movieDetails.overview}

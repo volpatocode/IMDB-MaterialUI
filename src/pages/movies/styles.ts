@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 import { movieDetailsType } from "../../types/services";
-import { Typography, Box, Container } from "@mui/material";
+import { Typography, Box, Container, Button } from "@mui/material";
 
 export const MovieContainer = styled.div<movieDetailsType>`
   width: 100%;
   position: absolute;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)),
     url(${(props) => props.backdrop_path}) no-repeat center center / cover;
 `;
 
@@ -35,13 +35,23 @@ export const TitleTypography = styled(Typography)`
   letter-spacing: 0.5px;
 `;
 
-export const BoxDetails = styled(Box)`
-  margin: 1rem 0 2rem 0;
-  max-width: 60%;
+export const BoxDetailsMovie = styled(Box)`
   display: flex;
   align-items: center;
   column-gap: 1rem;
   flex-direction: row;
+  max-width: 60%;
+
+`;
+
+export const BoxDetailsGenre = styled(Box)`
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  flex-direction: row;
+  max-width: 60%;
+  flex-wrap: wrap;
+  margin: 0.7rem 0 1.2rem 0;
 `;
 
 export const DetailsTypography = styled(Typography)`
