@@ -1,8 +1,6 @@
 import styled from "@emotion/styled";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import CardMedia from "@mui/material/CardMedia";
 import { movieDetailsType } from "../../types/services";
+import { Typography, Box, Container } from "@mui/material";
 
 export const MovieContainer = styled.div<movieDetailsType>`
   width: 100%;
@@ -19,20 +17,48 @@ export const ContainerDetails = styled(Container)`
   width: 100%;
 `;
 
-export const BoxDetails = styled(Box)`
-  background-color: hsla(0, 0%, 0%, 0.8);
-  border-radius: 0.25rem;
-  min-width: 65%;
-  min-height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #f6f6f6;
-  font-size: 2rem;
-`;
-
 export const OpacityProvider = styled(Box)`
   background-color: hsla(0, 0%, 0%, 0.99);
   height: 100%;
   width: 100%;
+`;
+
+export const BoxTitle = styled(Box)`
+  max-width: 80%;
+`;
+
+export const TitleTypography = styled(Typography)`
+  font-size: 3rem;
+  color: #f6f6f6;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.5px;
+`;
+
+export const BoxDetails = styled(Box)`
+  margin: 1rem 0 2rem 0;
+  max-width: 60%;
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  flex-direction: row;
+`;
+
+export const DetailsTypography = styled(Typography)`
+  font-size: 0.8rem;
+  color: #f6f6f6;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.05px;
+`;
+
+export const BoxOverview = styled(Box)`
+  max-width: 60%;
+  text-align: left;
+`;
+
+export const OverviewTypography = styled(Typography)`
+  font-size: 1rem;
+  color: #f6f6f6;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.1px;
 `;

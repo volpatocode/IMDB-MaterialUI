@@ -57,7 +57,7 @@ export const ButtonOutlined = styled(Button)<propsType>`
   :hover {
     background-color: rgba(0, 0, 0, 0.25);
   }
-  @media (max-width: 715px) {
+  @media (max-width: 770px) {
     display: ${(props) => (props.page === "index" ? "none" : "initial")};
   }
 `;
@@ -72,16 +72,15 @@ export const ButtonContained = styled(Button)<propsType>`
   :hover {
     background: rgba(0, 0, 0, 0.25);
   }
-  @media (max-width: 715px) {
+  @media (max-width: 770px) {
     display: ${(props) => (props.page === "index" ? "none" : "initial")};
   }
 `;
-
 
 export const StyledMenuItem = styled(MenuItem)`
   color: #f6f6f6;
 `;
 
 export const StyledListItemIcon = styled(ListIconItem)`
-color: #f6f6f6;
+  color: #f6f6f6;
 `;

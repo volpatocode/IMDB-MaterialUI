@@ -4,7 +4,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import Settings from "@mui/icons-material/Settings";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Logout from "@mui/icons-material/Logout";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import {
   AppBar,
@@ -35,7 +34,7 @@ export type propsType = {
   setMovies?: any;
   page: "index" | "details";
 };
-
+export const Logo = "VMovies";
 export default function SearchAppBar({ movies, setMovies, page }: propsType) {
   const [query, setQuery] = useState("");
 
@@ -68,13 +67,11 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
     setAnchorEl(null);
   };
 
-  const Logo = "VMovies";
-
   if (page === "index") {
     return (
       <Box sx={{ flexGrow: 1 }}>
         <AppBar sx={{ backgroundColor: "#000" }} position="static">
-          <Toolbar>
+          <Toolbar sx={{ minHeight: "64px" }}>
             <IconButton
               size="large"
               edge="start"
@@ -113,6 +110,88 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
               <ButtonContained page="index" variant="text">
                 Register
               </ButtonContained>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  textAlign: "center",
+                }}
+              >
+                <Tooltip title="Account settings">
+                  <IconButton
+                    onClick={handleClick}
+                    size="small"
+                    sx={{ ml: 2 }}
+                    aria-controls={open ? "account-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? "true" : undefined}
+                  >
+                    <Avatar sx={{ width: 32, height: 32 }}>V</Avatar>
+                  </IconButton>
+                </Tooltip>
+              </Box>
+              <Menu
+                anchorEl={anchorEl}
+                id="account-menu"
+                open={open}
+                onClose={handleClose}
+                onClick={handleClose}
+                PaperProps={{
+                  elevation: 0,
+                  sx: {
+                    overflow: "visible",
+                    bgcolor: "#262626",
+                    filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                    mt: 1.5,
+                    "& .MuiAvatar-root": {
+                      width: 32,
+                      height: 32,
+                      ml: -0.5,
+                      mr: 1,
+                    },
+                    "&:before": {
+                      content: '""',
+                      display: "block",
+                      position: "absolute",
+                      top: 0,
+                      right: 14,
+                      width: 10,
+                      height: 10,
+                      bgcolor: "#262626",
+                      transform: "translateY(-50%) rotate(45deg)",
+                      zIndex: 0,
+                    },
+                  },
+                }}
+                transformOrigin={{ horizontal: "right", vertical: "top" }}
+                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+              >
+                <StyledMenuItem>
+                  <Avatar /> Profile
+                </StyledMenuItem>
+                <StyledMenuItem>
+                  <Avatar /> My account
+                </StyledMenuItem>
+                <Divider />
+                <StyledMenuItem>
+                  <StyledListItemIcon>
+                    <PersonAdd fontSize="small" />
+                  </StyledListItemIcon>
+                  Add another account
+                </StyledMenuItem>
+                <StyledMenuItem>
+                  <StyledListItemIcon>
+                    <Settings fontSize="small" />
+                  </StyledListItemIcon>
+                  Settings
+                </StyledMenuItem>
+                <StyledMenuItem>
+                  <StyledListItemIcon>
+                    <Logout fontSize="small" />
+                  </StyledListItemIcon>
+                  Logout
+                </StyledMenuItem>
+              </Menu>
             </Stack>
           </Toolbar>
         </AppBar>
