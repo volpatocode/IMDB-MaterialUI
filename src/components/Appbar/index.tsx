@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Settings from "@mui/icons-material/Settings";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Logout from "@mui/icons-material/Logout";
+import ArrowBack from "../ArrowBack";
 
 import {
   AppBar,
@@ -201,26 +202,8 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
     return (
       <Box sx={{ flexGrow: 1 }}>
         <AppBar sx={{ color: "#fff" }} color="transparent" position="absolute">
-          <Toolbar sx={{ minHeight: "64px" }}>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Link href="/">
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{ flexGrow: 1, ":hover": { cursor: "pointer" } }}
-              >
-                {Logo}
-              </Typography>
-            </Link>
+          <Toolbar sx={{ justifyContent: "space-between", minHeight: "64px" }}>
+            <ArrowBack />
             <Stack spacing={2} direction="row">
               <ButtonOutlined page="details" variant="text">
                 Login

@@ -41,6 +41,7 @@ export const BoxDetailsMovie = styled(Box)`
   column-gap: 1rem;
   flex-direction: row;
   max-width: 60%;
+  margin-top: 0.2rem;
 
 `;
 

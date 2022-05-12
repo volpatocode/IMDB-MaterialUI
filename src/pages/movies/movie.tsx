@@ -27,9 +27,7 @@ export default function movie() {
     var rhours = Math.floor(hours);
     var minutes = (hours - rhours) * 60;
     var rminutes = Math.round(minutes);
-    return (
-      rhours + " hour(s) and " + rminutes + " minute(s)."
-    );
+    return rhours + " hour(s) and " + rminutes + " minute(s).";
   }
 
   const movieDuration = timeConvert();
@@ -72,9 +70,11 @@ export default function movie() {
               </TitleTypography>
             </BoxTitle>
             <BoxDetailsMovie>
-              <DetailsTypography variant="h6">{movieDuration}</DetailsTypography>
               <DetailsTypography variant="h6">
                 {movieDetails.release_date.slice(0, 4)}
+              </DetailsTypography>
+              <DetailsTypography variant="h6">
+                {movieDuration}
               </DetailsTypography>
             </BoxDetailsMovie>
             <BoxDetailsGenre>
