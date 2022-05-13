@@ -3,7 +3,7 @@ import Appbar from "../../components/Appbar";
 import { useEffect, useState } from "react";
 import { movieDetailsType } from "../../types/services";
 import { useRouter } from "next/router";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Box } from "@mui/material";
 import {
   BoxTitle,
   BoxOverview,
