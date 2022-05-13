@@ -2,6 +2,7 @@ import * as React from "react";
 import Appbar from "../components/Appbar";
 import MovieContainer from "../components/MovieContainer";
 import { useState } from "react";
+import  CastCrew from "../components/CastCrew";
 
 type propsType = {};
 

@@ -13,8 +13,10 @@ import {
   DetailsTypography,
   BoxDetailsMovie,
   BoxDetailsGenre,
+  BoxCastCrew,
 } from "./styles";
 import BadgeGenre from "../../components/BadgeGenre";
+import CastCrew from "../../components/CastCrew";
 
 export default function movie() {
   const [movieDetails, setMovieDetails] = useState({} as movieDetailsType);
@@ -87,6 +89,9 @@ export default function movie() {
                 {movieDetails.overview}
               </OverviewTypography>
             </BoxOverview>
+            <BoxCastCrew>
+              <CastCrew movie={router.query.movie} />
+            </BoxCastCrew>
           </Grid>
         </Container>
       </>

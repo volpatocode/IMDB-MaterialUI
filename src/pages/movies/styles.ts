@@ -42,7 +42,6 @@ export const BoxDetailsMovie = styled(Box)`
   flex-direction: row;
   max-width: 60%;
   margin-top: 0.2rem;
-
 `;
 
 export const BoxDetailsGenre = styled(Box)`
@@ -72,4 +71,12 @@ export const OverviewTypography = styled(Typography)`
   color: #f6f6f6;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 0.1px;
+`;
+
+export const BoxCastCrew = styled(Box)`
+  max-width: 60%;
+  margin-top: 0.7rem;
+  max-height: 500px;
+  flex-grow: 1;
+  display: flex;
 `;

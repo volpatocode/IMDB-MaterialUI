@@ -2,7 +2,7 @@ export type movieDetailsType = {
   adult?: boolean;
   title?: string;
   genres?: genresType[];
-  runtime?:number;
+  runtime?: number;
   poster_path?: string;
   vote_average?: number;
   overview?: string;
@@ -13,4 +13,23 @@ export type movieDetailsType = {
 export type genresType = {
   id?: number;
   name?: string;
+};
+
+export type castCrewType = {
+  cast?: castType[];
+  crew?: crewType[];
+};
+
+export type castType = {
+  id?: string;
+  name?: string;
+  profile_path?: string;
+  character?: string;
+};
+
+export type crewType = {
+  id?: string;
+  name?: string;
+  profile_path?: string;
+  job?: string;
 };
