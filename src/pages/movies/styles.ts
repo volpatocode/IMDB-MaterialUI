@@ -80,3 +80,8 @@ export const BoxCastCrew = styled(Box)`
   flex-grow: 1;
   display: flex;
 `;
+
+export const BoxSimilarMovie= styled(Box)`
+width: 100%;
+  margin-top: 0.7rem;
+`;

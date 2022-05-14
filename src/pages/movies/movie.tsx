@@ -14,9 +14,11 @@ import {
   BoxDetailsMovie,
   BoxDetailsGenre,
   BoxCastCrew,
+  BoxSimilarMovie,
 } from "./styles";
 import BadgeGenre from "../../components/BadgeGenre";
 import CastCrew from "../../components/CastCrew";
+import SimilarMovie from "../../components/SimilarMovie";
 
 export default function movie() {
   const [movieDetails, setMovieDetails] = useState({} as movieDetailsType);
@@ -58,7 +60,7 @@ export default function movie() {
         <MovieContainer backdrop_path={API_IMG + movieDetails.backdrop_path} />
         <Appbar page="details" />
         <Container
-          sx={{ paddingTop: "64px", position: "absolute", margin: "2rem" }}
+          maxWidth="xl" sx={{ paddingTop: "64px", position: "absolute", margin: "0 auto"}}
         >
           <Grid
             container
@@ -90,8 +92,11 @@ export default function movie() {
               </OverviewTypography>
             </BoxOverview>
             <BoxCastCrew>
-              <CastCrew movie={router.query.movie} />
+              <CastCrew movie={movieDetails.id} />
             </BoxCastCrew>
+            <BoxSimilarMovie>
+              <SimilarMovie movie={movieDetails.id} />
+            </BoxSimilarMovie>
           </Grid>
         </Container>
       </>

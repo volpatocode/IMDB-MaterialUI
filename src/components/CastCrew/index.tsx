@@ -43,7 +43,6 @@ export default function index({ movie }: propsType) {
       .then((res) => res.json())
       .then((data) => {
         setCastCrew(data);
-        console.log(data);
       });
   }, []);
 

@@ -1,4 +1,5 @@
 export type movieDetailsType = {
+  id?: number;
   adult?: boolean;
   title?: string;
   genres?: genresType[];
@@ -32,4 +33,15 @@ export type crewType = {
   name?: string;
   profile_path?: string;
   job?: string;
+};
+
+export type similarMoviesType = {
+  id?: string;
+  title?: string;
+  backdrop_path?: string;
+  vote_average?: number;
+  overview?: string;
+  release_date?: string;
+  adult?: boolean;
+  runtime?: number;
 };

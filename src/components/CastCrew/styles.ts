@@ -16,7 +16,7 @@ export const CastCrew = styled(Box)`
 `;
 
 export const ImageListStyled = styled(ImageList)`
-  height: 270px;
+  height: 280px;
   width: 200px;
   overflow-x: hidden;
 `;
