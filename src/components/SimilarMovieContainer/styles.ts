@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
+import { propsType } from "./index";
 
 export const SimilarMovieContainer = styled(Box)`
   margin: 0;
@@ -8,14 +9,16 @@ export const SimilarMovieContainer = styled(Box)`
   cursor: pointer;
   transition: transform 200ms;
 
-  :hover{
+  :hover {
     transform: scale(0.99);
   }
 `;
 
-export const SimilarMovieImage = styled.img`
+export const SimilarMovieImage = styled.div<propsType>`
   width: 200px;
-  object-fit: cover;
+  height: 115px;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
+    url(${(props) => props.src}) no-repeat center center / cover;
 `;
 
 export const BoxContent = styled(Box)`

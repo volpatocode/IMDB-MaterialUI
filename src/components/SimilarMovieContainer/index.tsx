@@ -10,33 +10,29 @@ import {
 import Link from "next/link";
 import VoteAv from "../../components/VoteAv";
 
-type propsType = {
+export type propsType = {
   src: string;
-  srcset: string;
   title: string;
   year: string;
   overview: string;
   voteAv: string;
-  alt?: string;
   key: string;
   movieId: string;
 };
 
 export default function index({
   src,
-  srcset,
   title,
   year,
   overview,
   voteAv,
-  alt,
   key,
-  movieId
+  movieId,
 }: propsType) {
   return (
     <Link key={key} href={`/movies/movie?movie=${movieId}`}>
       <SimilarMovieContainer>
-        <SimilarMovieImage src={src} srcSet={srcset} alt={alt} />
+        <SimilarMovieImage src={src} />
         <BoxContent>
           <BoxTitle>
             <h3>{title}</h3>
