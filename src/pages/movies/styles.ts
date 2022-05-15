@@ -10,11 +10,11 @@ export const MovieContainer = styled.div<movieDetailsType>`
     url(${(props) => props.backdrop_path}) no-repeat center center / cover;
 `;
 
-export const ContainerDetails = styled(Container)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const ContainerDetails = styled.div`
+  padding-top: 64px;
   width: 100%;
+  margin: 2.5rem;
+  position: absolute;
 `;
 
 export const OpacityProvider = styled(Box)`
@@ -24,7 +24,7 @@ export const OpacityProvider = styled(Box)`
 `;
 
 export const BoxTitle = styled(Box)`
-  max-width: 80%;
+  max-width: 40%;
 `;
 
 export const TitleTypography = styled(Typography)`
@@ -49,7 +49,7 @@ export const BoxDetailsGenre = styled(Box)`
   align-items: center;
   column-gap: 1rem;
   flex-direction: row;
-  max-width: 60%;
+  max-width: 40%;
   flex-wrap: wrap;
   margin: 0.7rem 0 1.2rem 0;
 `;
@@ -62,7 +62,7 @@ export const DetailsTypography = styled(Typography)`
 `;
 
 export const BoxOverview = styled(Box)`
-  max-width: 60%;
+  max-width: 40%;
   text-align: left;
 `;
 
@@ -81,7 +81,10 @@ export const BoxCastCrew = styled(Box)`
   display: flex;
 `;
 
-export const BoxSimilarMovie= styled(Box)`
-width: 100%;
+export const BoxSimilarMovie = styled(Box)`
   margin-top: 0.7rem;
+  display: flex;
+  width: 100%;
+  position: fixed;
+  bottom: calc(0% + 2.5rem);
 `;

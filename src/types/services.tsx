@@ -43,5 +43,4 @@ export type similarMoviesType = {
   overview?: string;
   release_date?: string;
   adult?: boolean;
-  runtime?: number;
 };

@@ -13,17 +13,6 @@ export default function index({ movie }: propsType) {
   const [similarMovies, setSimilarMovies] = useState([] as similarMoviesType);
   const API_IMG = "http://image.tmdb.org/t/p/original/";
 
-  function timeConvert() {
-    var num = similarMovies.runtime;
-    var hours = num / 60;
-    var rhours = Math.floor(hours);
-    var minutes = (hours - rhours) * 60;
-    var rminutes = Math.round(minutes);
-    return rhours + " hour(s) and " + rminutes + " minute(s).";
-  }
-
-  const movieDuration = timeConvert();
-
   useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/movie/${movie}/similar?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=1`
@@ -37,7 +26,7 @@ export default function index({ movie }: propsType) {
 
   return (
     <SimilarMovie>
-      <StyledStack direction="row" spacing={2}>
+      <StyledStack direction="row" spacing={1}>
         {similarMovies?.map((movie) => (
           <SimilarMovieContainer
             src={
@@ -58,9 +47,10 @@ export default function index({ movie }: propsType) {
                 ? movie.release_date.slice(0, 4)
                 : "No year provided"
             }
-            duration={movieDuration}
             voteAv={
-              movie.vote_average ? movie.vote_average : "No rating provided"
+              movie.vote_average
+                ? movie.vote_average.toString().slice(0, 3)
+                : "No rating provided"
             }
             overview={movie.overview ? movie.overview : "No overview provided"}
           ></SimilarMovieContainer>

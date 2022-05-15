@@ -1,4 +1,3 @@
-import { Box } from "@mui/material";
 import * as React from "react";
 import {
   SimilarMovieContainer,
@@ -6,19 +5,18 @@ import {
   BoxContent,
   BoxTitle,
   BoxInfo,
-  BoxInfoLeft,
-  BoxInfoRight,
   BoxOverview,
 } from "./styles";
+
+import VoteAv from "../../components/VoteAv";
 
 type propsType = {
   src: string;
   srcset: string;
   title: string;
   year: string;
-  duration: string;
   overview: string;
-  voteAv: number;
+  voteAv: string;
   alt?: string;
 };
 
@@ -27,7 +25,6 @@ export default function index({
   srcset,
   title,
   year,
-  duration,
   overview,
   voteAv,
   alt,
@@ -40,13 +37,8 @@ export default function index({
           <h3>{title}</h3>
         </BoxTitle>
         <BoxInfo>
-          <BoxInfoLeft>
-            <h4>{year}</h4>
-            <h4>{duration}</h4>
-          </BoxInfoLeft>
-          <BoxInfoRight>
-            <h4>{voteAv}</h4>
-          </BoxInfoRight>
+          <VoteAv voteAv={voteAv} />
+          <h4>{year}</h4>
         </BoxInfo>
         <BoxOverview>{overview}</BoxOverview>
       </BoxContent>
