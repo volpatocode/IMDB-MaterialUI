@@ -27,8 +27,8 @@ export const VoteAv = styled.div<propsType>`
     }
   }};
 
-  p{
-    color: #000;
+  p {
+    color: ${(props) => (props.voteAv.length <=3  ? "#000" : props.voteAv)};
   }
   padding: 5px;
   border-radius: 5px;
