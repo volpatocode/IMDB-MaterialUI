@@ -5,6 +5,12 @@ export const SimilarMovieContainer = styled(Box)`
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   height: 250px;
+  cursor: pointer;
+  transition: transform 200ms;
+
+  :hover{
+    transform: scale(0.99);
+  }
 `;
 
 export const SimilarMovieImage = styled.img`

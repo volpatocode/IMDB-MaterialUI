@@ -7,7 +7,7 @@ import {
   BoxInfo,
   BoxOverview,
 } from "./styles";
-
+import Link from "next/link";
 import VoteAv from "../../components/VoteAv";
 
 type propsType = {
@@ -18,6 +18,8 @@ type propsType = {
   overview: string;
   voteAv: string;
   alt?: string;
+  key: string;
+  movieId: string;
 };
 
 export default function index({
@@ -28,20 +30,24 @@ export default function index({
   overview,
   voteAv,
   alt,
+  key,
+  movieId
 }: propsType) {
   return (
-    <SimilarMovieContainer>
-      <SimilarMovieImage src={src} srcSet={srcset} alt={alt} />
-      <BoxContent>
-        <BoxTitle>
-          <h3>{title}</h3>
-        </BoxTitle>
-        <BoxInfo>
-          <VoteAv voteAv={voteAv} />
-          <h4>{year}</h4>
-        </BoxInfo>
-        <BoxOverview>{overview}</BoxOverview>
-      </BoxContent>
-    </SimilarMovieContainer>
+    <Link key={key} href={`/movies/movie?movie=${movieId}`}>
+      <SimilarMovieContainer>
+        <SimilarMovieImage src={src} srcSet={srcset} alt={alt} />
+        <BoxContent>
+          <BoxTitle>
+            <h3>{title}</h3>
+          </BoxTitle>
+          <BoxInfo>
+            <VoteAv voteAv={voteAv} />
+            <h4>{year}</h4>
+          </BoxInfo>
+          <BoxOverview>{overview}</BoxOverview>
+        </BoxContent>
+      </SimilarMovieContainer>
+    </Link>
   );
 }

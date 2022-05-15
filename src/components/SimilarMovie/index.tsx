@@ -2,7 +2,6 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { SimilarMovie, StyledStack } from "./styles";
 import { similarMoviesType } from "../../types/services";
-import { Stack } from "@mui/material";
 import SimilarMovieContainer from "../SimilarMovieContainer";
 
 type propsType = {
@@ -29,6 +28,7 @@ export default function index({ movie }: propsType) {
       <StyledStack direction="row" spacing={1}>
         {similarMovies?.map((movie) => (
           <SimilarMovieContainer
+            movieId={movie.id}
             src={
               movie.backdrop_path
                 ? API_IMG + movie.backdrop_path

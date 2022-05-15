@@ -24,7 +24,7 @@ export const OpacityProvider = styled(Box)`
 `;
 
 export const BoxTitle = styled(Box)`
-  max-width: 40%;
+  max-width: 50%;
 `;
 
 export const TitleTypography = styled(Typography)`
@@ -40,7 +40,7 @@ export const BoxDetailsMovie = styled(Box)`
   align-items: center;
   column-gap: 1rem;
   flex-direction: row;
-  max-width: 60%;
+  max-width: 50%;
   margin-top: 0.2rem;
 `;
 
@@ -74,7 +74,7 @@ export const OverviewTypography = styled(Typography)`
 `;
 
 export const BoxCastCrew = styled(Box)`
-  max-width: 60%;
+  max-width: 40%;
   margin-top: 0.7rem;
   max-height: 500px;
   flex-grow: 1;

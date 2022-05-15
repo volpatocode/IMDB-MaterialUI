@@ -17,7 +17,6 @@ import {
   Avatar,
   Divider,
 } from "@mui/material";
-import Link from "next/link";
 import {
   Search,
   SearchIconWrapper,
