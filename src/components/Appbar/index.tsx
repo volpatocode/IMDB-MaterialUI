@@ -1,10 +1,11 @@
 import * as React from "react";
+import { useState } from "react";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import Settings from "@mui/icons-material/Settings";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Logout from "@mui/icons-material/Logout";
-import ArrowBack from "../ArrowBack";
 
 import {
   AppBar,
@@ -16,6 +17,7 @@ import {
   Tooltip,
   Avatar,
   Divider,
+  Stack,
 } from "@mui/material";
 import {
   Search,
@@ -26,15 +28,17 @@ import {
   StyledMenuItem,
   StyledListItemIcon,
 } from "./styles";
-import { useState } from "react";
-import Stack from "@mui/material/Stack";
+
+import ArrowBack from "../ArrowBack";
 
 export type propsType = {
   movies?: any;
   setMovies?: any;
   page: "index" | "details";
 };
+
 export const Logo = "VMovies";
+
 export default function SearchAppBar({ movies, setMovies, page }: propsType) {
   const [query, setQuery] = useState("");
 
@@ -58,6 +62,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
       console.log(e);
     }
   };
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {

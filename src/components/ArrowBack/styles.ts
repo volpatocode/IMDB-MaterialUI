@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Button } from "@mui/material";
 
 export const ArrowBack = styled(Button)`

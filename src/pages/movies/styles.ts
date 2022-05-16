@@ -1,10 +1,9 @@
 import styled from "@emotion/styled";
 import { movieDetailsType } from "../../types/services";
-import { Typography, Box, Container, Button } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 
 export const MovieContainer = styled.div<movieDetailsType>`
   width: 100%;
-  position: absolute;
   height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)),
     url(${(props) => props.backdrop_path}) no-repeat center center / cover;
@@ -13,8 +12,18 @@ export const MovieContainer = styled.div<movieDetailsType>`
 export const ContainerDetails = styled.div`
   padding-top: 64px;
   width: 100%;
-  margin: 2.5rem;
-  position: absolute;
+  padding: 4rem 2.5rem;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+`;
+
+export const StyledGrid = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 `;
 
 export const OpacityProvider = styled(Box)`
@@ -85,6 +94,4 @@ export const BoxSimilarMovie = styled(Box)`
   margin-top: 0.7rem;
   display: flex;
   width: 100%;
-  position: fixed;
-  bottom: calc(0% + 2.5rem);
 `;

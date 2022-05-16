@@ -7,7 +7,6 @@ export type propsType = {
 
 export default function index(props: propsType) {
   const { voteAv } = props;
-
   return (
     <VoteAv {...props}>
       <p>{voteAv}</p>

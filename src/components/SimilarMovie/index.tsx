@@ -3,14 +3,18 @@ import { useEffect, useState } from "react";
 import { SimilarMovie, StyledStack } from "./styles";
 import { similarMoviesType } from "../../types/services";
 import SimilarMovieContainer from "../SimilarMovieContainer";
+import { useRouter } from "next/router";
+
 
 type propsType = {
   movie: any;
 };
 
 export default function index({ movie }: propsType) {
-  const [similarMovies, setSimilarMovies] = useState([] as similarMoviesType);
+  const [similarMovies, setSimilarMovies] = useState<similarMoviesType[]>([]);
   const API_IMG = "http://image.tmdb.org/t/p/original/";
+  const router = useRouter();
+
 
   useEffect(() => {
     fetch(
@@ -21,7 +25,7 @@ export default function index({ movie }: propsType) {
         setSimilarMovies(data.results);
         console.log(data.results);
       });
-  }, []);
+  }, [router]);
 
   return (
     <SimilarMovie>
@@ -34,13 +38,7 @@ export default function index({ movie }: propsType) {
                 ? API_IMG + movie.backdrop_path
                 : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
             }
-            srcset={
-              movie.backdrop_path
-                ? API_IMG + movie.backdrop_path
-                : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-            }
             key={movie.id}
-            alt={movie.title ? movie.title : "No title provided"}
             title={movie.title ? movie.title : "No title provided"}
             year={
               movie.release_date

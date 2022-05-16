@@ -1,6 +1,6 @@
 import * as React from "react";
-import { CastCrew } from "./styles";
 import { useEffect, useState } from "react";
+import { castCrewType } from "../../types/services";
 import {
   ImageListItemStyle,
   ImageListStyled,
@@ -8,9 +8,9 @@ import {
   TabPanelStyled,
   TabStyled,
   ButtonOutlined,
-  StyledPortal,
+  CastCrew,
 } from "./styles";
-import { castCrewType } from "../../types/services";
+
 import Box from "@mui/material/Box";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
@@ -56,7 +56,7 @@ export default function index({ movie }: propsType) {
           {show ? (
             <Portal container={container.current}>
               <TabContext value={value}>
-                <Box sx={{ borderBottom: 1, borderColor: "divider"}}>
+                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                   <TabList
                     onChange={handleChange}
                     aria-label="lab API tabs example"

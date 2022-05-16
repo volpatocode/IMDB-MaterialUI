@@ -8,13 +8,12 @@ export const SimilarMovieContainer = styled(Box)`
   height: 250px;
   cursor: pointer;
   transition: transform 200ms;
-
   :hover {
     transform: scale(0.99);
   }
 `;
 
-export const SimilarMovieImage = styled.div<propsType>`
+export const SimilarMovieImage = styled.div<Pick<propsType, "src">>`
   width: 200px;
   height: 115px;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
@@ -40,6 +39,7 @@ export const BoxTitle = styled(Box)`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  min-height: 35px;
 `;
 
 export const BoxInfo = styled(Box)`
