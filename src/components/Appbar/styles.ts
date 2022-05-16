@@ -4,6 +4,9 @@ import Button from "@mui/material/Button";
 import { propsType } from "./index";
 import MenuItem from "@mui/material/MenuItem";
 import ListIconItem from "@mui/material/ListItemIcon";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
 
 export const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -83,4 +86,32 @@ export const StyledMenuItem = styled(MenuItem)`
 
 export const StyledListItemIcon = styled(ListIconItem)`
   color: #f6f6f6;
+`;
+
+export const AppBarIndex = styled(AppBar)`
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 10%,
+    rgba(0, 0, 0, 0)
+  );
+  background-color: rgb(20, 20, 20);
+`;
+
+export const AppBarDetails = styled(AppBar)`
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 10%,
+    rgba(0, 0, 0, 0)
+  );
+  color: #fff;
+`;
+
+export const BoxMenu = styled(Box)`
+  display: flex;
+  align-items: center;
+`;
+
+export const StyledToolbar = styled(Toolbar)`
+  min-height: 64px;
+  justify-content: space-between;
 `;

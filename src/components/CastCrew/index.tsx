@@ -15,6 +15,7 @@ import Box from "@mui/material/Box";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import Portal from "@mui/base/Portal";
+import { useRouter } from "next/router";
 
 export type propsType = {
   movie: any;
@@ -25,6 +26,7 @@ export default function index({ movie }: propsType) {
   const [value, setValue] = useState("1");
   const [show, setShow] = React.useState(false);
   const container = React.useRef(null);
+  const router = useRouter();
 
   const handleClick = () => {
     setShow(!show);
@@ -44,7 +46,7 @@ export default function index({ movie }: propsType) {
       .then((data) => {
         setCastCrew(data);
       });
-  }, []);
+  }, [router]);
 
   return (
     <>

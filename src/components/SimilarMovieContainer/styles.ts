@@ -11,6 +11,7 @@ export const SimilarMovieContainer = styled(Box)`
   :hover {
     transform: scale(0.99);
   }
+  max-width: 200px;
 `;
 
 export const SimilarMovieImage = styled.div<Pick<propsType, "src">>`
@@ -59,3 +60,7 @@ export const BoxOverview = styled(Box)`
   overflow: hidden;
   font-size: 0.6rem;
 `;
+
+export const BoxYear = styled(Box)`
+  text-align: right;
+`

@@ -12,7 +12,7 @@ export const MovieContainer = styled.div<movieDetailsType>`
 export const ContainerDetails = styled.div`
   padding-top: 64px;
   width: 100%;
-  padding: 4rem 2.5rem;
+  padding: 5rem 0 3rem 2.5rem;
   min-height: 100vh;
   position: relative;
   display: flex;
@@ -24,6 +24,7 @@ export const StyledGrid = styled(Box)`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  width: 100%;
 `;
 
 export const OpacityProvider = styled(Box)`
@@ -33,7 +34,7 @@ export const OpacityProvider = styled(Box)`
 `;
 
 export const BoxTitle = styled(Box)`
-  max-width: 50%;
+  max-width: 50vw;
 `;
 
 export const TitleTypography = styled(Typography)`
@@ -49,7 +50,7 @@ export const BoxDetailsMovie = styled(Box)`
   align-items: center;
   column-gap: 1rem;
   flex-direction: row;
-  max-width: 50%;
+  max-width: 50vw;
   margin-top: 0.2rem;
 `;
 
@@ -58,7 +59,7 @@ export const BoxDetailsGenre = styled(Box)`
   align-items: center;
   column-gap: 1rem;
   flex-direction: row;
-  max-width: 40%;
+  max-width: 40vw;
   flex-wrap: wrap;
   margin: 0.7rem 0 1.2rem 0;
 `;
@@ -71,7 +72,7 @@ export const DetailsTypography = styled(Typography)`
 `;
 
 export const BoxOverview = styled(Box)`
-  max-width: 40%;
+  max-width: 40vw;
   text-align: left;
 `;
 
@@ -83,7 +84,7 @@ export const OverviewTypography = styled(Typography)`
 `;
 
 export const BoxCastCrew = styled(Box)`
-  max-width: 40%;
+  max-width: 40vw;
   margin-top: 0.7rem;
   max-height: 500px;
   flex-grow: 1;
@@ -93,5 +94,9 @@ export const BoxCastCrew = styled(Box)`
 export const BoxSimilarMovie = styled(Box)`
   margin-top: 0.7rem;
   display: flex;
+  width: 100%;
+`;
+
+export const BoxWrapper = styled(Box)`
   width: 100%;
 `;

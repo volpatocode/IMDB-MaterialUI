@@ -2,7 +2,6 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { movieDetailsType } from "../../types/services";
 import { useRouter } from "next/router";
-import { Box } from "@mui/material";
 import {
   BoxTitle,
   BoxOverview,
@@ -16,6 +15,7 @@ import {
   BoxSimilarMovie,
   ContainerDetails,
   StyledGrid,
+  BoxWrapper,
 } from "./styles";
 import BadgeGenre from "../../components/BadgeGenre";
 import CastCrew from "../../components/CastCrew";
@@ -58,22 +58,22 @@ export default function movie() {
   } else {
     return (
       <>
-        <MovieContainer backdrop_path={API_IMG + movieDetails.backdrop_path}>
+        <MovieContainer backdrop_path={movieDetails.backdrop_path ? API_IMG + movieDetails.backdrop_path : ""}>
         <Appbar page="details" />
         <ContainerDetails>
           <StyledGrid>
-            <Box>
+            <BoxWrapper>
               <BoxTitle>
                 <TitleTypography variant="h1">
-                  {movieDetails.title}
+                  {movieDetails.title ? movieDetails.title : "No title provided"}
                 </TitleTypography>
               </BoxTitle>
               <BoxDetailsMovie>
                 <DetailsTypography variant="h6">
-                  {movieDetails.release_date.slice(0, 4)}
+                  {movieDetails.release_date ? movieDetails.release_date.slice(0, 4) : "No release date provided"}
                 </DetailsTypography>
                 <DetailsTypography variant="h6">
-                  {movieDuration}
+                  {movieDetails.runtime ? movieDuration : "No duration provided"}
                 </DetailsTypography>
               </BoxDetailsMovie>
               <BoxDetailsGenre>
@@ -83,13 +83,13 @@ export default function movie() {
               </BoxDetailsGenre>
               <BoxOverview>
                 <OverviewTypography variant="h6">
-                  {movieDetails.overview}
+                  {movieDetails.overview ? movieDetails.overview : "No overview provided"}
                 </OverviewTypography>
               </BoxOverview>
               <BoxCastCrew>
                 <CastCrew movie={movieDetails.id} />
               </BoxCastCrew>
-            </Box>
+            </BoxWrapper>
             <BoxSimilarMovie>
               <SimilarMovie movie={movieDetails.id} />
             </BoxSimilarMovie>

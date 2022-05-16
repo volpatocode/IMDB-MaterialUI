@@ -6,6 +6,7 @@ import {
   BoxTitle,
   BoxInfo,
   BoxOverview,
+  BoxYear,
 } from "./styles";
 import Link from "next/link";
 import VoteAv from "../../components/VoteAv";
@@ -39,7 +40,9 @@ export default function index({
           </BoxTitle>
           <BoxInfo>
             <VoteAv voteAv={voteAv} />
-            <h4>{year}</h4>
+            <BoxYear>
+              <h4>{year}</h4>
+            </BoxYear>
           </BoxInfo>
           <BoxOverview>{overview}</BoxOverview>
         </BoxContent>

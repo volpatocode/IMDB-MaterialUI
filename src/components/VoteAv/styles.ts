@@ -19,4 +19,6 @@ export const VoteAv = styled.div<propsType>`
   }
   padding: 5px;
   border-radius: 5px;
+  min-width: 28px;
+  text-align: ${(props) => (props.voteAv.length <= 3 ? "center" : "left")};
 `;

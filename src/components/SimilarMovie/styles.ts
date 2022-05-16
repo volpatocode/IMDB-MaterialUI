@@ -11,6 +11,7 @@ export const StyledStack = styled(Stack)`
   flex-wrap: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
+  overflow: auto;
   ::-webkit-scrollbar {
     width: 12px;
     height: 5px;

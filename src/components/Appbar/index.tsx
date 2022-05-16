@@ -27,6 +27,10 @@ import {
   ButtonOutlined,
   StyledMenuItem,
   StyledListItemIcon,
+  AppBarIndex,
+  AppBarDetails,
+  BoxMenu,
+  StyledToolbar,
 } from "./styles";
 
 import ArrowBack from "../ArrowBack";
@@ -75,29 +79,31 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
   if (page === "index") {
     return (
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar sx={{ backgroundColor: "#000" }} position="static">
-          <Toolbar sx={{ minHeight: "64px" }}>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography
-              variant="h6"
-              noWrap
-              component="h2"
-              sx={{ flexGrow: 1, ":hover": { cursor: "pointer" } }}
-            >
-              {Logo}
-            </Typography>
+        <AppBarIndex position="static">
+          <StyledToolbar>
+            <BoxMenu>
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="open drawer"
+                sx={{ mr: 2 }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography
+                variant="h6"
+                noWrap
+                component="h2"
+                sx={{ flexGrow: 1, ":hover": { cursor: "pointer" } }}
+              >
+                {Logo}
+              </Typography>
+            </BoxMenu>
             <Stack spacing={2} direction="row">
               <Search>
                 <SearchIconWrapper>
-                  <SearchIcon />
+                  <SearchIcon/>
                 </SearchIconWrapper>
                 <form onSubmit={searchMovie}>
                   <StyledInputBase
@@ -198,15 +204,15 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
                 </StyledMenuItem>
               </Menu>
             </Stack>
-          </Toolbar>
-        </AppBar>
+          </StyledToolbar>
+        </AppBarIndex>
       </Box>
     );
   } else {
     return (
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar sx={{ color: "#fff" }} color="transparent" position="absolute">
-          <Toolbar sx={{ justifyContent: "space-between", minHeight: "64px" }}>
+      <Box>
+        <AppBarDetails color="transparent" position="absolute">
+          <StyledToolbar>
             <ArrowBack />
             <Stack spacing={2} direction="row">
               <ButtonOutlined page="details" variant="text">
@@ -298,8 +304,8 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
                 </StyledMenuItem>
               </Menu>
             </Stack>
-          </Toolbar>
-        </AppBar>
+          </StyledToolbar>
+        </AppBarDetails>
       </Box>
     );
   }
