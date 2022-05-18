@@ -1,10 +1,9 @@
 import styled from "@emotion/styled";
-import Container from "@mui/material/Container";
 
-export const MovieContainer = styled(Container)`
+export const MovieContainer = styled.div`
   margin: 1.6rem auto;
-  height: 100%;
   width: 100%;
+  padding: 3rem;
 `;
 
 

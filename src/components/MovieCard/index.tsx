@@ -1,19 +1,25 @@
 import * as React from "react";
-import CardContent from "@mui/material/CardContent";
-import { BoxTitle, MovieCard, CardImage, TitleTypography } from "./styles";
-import MovieVoteAv from "../MovieVoteAv";
 import Link from "next/link";
+import BadgeGenre from "../BadgeGenre";
+
+import {
+  StyledCardMedia,
+  StyledCardContent,
+  StyledCard,
+  TitleTypography,
+  GenresTypography,
+} from "./styles";
 
 type propsType = {
   title: string;
   vote_average: string;
   poster_path: string;
   id: string;
+  movieReq: any;
 };
 
 export default function index({
   title,
-  vote_average,
   poster_path,
   id,
 }: propsType) {
@@ -21,28 +27,28 @@ export default function index({
   const movieId = `${id}`;
 
   return (
-    <Link href={`/movies/movie?movie=${movieId}`}>
-      <MovieCard>
-        <CardContent>
-          <BoxTitle>
-            <TitleTypography component="h3">{title}</TitleTypography>
-          </BoxTitle>
-        </CardContent>
-        <CardImage
-          component="img"
-          image={
-            poster_path
-              ? API_IMG + poster_path
-              : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-          }
-          alt={title + " poster"}
-        />
-        <CardContent>
-          <MovieVoteAv
-            voteAverage={vote_average ? vote_average : "No rating yet"}
-          />
-        </CardContent>
-      </MovieCard>
-    </Link>
+    <>
+      {poster_path && (
+        <Link href={`/movies/movie?movie=${movieId}`}>
+          <StyledCard>
+            <StyledCardMedia
+              component="img"
+              alt={poster_path ? poster_path : "No poster provided"}
+              image={poster_path ? API_IMG + poster_path : ""}
+            />
+            <StyledCardContent>
+              <TitleTypography variant="h5" component="h5">
+                {title ? title : "No title provided"}
+              </TitleTypography>
+              <GenresTypography variant="body2" color="text.secondary">
+                {/* {movieReq?.genres?.map((genre) => (
+                  <BadgeGenre key={genre.id} genre={genre.name} />
+                ))} */}
+              </GenresTypography>
+            </StyledCardContent>
+          </StyledCard>
+        </Link>
+      )}
+    </>
   );
 }
