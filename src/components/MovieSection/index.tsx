@@ -2,16 +2,19 @@ import * as React from "react";
 import { MovieSection, StyledStack, SectionTitle } from "./styles";
 import { useState, useEffect } from "react";
 import MovieSectionContainer from "../MovieSectionContainer";
+import { movieSectionType } from "../../types/services";
 
 type propsType = {
   section: "upcoming" | "topRated" | "popular" | "weekRated";
 };
 
 export default function index({ section }: propsType) {
-  const [upcomingMovies, setUpcomingMovies] = useState([]);
-  const [weekRatedMovies, setWeekRatedMovies] = useState([]);
-  const [topRatedMovies, setTopRatedMovies] = useState([]);
-  const [popularMovies, setPopularMovies] = useState([]);
+  const [upcomingMovies, setUpcomingMovies] = useState<movieSectionType[]>([]);
+  const [weekRatedMovies, setWeekRatedMovies] = useState<movieSectionType[]>(
+    []
+  );
+  const [topRatedMovies, setTopRatedMovies] = useState<movieSectionType[]>([]);
+  const [popularMovies, setPopularMovies] = useState<movieSectionType[]>([]);
   const API_IMG = "http://image.tmdb.org/t/p/original/";
 
   useEffect(() => {
@@ -19,38 +22,30 @@ export default function index({ section }: propsType) {
       "https://api.themoviedb.org/3/movie/upcoming?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=1"
     )
       .then((res) => res.json())
-      .then((data) => {
-        setUpcomingMovies(data.results);
+      .then((upcoming) => {
+        setUpcomingMovies(upcoming.results);
       });
-  }, []);
-
-  useEffect(() => {
     fetch(
       "https://api.themoviedb.org/3/trending/movie/week?api_key=f04297956f564d66b4a51ff3da1c6c30"
     )
       .then((res) => res.json())
-      .then((data) => {
-        setWeekRatedMovies(data.results);
+      .then((weekRated) => {
+        setWeekRatedMovies(weekRated.results);
       });
-  }, []);
-
-  useEffect(() => {
     fetch(
       "https://api.themoviedb.org/3/movie/top_rated?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=1"
     )
       .then((res) => res.json())
-      .then((data) => {
-        setTopRatedMovies(data.results);
+      .then((topRated) => {
+        setTopRatedMovies(topRated.results);
       });
-  }, []);
 
-  useEffect(() => {
     fetch(
       "https://api.themoviedb.org/3/movie/popular?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=1"
     )
       .then((res) => res.json())
-      .then((data) => {
-        setPopularMovies(data.results);
+      .then((popular) => {
+        setPopularMovies(popular.results);
       });
   }, []);
 
