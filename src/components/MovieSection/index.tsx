@@ -3,6 +3,7 @@ import { MovieSection, StyledStack, SectionTitle } from "./styles";
 import { useState, useEffect } from "react";
 import MovieSectionContainer from "../MovieSectionContainer";
 import { movieSectionType } from "../../types/services";
+import { Movie } from "@mui/icons-material";
 
 type propsType = {
   section: "upcoming" | "topRated" | "popular" | "weekRated";
@@ -16,6 +17,19 @@ export default function index({ section }: propsType) {
   const [topRatedMovies, setTopRatedMovies] = useState<movieSectionType[]>([]);
   const [popularMovies, setPopularMovies] = useState<movieSectionType[]>([]);
   const API_IMG = "http://image.tmdb.org/t/p/original/";
+  const mapCondition = {
+    upcoming: upcomingMovies,
+    weekRated: weekRatedMovies,
+    topRated: topRatedMovies,
+    popular: popularMovies,
+  };
+
+  const stringCondition = {
+    upcoming: "Upcoming",
+    weekRated: "Week rated",
+    topRated: "topRated",
+    popular: "popular",
+  };
 
   useEffect(() => {
     fetch(
@@ -48,13 +62,14 @@ export default function index({ section }: propsType) {
         setPopularMovies(popular.results);
       });
   }, []);
-
-  if (section === "upcoming")
+  if (mapCondition[section].length === 0) {
+    return <MovieSection>aaaa</MovieSection>;
+  } else {
     return (
       <MovieSection section={section}>
-        <SectionTitle> Upcoming</SectionTitle>
+        <SectionTitle>{stringCondition[section]}</SectionTitle>
         <StyledStack direction="row" spacing={1}>
-          {upcomingMovies?.map((movie) => (
+          {mapCondition[section]?.map((movie) => (
             <MovieSectionContainer
               movieId={movie.id}
               src={
@@ -79,94 +94,5 @@ export default function index({ section }: propsType) {
         </StyledStack>
       </MovieSection>
     );
-  else if (section === "weekRated")
-    return (
-      <MovieSection section={section}>
-        <SectionTitle>Week Trending</SectionTitle>
-        <StyledStack direction="row" spacing={1}>
-          {weekRatedMovies?.map((movie) => (
-            <MovieSectionContainer
-              movieId={movie.id}
-              src={
-                movie.poster_path
-                  ? API_IMG + movie.poster_path
-                  : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-              }
-              key={movie.id}
-              title={movie.title ? movie.title : "No title provided"}
-              year={
-                movie.release_date
-                  ? movie.release_date.slice(0, 4)
-                  : "No year provided"
-              }
-              voteAv={
-                movie.vote_average
-                  ? movie.vote_average.toString().slice(0, 3)
-                  : "No rating provided"
-              }
-            ></MovieSectionContainer>
-          ))}
-        </StyledStack>
-      </MovieSection>
-    );
-  else if (section === "topRated")
-    return (
-      <MovieSection section={section}>
-        <SectionTitle>Top Rated</SectionTitle>
-        <StyledStack direction="row" spacing={1}>
-          {topRatedMovies?.map((movie) => (
-            <MovieSectionContainer
-              movieId={movie.id}
-              src={
-                movie.poster_path
-                  ? API_IMG + movie.poster_path
-                  : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-              }
-              key={movie.id}
-              title={movie.title ? movie.title : "No title provided"}
-              year={
-                movie.release_date
-                  ? movie.release_date.slice(0, 4)
-                  : "No year provided"
-              }
-              voteAv={
-                movie.vote_average
-                  ? movie.vote_average.toString().slice(0, 3)
-                  : "No rating provided"
-              }
-            ></MovieSectionContainer>
-          ))}
-        </StyledStack>
-      </MovieSection>
-    );
-  else if (section === "popular")
-    return (
-      <MovieSection section={section}>
-        <SectionTitle>Popular</SectionTitle>
-        <StyledStack direction="row" spacing={1}>
-          {popularMovies?.map((movie) => (
-            <MovieSectionContainer
-              movieId={movie.id}
-              src={
-                movie.poster_path
-                  ? API_IMG + movie.poster_path
-                  : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-              }
-              key={movie.id}
-              title={movie.title ? movie.title : "No title provided"}
-              year={
-                movie.release_date
-                  ? movie.release_date.slice(0, 4)
-                  : "No year provided"
-              }
-              voteAv={
-                movie.vote_average
-                  ? movie.vote_average.toString().slice(0, 3)
-                  : "No rating provided"
-              }
-            ></MovieSectionContainer>
-          ))}
-        </StyledStack>
-      </MovieSection>
-    );
+  }
 }
