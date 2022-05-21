@@ -45,14 +45,14 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
     width: "0ch",
     cursor: "pointer",
     "&:focus": {
-      width: "10ch",
+      width: "12ch",
       cursor: "text",
     },
     [theme.breakpoints.up("sm")]: {
       width: "0ch",
       cursor: "pointer",
       "&:focus": {
-        width: "32ch",
+        width: "30ch",
         cursor: "text",
       },
     },
@@ -63,8 +63,7 @@ export const StyledSearch = styled(Search)`
   max-height: 30px;
 `;
 export const LeftStack = styled(Stack)<propsType>`
-  animation: backwards 0.2s ease;
-  @media (max-width: 700px) {
+  @media (max-width: 965px) {
     display: ${(props) => (props.page === "index" ? "none" : "initial")};
   }
 `;
@@ -110,6 +109,23 @@ export const StyledButton = styled(Button)`
   font-size: 0.8rem;
   :hover {
     background: rgba(0, 0, 0, 0.25);
+  }
+`;
+
+export const MenuButton = styled(Button)<propsType>`
+  text-transform: none;
+  background-color: transparent;
+  text-align: left;
+  color: #eaebe5;
+  box-shadow: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  :hover {
+    background: rgba(0, 0, 0, 0.25);
+  }
+  display: none;
+  @media (max-width: 965px) {
+    display: ${(props) => (props.page === "index" ? "initial" : "none")};
   }
 `;
 

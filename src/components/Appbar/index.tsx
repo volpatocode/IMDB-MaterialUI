@@ -31,6 +31,7 @@ import {
   StyledSearch,
   RightStack,
   LeftStack,
+  MenuButton,
 } from "./styles";
 
 export type propsType = {
@@ -88,6 +89,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
               >
                 {Logo}
               </Typography>
+              <MenuButton page="index" variant="contained">Menu</MenuButton>
               <LeftStack page="index" spacing={0.5} direction="row">
                 <StyledButton variant="text">Home</StyledButton>
                 <StyledButton variant="text">Upcoming</StyledButton>

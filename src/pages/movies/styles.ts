@@ -34,7 +34,6 @@ export const OpacityProvider = styled(Box)`
 `;
 
 export const BoxTitle = styled(Box)`
-  max-width: 50vw;
 `;
 
 export const TitleTypography = styled(Typography)`
@@ -43,6 +42,9 @@ export const TitleTypography = styled(Typography)`
   font-weight: bold;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 0.5px;
+  @media (max-width: 310px) {
+    font-size: 2.3rem;
+  }
 `;
 
 export const BoxDetailsMovie = styled(Box)`
@@ -50,7 +52,6 @@ export const BoxDetailsMovie = styled(Box)`
   align-items: center;
   column-gap: 1rem;
   flex-direction: row;
-  max-width: 50vw;
   margin-top: 0.2rem;
 `;
 
@@ -59,7 +60,6 @@ export const BoxDetailsGenre = styled(Box)`
   align-items: center;
   column-gap: 1rem;
   flex-direction: row;
-  max-width: 40vw;
   flex-wrap: wrap;
   margin: 0.7rem 0 1.2rem 0;
 `;
@@ -72,7 +72,6 @@ export const DetailsTypography = styled(Typography)`
 `;
 
 export const BoxOverview = styled(Box)`
-  max-width: 40vw;
   text-align: left;
 `;
 
@@ -84,7 +83,6 @@ export const OverviewTypography = styled(Typography)`
 `;
 
 export const BoxCastCrew = styled(Box)`
-  max-width: 40vw;
   margin-top: 0.7rem;
   max-height: 500px;
   flex-grow: 1;
@@ -98,5 +96,18 @@ export const BoxSimilarMovie = styled(Box)`
 `;
 
 export const BoxWrapper = styled(Box)`
-  width: 100%;
+  width: 40vw;
+  @media (max-width: 1450px) {
+    width: 50vw;
+  }
+  @media (max-width: 720px) {
+    width: 70vw;
+  }
+  @media (max-width: 515px) {
+    width: 80vw;
+  }
+  @media (max-width: 310px) {
+    width: 75vw;
+  }
+ 
 `;

@@ -7,12 +7,29 @@ export const CastCrewContainer = styled(Box)`
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   max-width: 200px;
   height: 350px;
+  transition: 0.2ms ease-in-out;
+  @media (max-height: 900px) {
+    height: 320px;
+    transition: 0.2ms ease-in-out;
+  }
+  @media (max-height: 800px) {
+    height: 280px;
+    transition: 0.2ms ease-in-out;
+  }
+  @media (max-height: 720px) {
+    height: 250px;
+    transition: 0.2ms ease-in-out;
+  }
+  @media (max-height: 650px) {
+    height: 220px;
+    transition: 0.2ms ease-in-out;
+  }
 `;
 
 export const MovieContainerImage = styled.div<Pick<propsType, "src">>`
   height: 75%;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url(${(props) => props.src}) no-repeat center center / cover;
+    url(${(props) => props.src}) no-repeat center center / cover; ;
   width: 100%;
   min-width: 180px;
 `;
@@ -49,6 +66,3 @@ export const BoxInfo = styled(Box)`
   padding: 0.2rem 0;
 `;
 
-export const BoxYear = styled(Box)`
-  text-align: right;
-`;
