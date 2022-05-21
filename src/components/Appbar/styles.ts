@@ -63,7 +63,8 @@ export const StyledSearch = styled(Search)`
   max-height: 30px;
 `;
 export const LeftStack = styled(Stack)<propsType>`
-  @media (max-width: 680px) {
+  animation: backwards 0.2s ease;
+  @media (max-width: 700px) {
     display: ${(props) => (props.page === "index" ? "none" : "initial")};
   }
 `;
@@ -106,7 +107,7 @@ export const StyledButton = styled(Button)`
   color: #eaebe5;
   box-shadow: none;
   font-weight: 600;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   :hover {
     background: rgba(0, 0, 0, 0.25);
   }

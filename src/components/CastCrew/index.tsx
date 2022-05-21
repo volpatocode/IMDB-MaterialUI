@@ -2,13 +2,13 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { castCrewType } from "../../types/services";
 import {
-  ImageListItemStyle,
-  ImageListStyled,
-  ImageListItemsStyled,
-  TabPanelStyled,
-  TabStyled,
+  StyledStack,
   ButtonOutlined,
   CastCrew,
+  BoxModal,
+  GridCast,
+  GridCrew,
+  GridTitle,
 } from "./styles";
 
 import Box from "@mui/material/Box";
@@ -17,24 +17,20 @@ import TabList from "@mui/lab/TabList";
 import Portal from "@mui/base/Portal";
 import { useRouter } from "next/router";
 
+import CastCrewContainer from "../CastCrewContainer";
+import Modal from "@mui/material/Modal";
+
 export type propsType = {
   movie: any;
 };
 
 export default function index({ movie }: propsType) {
   const [castCrew, setCastCrew] = useState({} as castCrewType);
-  const [value, setValue] = useState("1");
-  const [show, setShow] = React.useState(false);
-  const container = React.useRef(null);
   const router = useRouter();
 
-  const handleClick = () => {
-    setShow(!show);
-  };
-
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
-  };
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const API_IMG = "http://image.tmdb.org/t/p/original/";
 
@@ -51,91 +47,80 @@ export default function index({ movie }: propsType) {
   return (
     <>
       <CastCrew movie={movie}>
-        <ButtonOutlined variant="text" onClick={handleClick}>
-          {show ? "Cast & Crew" : "Cast & Crew"}
+        <ButtonOutlined variant="text" onClick={handleOpen}>
+          Cast & Crew
         </ButtonOutlined>
-        <Box ref={container} sx={{ borderRadius: "5px" }}>
-          {show ? (
-            <Portal container={container.current}>
-              <TabContext value={value}>
-                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-                  <TabList
-                    onChange={handleChange}
-                    aria-label="lab API tabs example"
-                  >
-                    <TabStyled label="Cast" value="1" />
-                    <TabStyled label="Crew" value="2" />
-                  </TabList>
-                </Box>
-                <TabPanelStyled value="1">
-                  <ImageListStyled gap={0} cols={1}>
-                    {castCrew?.cast?.map((cast) => (
-                      <ImageListItemsStyled key={cast.id}>
-                        <img
-                          src={
-                            cast.profile_path
-                              ? API_IMG + cast.profile_path
-                              : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-                          }
-                          srcSet={
-                            cast.profile_path
-                              ? API_IMG + cast.profile_path
-                              : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-                          }
-                          alt={cast.name ? cast.name : "No name provided"}
-                          loading="lazy"
-                        />
-                        <ImageListItemStyle
-                          title={cast.name ? cast.name : "No name provided"}
-                          subtitle={
-                            <span>
-                              as:{" "}
-                              {cast.character
-                                ? cast.character
-                                : "No character provided"}
-                            </span>
-                          }
-                          position="below"
-                        />
-                      </ImageListItemsStyled>
-                    ))}
-                  </ImageListStyled>
-                </TabPanelStyled>
-                <TabPanelStyled value="2">
-                  <ImageListStyled gap={0} cols={1}>
-                    {castCrew?.crew?.map((crew) => (
-                      <ImageListItemsStyled key={crew.id}>
-                        <img
-                          src={
-                            crew.profile_path
-                              ? API_IMG + crew.profile_path
-                              : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-                          }
-                          srcSet={
-                            crew.profile_path
-                              ? API_IMG + crew.profile_path
-                              : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-                          }
-                          alt={crew.name ? crew.name : "No name provided"}
-                          loading="lazy"
-                        />
-                        <ImageListItemStyle
-                          title={crew.name ? crew.name : "No name provided"}
-                          subtitle={
-                            <span>
-                              as: {crew.job ? crew.job : "No job provided"}
-                            </span>
-                          }
-                          position="below"
-                        />
-                      </ImageListItemsStyled>
-                    ))}
-                  </ImageListStyled>
-                </TabPanelStyled>
-              </TabContext>
-            </Portal>
-          ) : null}
-        </Box>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <BoxModal>
+            <GridTitle>Cast</GridTitle>
+            <GridCast
+              container
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+              rowGap={2}
+            >
+              <StyledStack direction="row" spacing={1}>
+                {castCrew?.cast?.map(
+                  (cast) =>
+                    cast.profile_path && (
+                      <CastCrewContainer
+                        key={cast.id}
+                        name={cast.name ? cast.name : "No name provided"}
+                        info={
+                          <span>
+                            as:{" "}
+                            {cast.character
+                              ? cast.character
+                              : "No character provided"}
+                          </span>
+                        }
+                        src={
+                          cast.profile_path
+                            ? API_IMG + cast.profile_path
+                            : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
+                        }
+                      />
+                    )
+                )}
+              </StyledStack>
+            </GridCast>
+            <GridTitle>Crew</GridTitle>
+            <GridCrew
+              container
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+            >
+              <StyledStack direction="row" spacing={1}>
+                {castCrew?.crew?.map(
+                  (crew) =>
+                    crew.profile_path && (
+                      <CastCrewContainer
+                        key={crew.id}
+                        name={crew.name ? crew.name : "No name provided"}
+                        info={
+                          <span>
+                            as: {crew.job ? crew.job : "No character provided"}
+                          </span>
+                        }
+                        src={
+                          crew.profile_path
+                            ? API_IMG + crew.profile_path
+                            : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
+                        }
+                      />
+                    )
+                )}
+              </StyledStack>
+            </GridCrew>
+          </BoxModal>
+        </Modal>
       </CastCrew>
     </>
   );

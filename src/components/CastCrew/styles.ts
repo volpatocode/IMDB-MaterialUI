@@ -6,7 +6,8 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import TabPanel from "@mui/lab/TabPanel";
 import Tab from "@mui/material/Tab";
-import Portal from "@mui/base/Portal";
+import Stack from "@mui/material/Stack";
+import Grid from "@mui/material/Grid";
 
 export const CastCrew = styled(Box)`
   display: flex;
@@ -15,39 +16,49 @@ export const CastCrew = styled(Box)`
   align-items: flex-start;
 `;
 
-export const ImageListStyled = styled(ImageList)`
-  height: 280px;
-  width: 200px;
-  overflow-x: hidden;
+export const BoxModal = styled(Box)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  background-color: #000;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
 `;
 
-export const ImageListItemStyle = styled(ImageListItemBar)`
+export const GridCast = styled(Grid)`
+  margin-bottom: 1.5rem;
+`;
+
+export const GridCrew = styled(Grid)`
+`;
+
+export const GridTitle = styled.h2`
+  font-size: 1.2rem;
   color: #f6f6f6;
-  font-weight: bold;
+  font-weight: 500;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.5px;
+  padding-bottom: 0.4rem;
 `;
 
-export const ImageListItemsStyled = styled(ImageListItem)`
-  width: 100%;
 
-  img {
-    max-height: 230px;
-    image-rendering: optimizeQuality;
-    object-fit: cover;
-    max-width: 200px;
+export const StyledStack = styled(Stack)`
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow: auto;
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 5px;
   }
-`;
-
-export const TabPanelStyled = styled(TabPanel)`
-  padding: 0;
-  background: #262626;
-`;
-
-export const TabStyled = styled(Tab)`
-  flex-grow: 1;
-  color: #f6f6f6;
-  text-transform: none;
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
 `;
 
 export const ButtonOutlined = styled(Button)`
@@ -60,9 +71,4 @@ export const ButtonOutlined = styled(Button)`
   :hover {
     background-color: rgba(0, 0, 0, 0.25);
   }
-`;
-
-export const StyledPortal = styled(Portal)`
-  display: flex;
-  flex-direction: column;
 `;
