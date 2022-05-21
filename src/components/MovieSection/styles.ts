@@ -3,10 +3,15 @@ import Stack from "@mui/material/Stack";
 
 export const MovieSection = styled.div`
   width: 100%;
+  padding: 16px 0px 16px 16px;
+
+  @media (min-width: 600px) {
+    padding: 16px 0px 16px 16px;
+  }
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   color: #f6f6f6;
   font-weight: 500;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;

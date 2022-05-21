@@ -1,17 +1,14 @@
 import * as React from "react";
 import { useState } from "react";
-
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import Settings from "@mui/icons-material/Settings";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Logout from "@mui/icons-material/Logout";
+import ArrowBack from "../ArrowBack";
 
 import {
-  AppBar,
   Box,
   Typography,
-  Toolbar,
   IconButton,
   Menu,
   Tooltip,
@@ -19,8 +16,8 @@ import {
   Divider,
   Stack,
 } from "@mui/material";
+
 import {
-  Search,
   SearchIconWrapper,
   StyledInputBase,
   ButtonContained,
@@ -31,9 +28,8 @@ import {
   AppBarDetails,
   BoxMenu,
   StyledToolbar,
+  StyledSearch,
 } from "./styles";
-
-import ArrowBack from "../ArrowBack";
 
 export type propsType = {
   movies?: any;
@@ -79,18 +75,9 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
   if (page === "index") {
     return (
       <Box sx={{ flexGrow: 1 }}>
-        <AppBarIndex position="static">
+        <AppBarIndex elevation={0} position="static">
           <StyledToolbar>
             <BoxMenu>
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="open drawer"
-                sx={{ mr: 2 }}
-              >
-                <MenuIcon />
-              </IconButton>
               <Typography
                 variant="h6"
                 noWrap
@@ -101,9 +88,9 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
               </Typography>
             </BoxMenu>
             <Stack spacing={2} direction="row">
-              <Search>
+              <StyledSearch>
                 <SearchIconWrapper>
-                  <SearchIcon/>
+                  <SearchIcon />
                 </SearchIconWrapper>
                 <form onSubmit={searchMovie}>
                   <StyledInputBase
@@ -114,13 +101,8 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
                     value={query}
                   />
                 </form>
-              </Search>
-              <ButtonOutlined page="index" variant="text">
-                Login
-              </ButtonOutlined>
-              <ButtonContained page="index" variant="text">
-                Register
-              </ButtonContained>
+              </StyledSearch>
+            
               <Box
                 sx={{
                   display: "flex",
@@ -137,7 +119,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
                     aria-haspopup="true"
                     aria-expanded={open ? "true" : undefined}
                   >
-                    <Avatar sx={{ width: 32, height: 32 }}>V</Avatar>
+                    <Avatar sx={{ width: 32, height: 32, borderRadius: "5px" }}>V</Avatar>
                   </IconButton>
                 </Tooltip>
               </Box>

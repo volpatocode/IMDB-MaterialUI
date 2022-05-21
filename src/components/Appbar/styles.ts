@@ -42,13 +42,17 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      width: "30ch",
+      width: "0ch",
+      cursor: "pointer",
       "&:focus": {
         width: "32ch",
+        cursor: "text",
       },
     },
   },
 }));
+
+export const StyledSearch = styled(Search)``;
 
 export const ButtonOutlined = styled(Button)<propsType>`
   text-transform: none;
@@ -57,6 +61,7 @@ export const ButtonOutlined = styled(Button)<propsType>`
   color: #eaebe5;
   font-weight: 600;
   box-shadow: none;
+  font-size: 0.7rem;
   :hover {
     background-color: rgba(0, 0, 0, 0.25);
   }
@@ -72,6 +77,7 @@ export const ButtonContained = styled(Button)<propsType>`
   color: #eaebe5;
   box-shadow: none;
   font-weight: 600;
+  font-size: 0.7rem;
   :hover {
     background: rgba(0, 0, 0, 0.25);
   }
@@ -94,7 +100,7 @@ export const AppBarIndex = styled(AppBar)`
     rgba(0, 0, 0, 0.7) 10%,
     rgba(0, 0, 0, 0)
   );
-  background-color: rgb(20, 20, 20);
+  background-color: transparent;
 `;
 
 export const AppBarDetails = styled(AppBar)`
@@ -112,6 +118,5 @@ export const BoxMenu = styled(Box)`
 `;
 
 export const StyledToolbar = styled(Toolbar)`
-  min-height: 64px;
   justify-content: space-between;
 `;
