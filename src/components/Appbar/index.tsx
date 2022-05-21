@@ -20,15 +20,17 @@ import {
 import {
   SearchIconWrapper,
   StyledInputBase,
-  ButtonContained,
+  StyledButton,
   ButtonOutlined,
+  ButtonContained,
   StyledMenuItem,
   StyledListItemIcon,
   AppBarIndex,
   AppBarDetails,
-  BoxMenu,
   StyledToolbar,
   StyledSearch,
+  RightStack,
+  LeftStack,
 } from "./styles";
 
 export type propsType = {
@@ -77,7 +79,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
       <Box sx={{ flexGrow: 1 }}>
         <AppBarIndex elevation={0} position="static">
           <StyledToolbar>
-            <BoxMenu>
+            <Stack spacing={0.5} direction="row">
               <Typography
                 variant="h6"
                 noWrap
@@ -86,8 +88,15 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
               >
                 {Logo}
               </Typography>
-            </BoxMenu>
-            <Stack spacing={2} direction="row">
+              <LeftStack page="index" spacing={0.5} direction="row">
+                <StyledButton variant="text">Home</StyledButton>
+                <StyledButton variant="text">Upcoming</StyledButton>
+                <StyledButton variant="text">Week Rated</StyledButton>
+                <StyledButton variant="text">Top Rated</StyledButton>
+                <StyledButton variant="text">Popular</StyledButton>
+              </LeftStack>
+            </Stack>
+            <RightStack spacing={0.5} direction="row">
               <StyledSearch>
                 <SearchIconWrapper>
                   <SearchIcon />
@@ -102,7 +111,6 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
                   />
                 </form>
               </StyledSearch>
-            
               <Box
                 sx={{
                   display: "flex",
@@ -119,7 +127,9 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
                     aria-haspopup="true"
                     aria-expanded={open ? "true" : undefined}
                   >
-                    <Avatar sx={{ width: 32, height: 32, borderRadius: "5px" }}>V</Avatar>
+                    <Avatar sx={{ width: 28, height: 28, borderRadius: "5px" }}>
+                      V
+                    </Avatar>
                   </IconButton>
                 </Tooltip>
               </Box>
@@ -185,7 +195,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
                   Logout
                 </StyledMenuItem>
               </Menu>
-            </Stack>
+            </RightStack>
           </StyledToolbar>
         </AppBarIndex>
       </Box>
@@ -197,12 +207,6 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
           <StyledToolbar>
             <ArrowBack />
             <Stack spacing={2} direction="row">
-              <ButtonOutlined page="details" variant="text">
-                Login
-              </ButtonOutlined>
-              <ButtonContained page="details" variant="contained">
-                Register
-              </ButtonContained>
               <Box
                 sx={{
                   display: "flex",

@@ -8,7 +8,7 @@ export const MovieSectionContainer = styled(Box)`
   cursor: pointer;
   transition: transform 200ms;
   :hover {
-    transform: scale(0.99);
+    transform: scale(0.98);
   }
   max-width: 200px;
   height: 350px;

@@ -5,16 +5,17 @@ import { propsType } from "./index";
 import MenuItem from "@mui/material/MenuItem";
 import ListIconItem from "@mui/material/ListItemIcon";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
 
 export const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  backgroundColor: "transparent",
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: "rgba(0, 0, 0, 0.25)",
   },
+
   marginLeft: 0,
   width: "100%",
   [theme.breakpoints.up("sm")]: {
@@ -34,13 +35,19 @@ export const SearchIconWrapper = styled("div")(({ theme }) => ({
 }));
 
 export const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
+  color: "#f6f6f6",
+  maxHeight: "30px",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
-    width: "100%",
+    width: "0ch",
+    cursor: "pointer",
+    "&:focus": {
+      width: "10ch",
+      cursor: "text",
+    },
     [theme.breakpoints.up("sm")]: {
       width: "0ch",
       cursor: "pointer",
@@ -52,9 +59,21 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export const StyledSearch = styled(Search)``;
+export const StyledSearch = styled(Search)`
+  max-height: 30px;
+`;
+export const LeftStack = styled(Stack)<propsType>`
+  @media (max-width: 680px) {
+    display: ${(props) => (props.page === "index" ? "none" : "initial")};
+  }
+`;
 
-export const ButtonOutlined = styled(Button)<propsType>`
+export const RightStack = styled(Stack)`
+  display: flex;
+  align-items: center;
+`;
+
+export const ButtonOutlined = styled(Button)`
   text-transform: none;
   background-color: transparent;
   text-align: left;
@@ -65,12 +84,9 @@ export const ButtonOutlined = styled(Button)<propsType>`
   :hover {
     background-color: rgba(0, 0, 0, 0.25);
   }
-  @media (max-width: 770px) {
-    display: ${(props) => (props.page === "index" ? "none" : "initial")};
-  }
 `;
 
-export const ButtonContained = styled(Button)<propsType>`
+export const ButtonContained = styled(Button)`
   text-transform: none;
   background-color: transparent;
   text-align: left;
@@ -81,8 +97,18 @@ export const ButtonContained = styled(Button)<propsType>`
   :hover {
     background: rgba(0, 0, 0, 0.25);
   }
-  @media (max-width: 770px) {
-    display: ${(props) => (props.page === "index" ? "none" : "initial")};
+`;
+
+export const StyledButton = styled(Button)`
+  text-transform: none;
+  background-color: transparent;
+  text-align: left;
+  color: #eaebe5;
+  box-shadow: none;
+  font-weight: 600;
+  font-size: 0.7rem;
+  :hover {
+    background: rgba(0, 0, 0, 0.25);
   }
 `;
 
@@ -112,11 +138,13 @@ export const AppBarDetails = styled(AppBar)`
   color: #fff;
 `;
 
-export const BoxMenu = styled(Box)`
-  display: flex;
-  align-items: center;
-`;
-
 export const StyledToolbar = styled(Toolbar)`
   justify-content: space-between;
+  padding: 0px 16px 0px 16px;
+  transition: 0.2s ease;
+
+  @media (min-width: 600px) {
+    padding: 0px 36px 0px 36px;
+    transition: 0.2s ease;
+  }
 `;

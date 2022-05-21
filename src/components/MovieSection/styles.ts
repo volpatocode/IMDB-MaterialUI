@@ -4,9 +4,11 @@ import Stack from "@mui/material/Stack";
 export const MovieSection = styled.div`
   width: 100%;
   padding: 16px 0px 16px 16px;
+  transition: 0.2s ease;
 
   @media (min-width: 600px) {
-    padding: 16px 0px 16px 16px;
+    padding: 36px 0px 36px 36px;
+    transition: 0.2s ease;
   }
 `;
 
