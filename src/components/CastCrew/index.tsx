@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { castCrewType } from "../../types/services";
 import {
   StyledStack,
@@ -10,13 +11,6 @@ import {
   GridCrew,
   GridTitle,
 } from "./styles";
-
-import Box from "@mui/material/Box";
-import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
-import Portal from "@mui/base/Portal";
-import { useRouter } from "next/router";
-
 import CastCrewContainer from "../CastCrewContainer";
 import Modal from "@mui/material/Modal";
 

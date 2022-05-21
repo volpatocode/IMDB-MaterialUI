@@ -1,5 +1,11 @@
 import * as React from "react";
-import { MovieSection, StyledStack, SectionTitle } from "./styles";
+import {
+  MovieSection,
+  StyledStack,
+  SectionBoxInfo,
+  SectionInfo,
+  ShowMoreButton,
+} from "./styles";
 import { useState, useEffect } from "react";
 import MovieSectionContainer from "../MovieSectionContainer";
 import { movieSectionType } from "../../types/services";
@@ -66,7 +72,10 @@ export default function index({ section }: propsType) {
   } else {
     return (
       <MovieSection section={section}>
-        <SectionTitle>{stringCondition[section]}</SectionTitle>
+        <SectionBoxInfo>
+          <SectionInfo>{stringCondition[section]}</SectionInfo>
+          <ShowMoreButton variant="text">Show more</ShowMoreButton>
+        </SectionBoxInfo>
         <StyledStack direction="row" spacing={1}>
           {mapCondition[section]?.map((movie) => (
             <MovieSectionContainer
