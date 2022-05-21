@@ -8,10 +8,10 @@ export default function index({}: propsType) {
   return (
     <>
       <Appbar page="index" />
-      <MovieSection section="upcoming" />
-      <MovieSection section="weekRated" />
-      <MovieSection section="topRated" />
-      <MovieSection section="popular" />
+      <MovieSection section="popular"/>
+      <MovieSection section="weekRated"/>
+      <MovieSection section="topRated"/>
+      <MovieSection section="upcoming"/>
     </>
   );
 }

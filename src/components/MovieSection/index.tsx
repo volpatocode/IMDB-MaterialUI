@@ -3,7 +3,6 @@ import { MovieSection, StyledStack, SectionTitle } from "./styles";
 import { useState, useEffect } from "react";
 import MovieSectionContainer from "../MovieSectionContainer";
 import { movieSectionType } from "../../types/services";
-import { Movie } from "@mui/icons-material";
 
 type propsType = {
   section: "upcoming" | "topRated" | "popular" | "weekRated";
@@ -26,9 +25,9 @@ export default function index({ section }: propsType) {
 
   const stringCondition = {
     upcoming: "Upcoming",
-    weekRated: "Week rated",
-    topRated: "topRated",
-    popular: "popular",
+    weekRated: "Week Rated",
+    topRated: "Top Rated",
+    popular: "Popular",
   };
 
   useEffect(() => {
@@ -63,7 +62,7 @@ export default function index({ section }: propsType) {
       });
   }, []);
   if (mapCondition[section].length === 0) {
-    return <MovieSection>aaaa</MovieSection>;
+    return <MovieSection></MovieSection>;
   } else {
     return (
       <MovieSection section={section}>
