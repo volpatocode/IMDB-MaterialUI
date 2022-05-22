@@ -5,11 +5,11 @@ import {
   BoxContent,
   BoxTitle,
   BoxInfo,
-  BoxYear,
   BoxImage,
 } from "./styles";
 import Link from "next/link";
 import VoteAv from "../../components/VoteAv";
+import MovieYear from "../../components/MovieYear";
 
 export type propsType = {
   src: string;
@@ -30,7 +30,7 @@ export default function index({
     <Link href={`/movies/movie?movie=${movieId}`}>
       <MovieSectionContainer>
         <BoxImage>
-        <MovieContainerImage src={src} />
+          <MovieContainerImage src={src} />
         </BoxImage>
         <BoxContent>
           <BoxTitle>
@@ -38,9 +38,7 @@ export default function index({
           </BoxTitle>
           <BoxInfo>
             <VoteAv voteAv={voteAv} />
-            <BoxYear>
-              <h4>{year}</h4>
-            </BoxYear>
+            <MovieYear year={year} />
           </BoxInfo>
         </BoxContent>
       </MovieSectionContainer>

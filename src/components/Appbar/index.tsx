@@ -5,6 +5,7 @@ import Settings from "@mui/icons-material/Settings";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Logout from "@mui/icons-material/Logout";
 import ArrowBack from "../ArrowBack";
+import Link from "next/link";
 
 import {
   Box,
@@ -37,7 +38,7 @@ import {
 export type propsType = {
   page: "index" | "details";
   movies?: any;
-  setMovies?:any;
+  setMovies?: any;
 };
 
 export const Logo = "VMovies";
@@ -81,17 +82,20 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
         <AppBarIndex elevation={0} position="static">
           <StyledToolbar>
             <Stack spacing={0.5} direction="row">
-              <Typography
-                variant="h6"
-                noWrap
-                component="h2"
-                sx={{ flexGrow: 1, ":hover": { cursor: "pointer" } }}
-              >
-                {Logo}
-              </Typography>
-              <MenuButton page="index" variant="contained">Menu</MenuButton>
+              <Link href="/">
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="h2"
+                  sx={{ flexGrow: 1, ":hover": { cursor: "pointer" } }}
+                >
+                  {Logo}
+                </Typography>
+              </Link>
+              <MenuButton page="index" variant="contained">
+                Menu
+              </MenuButton>
               <LeftStack page="index" spacing={0.5} direction="row">
-                <StyledButton variant="text">Home</StyledButton>
                 <StyledButton variant="text">Upcoming</StyledButton>
                 <StyledButton variant="text">Week Rated</StyledButton>
                 <StyledButton variant="text">Top Rated</StyledButton>

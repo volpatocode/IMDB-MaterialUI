@@ -72,12 +72,12 @@ export default function index({ section }: propsType) {
     return <MovieSection></MovieSection>;
   } else {
     return (
-      <MovieSection section={section}>
+      <MovieSection>
         <SectionBoxInfo>
           <SectionInfo>{stringCondition[section]}</SectionInfo>
           <ShowMoreButton variant="text">Show more</ShowMoreButton>
         </SectionBoxInfo>
-        <StyledGrid wrap="wrap" container columnSpacing={1}>
+        <StyledGrid wrap="wrap" container columnSpacing={1} rowSpacing={1}>
           {mapCondition[section]?.map((movie) => (
             <Grid item xs={4} md={2} lg={1} key={movie.id}>
               <MovieSectionContainer

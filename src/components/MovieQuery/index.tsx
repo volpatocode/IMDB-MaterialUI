@@ -1,9 +1,7 @@
 import * as React from "react";
 import { MovieQuery, StyledGrid, QueryInfo } from "./styles";
-import { useState, useEffect } from "react";
 import MovieSectionContainer from "../MovieSectionContainer";
 import { Grid } from "@mui/material";
-import movie from "../../pages/movies/movie";
 
 type propsType = {
   movies: any;
@@ -16,7 +14,7 @@ export default function index({ movies, setMovies }: propsType) {
   return (
     movies.length != 0 && (
       <MovieQuery>
-        {movies.length === 0 ? null : <QueryInfo>Search</QueryInfo>}
+        {movies.length != 0 && <QueryInfo>Search</QueryInfo>}
         <StyledGrid wrap="wrap" container columnSpacing={1}>
           {movies?.map(
             (movie) =>

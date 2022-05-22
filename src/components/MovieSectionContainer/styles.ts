@@ -10,6 +10,8 @@ export const MovieSectionContainer = styled(Box)`
   :hover {
     transform: scale(0.98);
   }
+  padding: 0.2rem;
+  height: 100%;
 `;
 
 export const MovieContainerImage = styled.img<Pick<propsType, "src">>`
@@ -52,8 +54,4 @@ export const BoxInfo = styled(Box)`
   align-items: center;
   justify-content: space-between;
   padding: 0.2rem 0;
-`;
-
-export const BoxYear = styled(Box)`
-  text-align: right;
 `;
