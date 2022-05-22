@@ -6,6 +6,7 @@ import {
   BoxTitle,
   BoxInfo,
   BoxYear,
+  BoxImage,
 } from "./styles";
 import Link from "next/link";
 import VoteAv from "../../components/VoteAv";
@@ -15,7 +16,6 @@ export type propsType = {
   title: string;
   year: string;
   voteAv: string;
-  key: string;
   movieId: string;
 };
 
@@ -24,13 +24,14 @@ export default function index({
   title,
   year,
   voteAv,
-  key,
   movieId,
 }: propsType) {
   return (
-    <Link key={key} href={`/movies/movie?movie=${movieId}`}>
+    <Link href={`/movies/movie?movie=${movieId}`}>
       <MovieSectionContainer>
+        <BoxImage>
         <MovieContainerImage src={src} />
+        </BoxImage>
         <BoxContent>
           <BoxTitle>
             <h3>{title}</h3>

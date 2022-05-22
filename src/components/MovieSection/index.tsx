@@ -1,7 +1,7 @@
 import * as React from "react";
 import {
   MovieSection,
-  StyledStack,
+  StyledGrid,
   SectionBoxInfo,
   SectionInfo,
   ShowMoreButton,
@@ -9,6 +9,7 @@ import {
 import { useState, useEffect } from "react";
 import MovieSectionContainer from "../MovieSectionContainer";
 import { movieSectionType } from "../../types/services";
+import { Grid } from "@mui/material";
 
 type propsType = {
   section: "upcoming" | "topRated" | "popular" | "weekRated";
@@ -76,30 +77,31 @@ export default function index({ section }: propsType) {
           <SectionInfo>{stringCondition[section]}</SectionInfo>
           <ShowMoreButton variant="text">Show more</ShowMoreButton>
         </SectionBoxInfo>
-        <StyledStack direction="row" spacing={1}>
+        <StyledGrid wrap="wrap" container columnSpacing={1}>
           {mapCondition[section]?.map((movie) => (
-            <MovieSectionContainer
-              movieId={movie.id}
-              src={
-                movie.poster_path
-                  ? API_IMG + movie.poster_path
-                  : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-              }
-              key={movie.id}
-              title={movie.title ? movie.title : "No title provided"}
-              year={
-                movie.release_date
-                  ? movie.release_date.slice(0, 4)
-                  : "No year provided"
-              }
-              voteAv={
-                movie.vote_average
-                  ? movie.vote_average.toString().slice(0, 3)
-                  : "No rating provided"
-              }
-            ></MovieSectionContainer>
+            <Grid item xs={4} md={2} lg={1} key={movie.id}>
+              <MovieSectionContainer
+                movieId={movie.id}
+                src={
+                  movie.poster_path
+                    ? API_IMG + movie.poster_path
+                    : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
+                }
+                title={movie.title ? movie.title : "No title provided"}
+                year={
+                  movie.release_date
+                    ? movie.release_date.slice(0, 4)
+                    : "No year provided"
+                }
+                voteAv={
+                  movie.vote_average
+                    ? movie.vote_average.toString().slice(0, 3)
+                    : "No rating provided"
+                }
+              ></MovieSectionContainer>
+            </Grid>
           ))}
-        </StyledStack>
+        </StyledGrid>
       </MovieSection>
     );
   }

@@ -10,16 +10,16 @@ export const MovieSectionContainer = styled(Box)`
   :hover {
     transform: scale(0.98);
   }
-  max-width: 200px;
-  height: 350px;
 `;
 
-export const MovieContainerImage = styled.div<Pick<propsType, "src">>`
-  height: 75%;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-    url(${(props) => props.src}) no-repeat center center / cover;
+export const MovieContainerImage = styled.img<Pick<propsType, "src">>`
+  height: 100%;
   width: 100%;
-  min-width: 180px;
+  object-fit: cover;
+`;
+
+export const BoxImage = styled(Box)`
+  height: 75%;
 `;
 
 export const BoxContent = styled(Box)`

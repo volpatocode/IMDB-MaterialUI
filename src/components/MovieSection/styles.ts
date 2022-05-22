@@ -1,16 +1,17 @@
 import styled from "@emotion/styled";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import { Grid } from "@mui/material";
 
 export const MovieSection = styled.div`
   width: 100%;
   padding: 8px 16px 8px 16px;
   transition: 0.2s ease;
-
   @media (min-width: 600px) {
     padding: 24px 36px 24px 36px;
     transition: 0.2s ease;
   }
+  height: 100%;
 `;
 
 export const SectionBoxInfo = styled.div`
@@ -41,11 +42,7 @@ export const ShowMoreButton = styled(Button)`
   }
 `;
 
-
-
-export const StyledStack = styled(Stack)`
-  flex-wrap: nowrap;
-  overflow-x: scroll;
+export const StyledGrid = styled(Grid)`
   overflow-y: hidden;
   overflow: auto;
   ::-webkit-scrollbar {
