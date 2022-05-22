@@ -35,9 +35,9 @@ import {
 } from "./styles";
 
 export type propsType = {
-  movies?: any;
-  setMovies?: any;
   page: "index" | "details";
+  movies?: any;
+  setMovies?:any;
 };
 
 export const Logo = "VMovies";
