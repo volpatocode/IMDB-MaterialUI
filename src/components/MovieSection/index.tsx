@@ -12,7 +12,13 @@ import { movieSectionType } from "../../types/services";
 import { Grid } from "@mui/material";
 
 type propsType = {
-  section: "upcoming" | "topRated" | "popular" | "weekRated";
+  section:
+    | "upcoming"
+    | "topRated"
+    | "popular"
+    | "weekRated"
+    | "nowPlaying"
+    | "latest";
 };
 
 export default function index({ section }: propsType) {
@@ -22,12 +28,22 @@ export default function index({ section }: propsType) {
   );
   const [topRatedMovies, setTopRatedMovies] = useState<movieSectionType[]>([]);
   const [popularMovies, setPopularMovies] = useState<movieSectionType[]>([]);
+  const [nowPlayingMovies, setNowPlayingMovies] = useState<movieSectionType[]>(
+    []
+  );
+  const [page, setPage] = useState(1);
+
+  function handleShowMore() {
+    setPage(page + 1);
+  }
+
   const API_IMG = "http://image.tmdb.org/t/p/original/";
   const mapCondition = {
     upcoming: upcomingMovies,
     weekRated: weekRatedMovies,
     topRated: topRatedMovies,
     popular: popularMovies,
+    nowPlaying: nowPlayingMovies,
   };
 
   const stringCondition = {
@@ -35,25 +51,33 @@ export default function index({ section }: propsType) {
     weekRated: "Week Rated",
     topRated: "Top Rated",
     popular: "Popular",
+    nowPlaying: "Now Playing",
   };
 
   useEffect(() => {
     fetch(
-      "https://api.themoviedb.org/3/movie/upcoming?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=1"
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
+    )
+      .then((res) => res.json())
+      .then((nowPlaying) => {
+        setNowPlayingMovies(nowPlaying.results);
+      });
+    fetch(
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
     )
       .then((res) => res.json())
       .then((upcoming) => {
         setUpcomingMovies(upcoming.results);
       });
     fetch(
-      "https://api.themoviedb.org/3/trending/movie/week?api_key=f04297956f564d66b4a51ff3da1c6c30"
+      `https://api.themoviedb.org/3/trending/movie/week?api_key=f04297956f564d66b4a51ff3da1c6c30`
     )
       .then((res) => res.json())
       .then((weekRated) => {
         setWeekRatedMovies(weekRated.results);
       });
     fetch(
-      "https://api.themoviedb.org/3/movie/top_rated?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=1"
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
     )
       .then((res) => res.json())
       .then((topRated) => {
@@ -61,21 +85,24 @@ export default function index({ section }: propsType) {
       });
 
     fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=1"
+      `https://api.themoviedb.org/3/movie/popular?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
     )
       .then((res) => res.json())
       .then((popular) => {
         setPopularMovies(popular.results);
       });
-  }, []);
-  if (mapCondition[section].length === 0) {
+  }, [page]);
+
+  if (mapCondition[section]?.length === 0) {
     return <MovieSection></MovieSection>;
   } else {
     return (
       <MovieSection>
         <SectionBoxInfo>
           <SectionInfo>{stringCondition[section]}</SectionInfo>
-          <ShowMoreButton variant="text">Show more</ShowMoreButton>
+          <ShowMoreButton onClick={handleShowMore} variant="text">
+            Show more
+          </ShowMoreButton>
         </SectionBoxInfo>
         <StyledGrid wrap="wrap" container columnSpacing={1} rowSpacing={1}>
           {mapCondition[section]?.map((movie) => (

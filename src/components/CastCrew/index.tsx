@@ -40,7 +40,7 @@ export default function index({ movie }: propsType) {
 
   return (
     <>
-      <CastCrew movie={movie}>
+      <CastCrew>
         <ButtonOutlined variant="text" onClick={handleOpen}>
           Cast & Crew
         </ButtonOutlined>

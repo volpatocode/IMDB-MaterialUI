@@ -12,6 +12,7 @@ export default function index({ movies, setMovies }: propsType) {
   return (
     <ContentWrapper>
       <MovieQuery movies={movies} setMovies={setMovies} />
+      <MovieSection section="nowPlaying" />
       <MovieSection section="upcoming" />
       <MovieSection section="weekRated" />
       <MovieSection section="topRated" />

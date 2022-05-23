@@ -41,7 +41,7 @@ export const GridTitle = styled.h2`
 
 
 export const StyledStack = styled(Stack)`
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
   overflow: auto;
