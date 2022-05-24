@@ -100,7 +100,7 @@ export default function index({ movie }: propsType) {
                         name={crew.name ? crew.name : "No name provided"}
                         info={
                           <span>
-                            as: {crew.job ? crew.job : "No character provided"}
+                            {crew.job ? crew.job : "No character provided"}
                           </span>
                         }
                         src={

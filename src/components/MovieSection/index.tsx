@@ -22,6 +22,8 @@ type propsType = {
 };
 
 export default function index({ section }: propsType) {
+  const API_IMG = "http://image.tmdb.org/t/p/original/";
+
   const [upcomingMovies, setUpcomingMovies] = useState<movieSectionType[]>([]);
   const [weekRatedMovies, setWeekRatedMovies] = useState<movieSectionType[]>(
     []
@@ -32,12 +34,77 @@ export default function index({ section }: propsType) {
     []
   );
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
-  function handleShowMore() {
-    setPage(page + 1);
-  }
+  useEffect(() => {
+    const getNowPlayingMovies = () => {
+      setLoading(true);
+      fetch(
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
+      )
+        .then((res) => res.json())
+        .then((nowPlaying) => {
+          setNowPlayingMovies([...nowPlayingMovies, ...nowPlaying.results]);
+          setLoading(false);
+        });
+    };
+    getNowPlayingMovies();
+  }, [page]);
 
-  const API_IMG = "http://image.tmdb.org/t/p/original/";
+  useEffect(() => {
+    const getUpcomingMovies = () => {
+      setLoading(true);
+      fetch(
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
+      )
+        .then((res) => res.json())
+        .then((upcoming) => {
+          setUpcomingMovies([...upcomingMovies, ...upcoming.results]);
+          setLoading(false);
+        });
+    };
+    getUpcomingMovies();
+  }, [page]);
+
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/trending/movie/week?api_key=f04297956f564d66b4a51ff3da1c6c30`
+    )
+      .then((res) => res.json())
+      .then((weekRated) => {
+        setWeekRatedMovies(weekRated.results);
+      });
+  }, []);
+
+  useEffect(() => {
+    const getTopRatedMovies = () => {
+      setLoading(true);
+      fetch(
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
+      )
+        .then((res) => res.json())
+        .then((topRated) => {
+          setTopRatedMovies([...topRatedMovies, ...topRated.results]);
+          setLoading(false);
+        });
+    };
+    getTopRatedMovies();
+  }, [page]);
+
+  useEffect(() => {
+    const getPopularMovies = () => {
+      fetch(
+        `https://api.themoviedb.org/3/movie/popular?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
+      )
+        .then((res) => res.json())
+        .then((popular) => {
+          setPopularMovies([...popularMovies, ...popular.results]);
+          setLoading(false);
+        });
+    };
+    getPopularMovies();
+  }, [page]);
+
   const mapCondition = {
     upcoming: upcomingMovies,
     weekRated: weekRatedMovies,
@@ -54,45 +121,6 @@ export default function index({ section }: propsType) {
     nowPlaying: "Now Playing",
   };
 
-  useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
-    )
-      .then((res) => res.json())
-      .then((nowPlaying) => {
-        setNowPlayingMovies(nowPlaying.results);
-      });
-    fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
-    )
-      .then((res) => res.json())
-      .then((upcoming) => {
-        setUpcomingMovies(upcoming.results);
-      });
-    fetch(
-      `https://api.themoviedb.org/3/trending/movie/week?api_key=f04297956f564d66b4a51ff3da1c6c30`
-    )
-      .then((res) => res.json())
-      .then((weekRated) => {
-        setWeekRatedMovies(weekRated.results);
-      });
-    fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
-    )
-      .then((res) => res.json())
-      .then((topRated) => {
-        setTopRatedMovies(topRated.results);
-      });
-
-    fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
-    )
-      .then((res) => res.json())
-      .then((popular) => {
-        setPopularMovies(popular.results);
-      });
-  }, [page]);
-
   if (mapCondition[section]?.length === 0) {
     return <MovieSection></MovieSection>;
   } else {
@@ -100,8 +128,8 @@ export default function index({ section }: propsType) {
       <MovieSection>
         <SectionBoxInfo>
           <SectionInfo>{stringCondition[section]}</SectionInfo>
-          <ShowMoreButton onClick={handleShowMore} variant="text">
-            Show more
+          <ShowMoreButton onClick={() => setPage(page + 1)} variant="text">
+            {loading ? `Loading...` : `Load More`}
           </ShowMoreButton>
         </SectionBoxInfo>
         <StyledGrid wrap="wrap" container columnSpacing={1} rowSpacing={1}>
