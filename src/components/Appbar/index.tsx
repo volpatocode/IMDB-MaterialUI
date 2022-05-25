@@ -74,7 +74,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
   if (page === "index") {
     return (
       <Box sx={{ flexGrow: 1 }}>
-        <AppBarIndex elevation={0} position="static">
+        <AppBarIndex elevation={0} position="absolute">
           <StyledToolbar>
             <Stack spacing={0.5} direction="row">
               <Link href="/">

@@ -16,11 +16,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-track{
-    background: #262626;
+    background: #0f0f0f;
   }
 
   ::-webkit-scrollbar-thumb{
-    background-color: #969696;
+    background-color: #262626;
     border-radius: 2px;
     :hover{
       background-color: grey;
@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body{
-    background-color: #262626;
+    background-color: #0f0f0f;
     overflow-x: hidden;
   }
   
