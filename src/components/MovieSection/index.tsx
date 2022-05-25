@@ -105,6 +105,13 @@ export default function index({ section }: propsType) {
     getPopularMovies();
   }, [page]);
 
+  const categoryCondition = {
+    upcoming: "upcoming",
+    topRated: "topRated",
+    popular: "popular",
+    nowPlaying: "nowPlaying",
+  };
+
   const mapCondition = {
     upcoming: upcomingMovies,
     weekRated: weekRatedMovies,
@@ -115,10 +122,10 @@ export default function index({ section }: propsType) {
 
   const stringCondition = {
     upcoming: "Upcoming",
-    weekRated: "Week Rated",
-    topRated: "Top Rated",
+    weekRated: "Week rated",
+    topRated: "Top rated",
     popular: "Popular",
-    nowPlaying: "Now Playing",
+    nowPlaying: "Now playing",
   };
 
   if (mapCondition[section]?.length === 0) {
@@ -128,7 +135,7 @@ export default function index({ section }: propsType) {
       <MovieSection>
         <SectionBoxInfo>
           <SectionInfo>{stringCondition[section]}</SectionInfo>
-          <ShowMoreButton onClick={() => setPage(page + 1)} variant="text">
+          <ShowMoreButton href={`/category/${categoryCondition[section]}`} onClick={() => setPage(page + 1)} variant="text">
             {loading ? `Loading...` : `Load more`}
           </ShowMoreButton>
         </SectionBoxInfo>
