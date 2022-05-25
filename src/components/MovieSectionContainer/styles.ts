@@ -8,7 +8,7 @@ export const MovieSectionContainer = styled(Box)`
   cursor: pointer;
   transition: transform 200ms;
   :hover {
-    transform: scale(0.98);
+    transform: scale(0.99);
   }
   padding: 0.2rem;
   height: 100%;
@@ -18,15 +18,14 @@ export const MovieContainerImage = styled.img<Pick<propsType, "src">>`
   height: 100%;
   width: 100%;
   object-fit: cover;
+  border-radius: 5px;
 `;
 
 export const BoxImage = styled(Box)`
-  height: 75%;
 `;
 
 export const BoxContent = styled(Box)`
-  background: #2f2f2f;
-  height: 25%;
+  background: transparent;
   padding: 0.6rem;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -38,20 +37,13 @@ export const BoxTitle = styled(Box)`
   font-weight: 500;
   letter-spacing: 0.2px;
   text-align: left;
-  font-size: 0.7rem;
+  font-size: 1rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  min-height: 35px;
-`;
-
-export const BoxInfo = styled(Box)`
-  color: #c9c9c9;
-  font-weight: bold;
-  font-size: 0.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.2rem 0;
+  :hover {
+    color: #ba0001;
+    transition: 0.2s ease;
+  }
 `;

@@ -3,13 +3,8 @@ import { Grid } from "@mui/material";
 
 export const MovieQuery = styled.div`
   width: 100%;
-  padding: 8px 16px 8px 16px;
-  transition: 0.2s ease;
-  @media (min-width: 600px) {
-    padding: 24px 36px 24px 36px;
-    transition: 0.2s ease;
-  }
   height: 100%;
+  padding-bottom: 1rem;
 `;
 
 export const QueryInfo = styled.h2`

@@ -7,6 +7,7 @@ import ListIconItem from "@mui/material/ListItemIcon";
 import AppBar from "@mui/material/AppBar";
 import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 
 export const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -62,11 +63,6 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const StyledSearch = styled(Search)`
   max-height: 30px;
 `;
-export const LeftStack = styled(Stack)<propsType>`
-  @media (max-width: 965px) {
-    display: ${(props) => (props.page === "index" ? "none" : "initial")};
-  }
-`;
 
 export const RightStack = styled(Stack)`
   display: flex;
@@ -106,26 +102,25 @@ export const StyledButton = styled(Button)`
   color: #eaebe5;
   box-shadow: none;
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   :hover {
-    background: rgba(0, 0, 0, 0.25);
+    color: #ba0001;
+    transition: 0.2s ease;
   }
 `;
 
-export const MenuButton = styled(Button)<propsType>`
+export const StyledLogo = styled(Button)`
   text-transform: none;
-  background-color: transparent;
+  background-color: none;
   text-align: left;
-  color: #eaebe5;
+  color: #f80000;
   box-shadow: none;
-  font-weight: 600;
-  font-size: 0.8rem;
+  font-weight: bolder;
+  font-size: 2rem;
+  padding: 0;
   :hover {
-    background: rgba(0, 0, 0, 0.25);
-  }
-  display: none;
-  @media (max-width: 965px) {
-    display: ${(props) => (props.page === "index" ? "initial" : "none")};
+    color: #ba0001;
+    transition: 0.2s ease;
   }
 `;
 
@@ -157,11 +152,11 @@ export const AppBarDetails = styled(AppBar)`
 
 export const StyledToolbar = styled(Toolbar)`
   justify-content: space-between;
-  padding: 0px 16px 0px 16px;
+  padding: 0px 32px 0px 32px;
   transition: 0.2s ease;
 
   @media (min-width: 600px) {
-    padding: 0px 36px 0px 36px;
+    padding: 0px 48px 0px 48px;
     transition: 0.2s ease;
   }
 `;

@@ -23,6 +23,8 @@ type propsType = {
 
 export default function index({ section }: propsType) {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   const [upcomingMovies, setUpcomingMovies] = useState<movieSectionType[]>([]);
   const [weekRatedMovies, setWeekRatedMovies] = useState<movieSectionType[]>(
@@ -33,8 +35,6 @@ export default function index({ section }: propsType) {
   const [nowPlayingMovies, setNowPlayingMovies] = useState<movieSectionType[]>(
     []
   );
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const getNowPlayingMovies = () => {
@@ -129,12 +129,12 @@ export default function index({ section }: propsType) {
         <SectionBoxInfo>
           <SectionInfo>{stringCondition[section]}</SectionInfo>
           <ShowMoreButton onClick={() => setPage(page + 1)} variant="text">
-            {loading ? `Loading...` : `Load More`}
+            {loading ? `Loading...` : `Load more`}
           </ShowMoreButton>
         </SectionBoxInfo>
         <StyledGrid wrap="wrap" container columnSpacing={1} rowSpacing={1}>
           {mapCondition[section]?.map((movie) => (
-            <Grid item xs={4} md={2} lg={1} key={movie.id}>
+            <Grid item xs={4} md={3} lg={2} key={movie.id}>
               <MovieSectionContainer
                 movieId={movie.id}
                 src={
@@ -143,16 +143,16 @@ export default function index({ section }: propsType) {
                     : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
                 }
                 title={movie.title ? movie.title : "No title provided"}
-                year={
-                  movie.release_date
-                    ? movie.release_date.slice(0, 4)
-                    : "No year provided"
-                }
-                voteAv={
-                  movie.vote_average
-                    ? movie.vote_average.toString().slice(0, 3)
-                    : "No rating provided"
-                }
+                // year={
+                //   movie.release_date
+                //     ? movie.release_date.slice(0, 4)
+                //     : "No year provided"
+                // }
+                // voteAv={
+                //   movie.vote_average
+                //     ? movie.vote_average.toString().slice(0, 3)
+                //     : "No rating provided"
+                // }
               ></MovieSectionContainer>
             </Grid>
           ))}

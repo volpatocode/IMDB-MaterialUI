@@ -9,7 +9,6 @@ import Link from "next/link";
 
 import {
   Box,
-  Typography,
   IconButton,
   Menu,
   Tooltip,
@@ -21,9 +20,6 @@ import {
 import {
   SearchIconWrapper,
   StyledInputBase,
-  StyledButton,
-  ButtonOutlined,
-  ButtonContained,
   StyledMenuItem,
   StyledListItemIcon,
   AppBarIndex,
@@ -31,8 +27,7 @@ import {
   StyledToolbar,
   StyledSearch,
   RightStack,
-  LeftStack,
-  MenuButton,
+  StyledLogo,
 } from "./styles";
 
 export type propsType = {
@@ -83,24 +78,8 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
           <StyledToolbar>
             <Stack spacing={0.5} direction="row">
               <Link href="/">
-                <Typography
-                  variant="h6"
-                  noWrap
-                  component="h2"
-                  sx={{ flexGrow: 1, ":hover": { cursor: "pointer" } }}
-                >
-                  {Logo}
-                </Typography>
+                <StyledLogo variant="text">{Logo}</StyledLogo>
               </Link>
-              <MenuButton page="index" variant="contained">
-                Menu
-              </MenuButton>
-              <LeftStack page="index" spacing={0.5} direction="row">
-                <StyledButton variant="text">Upcoming</StyledButton>
-                <StyledButton variant="text">Week Rated</StyledButton>
-                <StyledButton variant="text">Top Rated</StyledButton>
-                <StyledButton variant="text">Popular</StyledButton>
-              </LeftStack>
             </Stack>
             <RightStack spacing={0.5} direction="row">
               <StyledSearch>
