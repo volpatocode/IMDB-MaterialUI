@@ -18,7 +18,7 @@ export const MovieContainerImage = styled.img<Pick<propsType, "src">>`
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 2px;
 `;
 
 export const BoxImage = styled(Box)`

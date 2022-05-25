@@ -33,8 +33,8 @@ export const ShowMoreButton = styled(Button)`
   box-shadow: none;
   font-size: 0.9rem;
   :hover {
-    background: rgba(0, 0, 0, 0.25);
-    transition: 200ms ease-in-out;
+    transition: 200ms ease;
+    color: #ba0001;
   }
 `;
 

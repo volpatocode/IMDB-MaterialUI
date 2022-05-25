@@ -109,7 +109,7 @@ export const StyledButton = styled(Button)`
   }
 `;
 
-export const StyledLogo = styled(Button)`
+export const StyledLogo = styled(Typography)`
   text-transform: none;
   background-color: none;
   text-align: left;
@@ -118,10 +118,7 @@ export const StyledLogo = styled(Button)`
   font-weight: bolder;
   font-size: 2rem;
   padding: 0;
-  :hover {
-    color: #ba0001;
-    transition: 0.2s ease;
-  }
+  cursor: pointer;
 `;
 
 export const StyledMenuItem = styled(MenuItem)`

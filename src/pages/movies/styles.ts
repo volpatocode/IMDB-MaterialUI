@@ -12,7 +12,7 @@ export const MovieContainer = styled.div<movieDetailsType>`
 export const ContainerDetails = styled.div`
   padding-top: 64px;
   width: 100%;
-  padding: 5rem 0 3rem 2.5rem;
+
   min-height: 100vh;
   position: relative;
   display: flex;

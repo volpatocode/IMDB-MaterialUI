@@ -21,6 +21,7 @@ import BadgeGenre from "../../components/BadgeGenre";
 import CastCrew from "../../components/CastCrew";
 import SimilarMovie from "../../components/SimilarMovie";
 import Appbar from "../../components/Appbar";
+import { PaddingProvider } from "../../components/ContentWrapper/styles";
 
 export default function movie() {
   const [movieDetails, setMovieDetails] = useState({} as movieDetailsType);
@@ -58,43 +59,59 @@ export default function movie() {
   } else {
     return (
       <>
-        <MovieContainer backdrop_path={movieDetails.backdrop_path ? API_IMG + movieDetails.backdrop_path : ""}>
-        <Appbar page="details" />
-        <ContainerDetails>
-          <StyledGrid>
-            <BoxWrapper>
-              <BoxTitle>
-                <TitleTypography variant="h1">
-                  {movieDetails.title ? movieDetails.title : "No title provided"}
-                </TitleTypography>
-              </BoxTitle>
-              <BoxDetailsMovie>
-                <DetailsTypography variant="h6">
-                  {movieDetails.release_date ? movieDetails.release_date.slice(0, 4) : "No release date provided"}
-                </DetailsTypography>
-                <DetailsTypography variant="h6">
-                  {movieDetails.runtime ? movieDuration : "No duration provided"}
-                </DetailsTypography>
-              </BoxDetailsMovie>
-              <BoxDetailsGenre>
-                {movieDetails?.genres?.map((genre) => (
-                  <BadgeGenre key={genre.id} genre={genre.name} />
-                ))}
-              </BoxDetailsGenre>
-              <BoxOverview>
-                <OverviewTypography variant="h6">
-                  {movieDetails.overview ? movieDetails.overview : "No overview provided"}
-                </OverviewTypography>
-              </BoxOverview>
-              <BoxCastCrew>
-                <CastCrew movie={movieDetails.id} />
-              </BoxCastCrew>
-            </BoxWrapper>
-            <BoxSimilarMovie>
-              <SimilarMovie movie={movieDetails.id} />
-            </BoxSimilarMovie>
-          </StyledGrid>
-        </ContainerDetails>
+        <MovieContainer
+          backdrop_path={
+            movieDetails.backdrop_path
+              ? API_IMG + movieDetails.backdrop_path
+              : ""
+          }
+        >
+          <Appbar page="details" />
+          <PaddingProvider>
+            <ContainerDetails>
+              <StyledGrid>
+                <BoxWrapper>
+                  <BoxTitle>
+                    <TitleTypography variant="h1">
+                      {movieDetails.title
+                        ? movieDetails.title
+                        : "No title provided"}
+                    </TitleTypography>
+                  </BoxTitle>
+                  <BoxDetailsMovie>
+                    <DetailsTypography variant="h6">
+                      {movieDetails.release_date
+                        ? movieDetails.release_date.slice(0, 4)
+                        : "No release date provided"}
+                    </DetailsTypography>
+                    <DetailsTypography variant="h6">
+                      {movieDetails.runtime
+                        ? movieDuration
+                        : "No duration provided"}
+                    </DetailsTypography>
+                  </BoxDetailsMovie>
+                  <BoxDetailsGenre>
+                    {movieDetails?.genres?.map((genre) => (
+                      <BadgeGenre key={genre.id} genre={genre.name} />
+                    ))}
+                  </BoxDetailsGenre>
+                  <BoxOverview>
+                    <OverviewTypography variant="h6">
+                      {movieDetails.overview
+                        ? movieDetails.overview
+                        : "No overview provided"}
+                    </OverviewTypography>
+                  </BoxOverview>
+                  <BoxCastCrew>
+                    <CastCrew movie={movieDetails.id} />
+                  </BoxCastCrew>
+                </BoxWrapper>
+                <BoxSimilarMovie>
+                  <SimilarMovie movie={movieDetails.id} />
+                </BoxSimilarMovie>
+              </StyledGrid>
+            </ContainerDetails>
+          </PaddingProvider>
         </MovieContainer>
       </>
     );

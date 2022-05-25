@@ -23,9 +23,6 @@ type propsType = {
 
 export default function index({ section }: propsType) {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
-
   const [upcomingMovies, setUpcomingMovies] = useState<movieSectionType[]>([]);
   const [weekRatedMovies, setWeekRatedMovies] = useState<movieSectionType[]>(
     []
@@ -37,34 +34,24 @@ export default function index({ section }: propsType) {
   );
 
   useEffect(() => {
-    const getNowPlayingMovies = () => {
-      setLoading(true);
-      fetch(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
-      )
-        .then((res) => res.json())
-        .then((nowPlaying) => {
-          setNowPlayingMovies([...nowPlayingMovies, ...nowPlaying.results]);
-          setLoading(false);
-        });
-    };
-    getNowPlayingMovies();
-  }, [page]);
+    fetch(
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=1`
+    )
+      .then((res) => res.json())
+      .then((nowPlaying) => {
+        setNowPlayingMovies([...nowPlayingMovies, ...nowPlaying.results]);
+      });
+  }, []);
 
   useEffect(() => {
-    const getUpcomingMovies = () => {
-      setLoading(true);
-      fetch(
-        `https://api.themoviedb.org/3/movie/upcoming?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
-      )
-        .then((res) => res.json())
-        .then((upcoming) => {
-          setUpcomingMovies([...upcomingMovies, ...upcoming.results]);
-          setLoading(false);
-        });
-    };
-    getUpcomingMovies();
-  }, [page]);
+    fetch(
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=1`
+    )
+      .then((res) => res.json())
+      .then((upcoming) => {
+        setUpcomingMovies([...upcomingMovies, ...upcoming.results]);
+      });
+  }, []);
 
   useEffect(() => {
     fetch(
@@ -77,33 +64,24 @@ export default function index({ section }: propsType) {
   }, []);
 
   useEffect(() => {
-    const getTopRatedMovies = () => {
-      setLoading(true);
-      fetch(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
-      )
-        .then((res) => res.json())
-        .then((topRated) => {
-          setTopRatedMovies([...topRatedMovies, ...topRated.results]);
-          setLoading(false);
-        });
-    };
-    getTopRatedMovies();
-  }, [page]);
+    fetch(
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=1`
+    )
+      .then((res) => res.json())
+      .then((topRated) => {
+        setTopRatedMovies([...topRatedMovies, ...topRated.results]);
+      });
+  }, []);
 
   useEffect(() => {
-    const getPopularMovies = () => {
-      fetch(
-        `https://api.themoviedb.org/3/movie/popular?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=${page}`
-      )
-        .then((res) => res.json())
-        .then((popular) => {
-          setPopularMovies([...popularMovies, ...popular.results]);
-          setLoading(false);
-        });
-    };
-    getPopularMovies();
-  }, [page]);
+    fetch(
+      `https://api.themoviedb.org/3/movie/popular?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=1`
+    )
+      .then((res) => res.json())
+      .then((popular) => {
+        setPopularMovies([...popularMovies, ...popular.results]);
+      });
+  }, []);
 
   const categoryCondition = {
     upcoming: "upcoming",
@@ -135,12 +113,15 @@ export default function index({ section }: propsType) {
       <MovieSection>
         <SectionBoxInfo>
           <SectionInfo>{stringCondition[section]}</SectionInfo>
-          <ShowMoreButton href={`/category/${categoryCondition[section]}`} onClick={() => setPage(page + 1)} variant="text">
-            {loading ? `Loading...` : `Load more`}
+          <ShowMoreButton
+            href={`/category/${categoryCondition[section]}`}
+            variant="text"
+          >
+            Show more
           </ShowMoreButton>
         </SectionBoxInfo>
         <StyledGrid wrap="wrap" container columnSpacing={1} rowSpacing={1}>
-          {mapCondition[section]?.map((movie) => (
+          {mapCondition[section]?.slice(0, 6).map((movie) => (
             <Grid item xs={4} md={3} lg={2} key={movie.id}>
               <MovieSectionContainer
                 movieId={movie.id}

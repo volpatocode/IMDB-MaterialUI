@@ -78,7 +78,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
           <StyledToolbar>
             <Stack spacing={0.5} direction="row">
               <Link href="/">
-                <StyledLogo variant="text">{Logo}</StyledLogo>
+                <StyledLogo>{Logo}</StyledLogo>
               </Link>
             </Stack>
             <RightStack spacing={0.5} direction="row">
