@@ -44,7 +44,7 @@ export default function movie() {
 
   return (
     <>
-      <Appbar page="index" />
+      <Appbar page="seeMore" />
       <PaddingProvider>
         {nowPlayingMovies.length != 0 && (
           <MovieSection>

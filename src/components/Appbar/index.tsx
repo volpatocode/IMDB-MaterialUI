@@ -31,7 +31,7 @@ import {
 } from "./styles";
 
 export type propsType = {
-  page: "index" | "details";
+  page: "index" | "details" | "seeMore";
   movies?: any;
   setMovies?: any;
 };
@@ -71,10 +71,10 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
     setAnchorEl(null);
   };
 
-  if (page === "index") {
+  if (page === "index" || page === "seeMore") {
     return (
       <Box sx={{ flexGrow: 1 }}>
-        <AppBarIndex elevation={0} position="absolute">
+        <AppBarIndex elevation={0} position={page === "index" ? "absolute" : "static"}>
           <StyledToolbar>
             <Stack spacing={0.5} direction="row">
               <Link href="/">
