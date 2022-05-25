@@ -15,6 +15,7 @@ import Grid from "@mui/material/Grid";
 import Appbar from "../../components/Appbar";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 import PendingOutlinedIcon from "@mui/icons-material/PendingOutlined";
+import Skeleton from "@mui/material/Skeleton";
 
 export default function movie() {
   const API_IMG = "http://image.tmdb.org/t/p/original/";

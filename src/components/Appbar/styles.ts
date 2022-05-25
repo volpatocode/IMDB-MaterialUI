@@ -136,6 +136,7 @@ export const AppBarIndex = styled(AppBar)`
     rgba(0, 0, 0, 0)
   );
   background-color: transparent;
+
 `;
 
 export const AppBarDetails = styled(AppBar)`
@@ -149,11 +150,15 @@ export const AppBarDetails = styled(AppBar)`
 
 export const StyledToolbar = styled(Toolbar)`
   justify-content: space-between;
-  padding: 0px 32px 0px 32px;
+  padding: 0px 2rem  0px 2rem;
   transition: 0.2s ease;
 
   @media (min-width: 600px) {
-    padding: 0px 48px 0px 48px;
+    padding: 0 2rem 0 2rem;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 0px 7rem 0px 7rem;
     transition: 0.2s ease;
   }
 `;

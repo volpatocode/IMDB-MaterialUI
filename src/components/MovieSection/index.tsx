@@ -9,7 +9,7 @@ import {
 import { useState, useEffect } from "react";
 import MovieSectionContainer from "../MovieSectionContainer";
 import { movieSectionType } from "../../types/services";
-import { Grid } from "@mui/material";
+import { Grid, Skeleton } from "@mui/material";
 
 type propsType = {
   section:
@@ -106,46 +106,33 @@ export default function index({ section }: propsType) {
     nowPlaying: "Now playing",
   };
 
-  if (mapCondition[section]?.length === 0) {
-    return <MovieSection></MovieSection>;
-  } else {
-    return (
-      <MovieSection>
-        <SectionBoxInfo>
-          <SectionInfo>{stringCondition[section]}</SectionInfo>
-          <ShowMoreButton
-            href={`/category/${categoryCondition[section]}`}
-            variant="text"
-          >
-            Show more
-          </ShowMoreButton>
-        </SectionBoxInfo>
-        <StyledGrid wrap="wrap" container columnSpacing={1} rowSpacing={1}>
-          {mapCondition[section]?.slice(0, 6).map((movie) => (
-            <Grid item xs={4} md={3} lg={2} key={movie.id}>
-              <MovieSectionContainer
-                movieId={movie.id}
-                src={
-                  movie.poster_path
-                    ? API_IMG + movie.poster_path
-                    : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-                }
-                title={movie.title ? movie.title : "No title provided"}
-                // year={
-                //   movie.release_date
-                //     ? movie.release_date.slice(0, 4)
-                //     : "No year provided"
-                // }
-                // voteAv={
-                //   movie.vote_average
-                //     ? movie.vote_average.toString().slice(0, 3)
-                //     : "No rating provided"
-                // }
-              ></MovieSectionContainer>
-            </Grid>
-          ))}
-        </StyledGrid>
-      </MovieSection>
-    );
-  }
+  return (
+    mapCondition[section].length > 0 && (
+    <MovieSection>
+      <SectionBoxInfo>
+        <SectionInfo>{stringCondition[section]}</SectionInfo>
+        <ShowMoreButton
+          href={`/category/${categoryCondition[section]}`}
+          variant="text"
+        >
+          Show more
+        </ShowMoreButton>
+      </SectionBoxInfo>
+      <StyledGrid wrap="wrap" container columnSpacing={1} rowSpacing={1}>
+        {mapCondition[section]?.slice(0, 6).map((movie) => (
+          <Grid item xs={4} md={3} lg={2} key={movie.id}>
+            <MovieSectionContainer
+              movieId={movie.id}
+              src={
+                movie.poster_path
+                  ? API_IMG + movie.poster_path
+                  : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
+              }
+              title={movie.title ? movie.title : "No title provided"}
+            />
+          </Grid>
+        ))}
+      </StyledGrid>
+    </MovieSection>
+  ));
 }

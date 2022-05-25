@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import Settings from "@mui/icons-material/Settings";
 import PersonAdd from "@mui/icons-material/PersonAdd";
@@ -40,6 +40,7 @@ export const Logo = "VMovies";
 
 export default function SearchAppBar({ movies, setMovies, page }: propsType) {
   const [query, setQuery] = useState("");
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const forceHome = () => {
     alert("No results found");
@@ -62,7 +63,6 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
     }
   };
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);

@@ -21,6 +21,7 @@ export default function index({
 }: propsType) {
   return (
     <Link href={`/movies/movie?movie=${movieId}`}>
+      
       <MovieSectionContainer>
         <BoxImage>
           <MovieContainerImage src={src} />

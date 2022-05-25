@@ -6,7 +6,7 @@ import { Grid } from "@mui/material";
 export const MovieSection = styled.div`
   width: 100%;
   height: 100%;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 `;
 
 export const SectionBoxInfo = styled.div`

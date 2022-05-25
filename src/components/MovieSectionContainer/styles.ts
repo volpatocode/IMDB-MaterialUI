@@ -26,7 +26,7 @@ export const BoxImage = styled(Box)`
 
 export const BoxContent = styled(Box)`
   background: transparent;
-  padding: 0.6rem;
+  padding-top: 0.6rem;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;

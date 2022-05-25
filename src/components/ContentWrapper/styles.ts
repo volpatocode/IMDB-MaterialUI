@@ -5,10 +5,10 @@ export const ContentWrapper = styled.div`
 `;
 
 export const PaddingProvider = styled.div`
-  padding: 8px 32px 8px 32px;
+  padding: 0.5rem 2rem 0.5rem 2rem;
   transition: 0.2s ease;
-  @media (min-width: 600px) {
-    padding: 24px 48px 24px 48px;
+  @media (min-width: 1200px) {
+    padding:  1.5rem 7rem 0rem 7rem;
     transition: 0.2s ease;
   }
 `;
