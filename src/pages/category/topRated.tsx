@@ -41,7 +41,7 @@ export default function movie() {
 
   return (
     <>
-      <Appbar page="index" />
+      <Appbar page="seeMore" />
       <PaddingProvider>
         {topRatedMovies.length != 0 && (
           <MovieSection>

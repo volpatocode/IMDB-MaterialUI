@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { OpacityBottomProvider, ShowcaseContainer } from "./styles";
+import {
+  OpacityBottomProvider,
+  ShowcaseContainer,
+  BoxContent,
+  BoxInfo,
+  Title,
+  Overview,
+  BoxButtons,
+  WatchButton,
+  DetailsButton,
+} from "./styles";
 import { movieSectionType } from "../../types/services";
+import { PaddingProvider } from "../ContentWrapper/styles";
+import AdultWarning from "../AdultWarning";
 
 export type propsType = {
   src: string;
@@ -21,11 +33,31 @@ export default function index({ src }: propsType) {
       });
   }, []);
 
-  return (
-    trendingMovies.slice(0, 1).map((movie) => (
-    <ShowcaseContainer src={movie?.backdrop_path ? API_IMG + movie.backdrop_path : API_IMG + movie.poster_path} key={movie.id}>
+  return trendingMovies.slice(0, 1).map((movie) => (
+    <ShowcaseContainer
+      src={
+        movie?.backdrop_path
+          ? API_IMG + movie.backdrop_path
+          : API_IMG + movie.poster_path
+      }
+      key={movie.id}
+    >
+      <PaddingProvider>
+        <BoxContent>
+          <BoxInfo>
+            
+            <Title>{movie.title} </Title>
+            {movie.adult === false && <AdultWarning />}
+            <Overview>{movie.overview}</Overview>
+          </BoxInfo>
+          <BoxButtons>
+            <WatchButton variant="text">Watch now</WatchButton>
+            <DetailsButton variant="text">See more details</DetailsButton>
+          </BoxButtons>
+        </BoxContent>
+      </PaddingProvider>
+
       <OpacityBottomProvider />
     </ShowcaseContainer>
-    ))
-  );
+  ));
 }
