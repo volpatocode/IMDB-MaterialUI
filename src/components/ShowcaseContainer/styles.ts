@@ -45,12 +45,12 @@ export const Overview = styled.p`
 export const BoxContent = styled(Box)`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 85vh;
   max-height: 100vh;
+  justify-content: center;
 `;
 
 export const BoxInfo = styled(Box)`
-  padding-top: 8rem;
   width: 50%;
   display: flex;
   flex-direction: column;

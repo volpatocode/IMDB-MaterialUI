@@ -35,6 +35,7 @@ export const ShowMoreButton = styled(Button)`
   :hover {
     transition: 200ms ease;
     color: #ba0001;
+    background-color: transparent;
   }
 `;
 
