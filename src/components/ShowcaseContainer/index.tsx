@@ -13,6 +13,8 @@ import {
 import { movieSectionType } from "../../types/services";
 import { PaddingProvider } from "../ContentWrapper/styles";
 import AdultWarning from "../AdultWarning";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
 export type propsType = {
   src: string;
@@ -45,14 +47,19 @@ export default function index({ src }: propsType) {
       <PaddingProvider>
         <BoxContent>
           <BoxInfo>
-            
-            <Title>{movie.title} </Title>
-            {movie.adult === false && <AdultWarning />}
-            <Overview>{movie.overview}</Overview>
+            <Title>{movie.title ? movie.title : "No title provided"} </Title>
+            {movie.adult === true && <AdultWarning />}
+            <Overview>{movie.overview ? movie.overview : "No overview provided"}</Overview>
           </BoxInfo>
           <BoxButtons>
-            <WatchButton variant="text">Watch now</WatchButton>
-            <DetailsButton variant="text">See more details</DetailsButton>
+            <WatchButton variant="text">
+              <PlayArrowIcon fontSize="large" />
+              Watch now
+            </WatchButton>
+            <DetailsButton variant="text">
+              <InfoOutlinedIcon fontSize="large" />
+              More details
+            </DetailsButton>
           </BoxButtons>
         </BoxContent>
       </PaddingProvider>

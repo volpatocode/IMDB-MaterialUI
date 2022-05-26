@@ -74,11 +74,13 @@ export const WatchButton = styled(Button)`
   color: #000;
   font-weight: bold;
   box-shadow: none;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   :hover {
     background-color: rgba(255,255,255, 0.8);
     transition: 100ms ease-in-out;
   }
+  display: flex;
+  column-gap: 0.5rem;
 `;
 
 export const DetailsButton = styled(Button)`
@@ -89,9 +91,12 @@ export const DetailsButton = styled(Button)`
   color: #fff;
   box-shadow: none;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   :hover {
     background: rgba(109,109,110,0.8);
     transition: 100ms ease-in-out;
   }
+  display: flex;
+  column-gap: 0.5rem;
+  align-items: center;
 `;

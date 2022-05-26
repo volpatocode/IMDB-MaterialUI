@@ -1,11 +1,10 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import Settings from "@mui/icons-material/Settings";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Logout from "@mui/icons-material/Logout";
 import ArrowBack from "../ArrowBack";
 import Link from "next/link";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 import {
   Box,
@@ -21,7 +20,6 @@ import {
   SearchIconWrapper,
   StyledInputBase,
   StyledMenuItem,
-  StyledListItemIcon,
   AppBarIndex,
   AppBarDetails,
   StyledToolbar,
@@ -74,7 +72,10 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
   if (page === "index" || page === "seeMore") {
     return (
       <Box sx={{ flexGrow: 1 }}>
-        <AppBarIndex elevation={0} position={page === "index" ? "absolute" : "static"}>
+        <AppBarIndex
+          elevation={0}
+          position={page === "index" ? "absolute" : "static"}
+        >
           <StyledToolbar>
             <Stack spacing={0.5} direction="row">
               <Link href="/">
@@ -112,9 +113,10 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
                     aria-haspopup="true"
                     aria-expanded={open ? "true" : undefined}
                   >
-                    <Avatar sx={{ width: 28, height: 28, borderRadius: "5px" }}>
-                      V
-                    </Avatar>
+                    <Avatar
+                      src="https://avatars.githubusercontent.com/u/102267019?v=4"
+                      sx={{ width: 32, height: 32, borderRadius: "5px" }}
+                    />
                   </IconButton>
                 </Tooltip>
               </Box>
@@ -154,31 +156,24 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
                 transformOrigin={{ horizontal: "right", vertical: "top" }}
                 anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
               >
-                <StyledMenuItem>
-                  <Avatar /> Profile
-                </StyledMenuItem>
-                <StyledMenuItem>
-                  <Avatar /> My account
-                </StyledMenuItem>
-                <Divider />
-                <StyledMenuItem>
-                  <StyledListItemIcon>
-                    <PersonAdd fontSize="small" />
-                  </StyledListItemIcon>
-                  Add another account
-                </StyledMenuItem>
-                <StyledMenuItem>
-                  <StyledListItemIcon>
-                    <Settings fontSize="small" />
-                  </StyledListItemIcon>
-                  Settings
-                </StyledMenuItem>
-                <StyledMenuItem>
-                  <StyledListItemIcon>
-                    <Logout fontSize="small" />
-                  </StyledListItemIcon>
-                  Logout
-                </StyledMenuItem>
+                <Link href="https://github.com/volpatocode">
+                  <StyledMenuItem>
+                    <GitHubIcon
+                      sx={{ mr: 0.6, cursor: "pointer" }}
+                      fontSize="large"
+                    />
+                    My Github
+                  </StyledMenuItem>
+                </Link>
+                <Link href="https://www.linkedin.com/in/joaovolpatocode/">
+                  <StyledMenuItem>
+                    <LinkedInIcon
+                      sx={{ mr: 0.5, cursor: "pointer" }}
+                      fontSize="large"
+                    />
+                    My Linkedin
+                  </StyledMenuItem>
+                </Link>
               </Menu>
             </RightStack>
           </StyledToolbar>
@@ -208,7 +203,10 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
                     aria-haspopup="true"
                     aria-expanded={open ? "true" : undefined}
                   >
-                    <Avatar sx={{ width: 32, height: 32 }}>V</Avatar>
+                    <Avatar
+                      src="https://avatars.githubusercontent.com/u/102267019?v=4"
+                      sx={{ width: 28, height: 28, borderRadius: "5px" }}
+                    />
                   </IconButton>
                 </Tooltip>
               </Box>
@@ -248,31 +246,24 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
                 transformOrigin={{ horizontal: "right", vertical: "top" }}
                 anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
               >
-                <StyledMenuItem>
-                  <Avatar /> Profile
-                </StyledMenuItem>
-                <StyledMenuItem>
-                  <Avatar /> My account
-                </StyledMenuItem>
-                <Divider />
-                <StyledMenuItem>
-                  <StyledListItemIcon>
-                    <PersonAdd fontSize="small" />
-                  </StyledListItemIcon>
-                  Add another account
-                </StyledMenuItem>
-                <StyledMenuItem>
-                  <StyledListItemIcon>
-                    <Settings fontSize="small" />
-                  </StyledListItemIcon>
-                  Settings
-                </StyledMenuItem>
-                <StyledMenuItem>
-                  <StyledListItemIcon>
-                    <Logout fontSize="small" />
-                  </StyledListItemIcon>
-                  Logout
-                </StyledMenuItem>
+                <Link href="https://github.com/volpatocode">
+                  <StyledMenuItem>
+                    <GitHubIcon
+                      sx={{ mr: 0.6, cursor: "pointer" }}
+                      fontSize="large"
+                    />
+                    My Github
+                  </StyledMenuItem>
+                </Link>
+                <Link href="https://www.linkedin.com/in/joaovolpatocode/">
+                  <StyledMenuItem>
+                    <LinkedInIcon
+                      sx={{ mr: 0.5, cursor: "pointer" }}
+                      fontSize="large"
+                    />
+                    My Linkedin
+                  </StyledMenuItem>
+                </Link>
               </Menu>
             </Stack>
           </StyledToolbar>
