@@ -8,6 +8,8 @@ import AppBar from "@mui/material/AppBar";
 import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import {IconButton} from "@mui/material";
 
 export const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -46,7 +48,7 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
     width: "0ch",
     cursor: "pointer",
     "&:focus": {
-      width: "12ch",
+      width: "7ch",
       cursor: "text",
     },
     [theme.breakpoints.up("sm")]: {
@@ -67,6 +69,14 @@ export const LeftStack = styled(Stack)`
   display: flex;
   align-items: center;
   flex-direction: row;
+  @media (max-width: 1020px) {
+    display: none;
+  }
+
+`;
+
+export const LeftSide = styled(Box)`
+  display: flex;
 `;
 
 export const RightStack = styled(Stack)`
@@ -86,6 +96,11 @@ export const NavButton = styled(Button)`
     color: #fff;
     background-color: transparent;
   }
+  @media (max-width: 500px) {
+    min-width: 0;
+    padding: 0;
+  }
+  
 `;
 
 export const ButtonOutlined = styled(Button)`
@@ -139,6 +154,9 @@ export const StyledLogo = styled(Typography)`
   padding: 0;
   cursor: pointer;
   margin-right: 1rem;
+  @media (max-width: 325px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const StyledMenuItem = styled(MenuItem)`
@@ -148,6 +166,13 @@ export const StyledMenuItem = styled(MenuItem)`
 export const StyledListItemIcon = styled(ListIconItem)`
   color: #f6f6f6;
 `;
+
+export const AvatarIcon = styled(IconButton)`
+  @media (max-width: 550px) {
+    display: none;
+  }
+`;
+
 
 export const AppBarIndex = styled(AppBar)`
   background-image: linear-gradient(
@@ -175,9 +200,10 @@ export const StyledToolbar = styled(Toolbar)`
   @media (min-width: 600px) {
     padding: 0 2rem 0 2rem;
   }
-
   @media (min-width: 1200px) {
     padding: 0px 7rem 0px 7rem;
     transition: 0.2s ease;
   }
+  
+
 `;

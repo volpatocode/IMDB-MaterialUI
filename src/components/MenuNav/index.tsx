@@ -1,8 +1,9 @@
 import * as React from "react";
-import { MenuNav } from "./styles";
-import Button from "@mui/material/Button";
+import { MenuNav,TextNavigation  } from "./styles";
+import { NavButton} from "../Appbar/styles";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 export type propsType = {};
 
@@ -18,33 +19,35 @@ export default function index({}: propsType) {
 
   return (
     <MenuNav>
-      <Button
+      <NavButton
         id="demo-positioned-button"
         aria-controls={open ? "demo-positioned-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        Dashboard
-      </Button>
+        <TextNavigation>Navigation</TextNavigation>
+        <ArrowDropDownIcon fontSize="small" />
+      </NavButton>
       <Menu
+        PaperProps={{
+          sx: {
+            bgcolor: "#262626",
+            color: "#fff",
+          },
+        }}
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
+        sx={{ color: "#262626" }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>Now playing</MenuItem>
+        <MenuItem onClick={handleClose}>Upcoming</MenuItem>
+        <MenuItem onClick={handleClose}>Week rated</MenuItem>
+        <MenuItem onClick={handleClose}>Top rated</MenuItem>
+        <MenuItem onClick={handleClose}>Popular</MenuItem>
       </Menu>
     </MenuNav>
   );

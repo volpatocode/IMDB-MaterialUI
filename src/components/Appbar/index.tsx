@@ -5,7 +5,7 @@ import ArrowBack from "../ArrowBack";
 import Link from "next/link";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-
+import MenuNav from "../MenuNav";
 import { Box, IconButton, Menu, Tooltip, Avatar, Stack } from "@mui/material";
 
 import {
@@ -20,6 +20,8 @@ import {
   RightStack,
   StyledLogo,
   NavButton,
+  LeftSide,
+  AvatarIcon,
 } from "./styles";
 
 export type propsType = {
@@ -71,16 +73,19 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
           position={page === "index" ? "absolute" : "static"}
         >
           <StyledToolbar>
-            <LeftStack>
-                <Link href="/">
-                  <StyledLogo>{Logo}</StyledLogo>
-                </Link>
-              <NavButton variant="text">Now playing</NavButton>
-              <NavButton variant="text">Upcoming</NavButton>
-              <NavButton variant="text">Week rated</NavButton>
-              <NavButton variant="text">Top rated</NavButton>
-              <NavButton variant="text">Popular</NavButton>
-            </LeftStack>
+            <LeftSide>
+              <Link href="/">
+                <StyledLogo>{Logo}</StyledLogo>
+              </Link>
+              <MenuNav />
+              <LeftStack>
+                <NavButton variant="text">Now playing</NavButton>
+                <NavButton variant="text">Upcoming</NavButton>
+                <NavButton variant="text">Week rated</NavButton>
+                <NavButton variant="text">Top rated</NavButton>
+                <NavButton variant="text">Popular</NavButton>
+              </LeftStack>
+            </LeftSide>
             <RightStack spacing={0.5} direction="row">
               <StyledSearch>
                 <SearchIconWrapper>
@@ -103,21 +108,21 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
                   textAlign: "center",
                 }}
               >
-                <Tooltip title="Account settings">
-                  <IconButton
-                    onClick={handleClick}
-                    size="small"
-                    sx={{ ml: 2 }}
-                    aria-controls={open ? "account-menu" : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? "true" : undefined}
-                  >
+                <AvatarIcon
+                  onClick={handleClick}
+                  size="small"
+                  sx={{ ml: 2 }}
+                  aria-controls={open ? "account-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                >
+                  <Tooltip title="Account settings">
                     <Avatar
                       src="https://avatars.githubusercontent.com/u/102267019?v=4"
                       sx={{ width: 32, height: 32, borderRadius: "5px" }}
                     />
-                  </IconButton>
-                </Tooltip>
+                  </Tooltip>
+                </AvatarIcon>
               </Box>
               <Menu
                 anchorEl={anchorEl}
