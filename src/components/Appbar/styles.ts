@@ -63,10 +63,29 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const StyledSearch = styled(Search)`
   max-height: 30px;
 `;
+export const LeftStack = styled(Stack)`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+`;
 
 export const RightStack = styled(Stack)`
   display: flex;
   align-items: center;
+`;
+
+export const NavButton = styled(Button)`
+  text-transform: none;
+  text-align: left;
+  color: #e5e5e5;
+  font-weight: 600;
+  box-shadow: none;
+  font-size: 0.75rem;
+  :hover {
+    transition: 200ms ease;
+    color: #fff;
+    background-color: transparent;
+  }
 `;
 
 export const ButtonOutlined = styled(Button)`
@@ -119,6 +138,7 @@ export const StyledLogo = styled(Typography)`
   font-size: 2rem;
   padding: 0;
   cursor: pointer;
+  margin-right: 1rem;
 `;
 
 export const StyledMenuItem = styled(MenuItem)`
@@ -136,7 +156,6 @@ export const AppBarIndex = styled(AppBar)`
     rgba(0, 0, 0, 0)
   );
   background-color: transparent;
-
 `;
 
 export const AppBarDetails = styled(AppBar)`
@@ -150,7 +169,7 @@ export const AppBarDetails = styled(AppBar)`
 
 export const StyledToolbar = styled(Toolbar)`
   justify-content: space-between;
-  padding: 0px 2rem  0px 2rem;
+  padding: 0px 2rem 0px 2rem;
   transition: 0.2s ease;
 
   @media (min-width: 600px) {

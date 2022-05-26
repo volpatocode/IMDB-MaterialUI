@@ -1,20 +1,12 @@
 import * as React from "react";
-import { useState} from "react";
+import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBack from "../ArrowBack";
 import Link from "next/link";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-import {
-  Box,
-  IconButton,
-  Menu,
-  Tooltip,
-  Avatar,
-  Divider,
-  Stack,
-} from "@mui/material";
+import { Box, IconButton, Menu, Tooltip, Avatar, Stack } from "@mui/material";
 
 import {
   SearchIconWrapper,
@@ -24,8 +16,10 @@ import {
   AppBarDetails,
   StyledToolbar,
   StyledSearch,
+  LeftStack,
   RightStack,
   StyledLogo,
+  NavButton,
 } from "./styles";
 
 export type propsType = {
@@ -77,11 +71,16 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
           position={page === "index" ? "absolute" : "static"}
         >
           <StyledToolbar>
-            <Stack spacing={0.5} direction="row">
-              <Link href="/">
-                <StyledLogo>{Logo}</StyledLogo>
-              </Link>
-            </Stack>
+            <LeftStack>
+                <Link href="/">
+                  <StyledLogo>{Logo}</StyledLogo>
+                </Link>
+              <NavButton variant="text">Now playing</NavButton>
+              <NavButton variant="text">Upcoming</NavButton>
+              <NavButton variant="text">Week rated</NavButton>
+              <NavButton variant="text">Top rated</NavButton>
+              <NavButton variant="text">Popular</NavButton>
+            </LeftStack>
             <RightStack spacing={0.5} direction="row">
               <StyledSearch>
                 <SearchIconWrapper>

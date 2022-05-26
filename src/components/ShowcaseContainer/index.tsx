@@ -17,10 +17,10 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
 export type propsType = {
-  src: string;
+  src?: any;
 };
 
-export default function index({ src }: propsType) {
+export default function index({}: propsType) {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
   const [trendingMovies, setTrendingMovies] = useState<movieSectionType[]>([]);
 
@@ -35,36 +35,41 @@ export default function index({ src }: propsType) {
       });
   }, []);
 
-  return trendingMovies.slice(0, 1).map((movie) => (
-    <ShowcaseContainer
-      src={
-        movie?.backdrop_path
-          ? API_IMG + movie.backdrop_path
-          : API_IMG + movie.poster_path
-      }
-      key={movie.id}
-    >
-      <PaddingProvider>
-        <BoxContent>
-          <BoxInfo>
-            <Title>{movie.title ? movie.title : "No title provided"} </Title>
-            {movie.adult === true && <AdultWarning />}
-            <Overview>{movie.overview ? movie.overview : "No overview provided"}</Overview>
-          </BoxInfo>
-          <BoxButtons>
-            <WatchButton variant="text">
-              <PlayArrowIcon fontSize="large" />
-              Watch now
-            </WatchButton>
-            <DetailsButton variant="text">
-              <InfoOutlinedIcon fontSize="large" />
-              More details
-            </DetailsButton>
-          </BoxButtons>
-        </BoxContent>
-      </PaddingProvider>
-
-      <OpacityBottomProvider />
-    </ShowcaseContainer>
-  ));
+  return (
+    <>
+      {trendingMovies.slice(0, 1).map((movie) => (
+        <ShowcaseContainer
+          src={
+            movie?.backdrop_path
+              ? API_IMG + movie.backdrop_path
+              : API_IMG + movie.poster_path
+          }
+          key={movie.id}
+        >
+          <PaddingProvider>
+            <BoxContent>
+              <BoxInfo>
+                <Title>{movie.title ? movie.title : "No title provided"}</Title>
+                {movie.adult === true && <AdultWarning />}
+                <Overview>
+                  {movie.overview ? movie.overview : "No overview provided"}
+                </Overview>
+              </BoxInfo>
+              <BoxButtons>
+                <WatchButton variant="text">
+                  <PlayArrowIcon fontSize="large" />
+                  Watch now
+                </WatchButton>
+                <DetailsButton variant="text">
+                  <InfoOutlinedIcon fontSize="large" />
+                  More details
+                </DetailsButton>
+              </BoxButtons>
+            </BoxContent>
+          </PaddingProvider>
+          <OpacityBottomProvider />
+        </ShowcaseContainer>
+      ))}
+    </>
+  );
 }

@@ -31,11 +31,12 @@ export const Title = styled.h2`
     font-size: 2.6rem;
   }
   @media (max-width: 345px) {
-    font-size: 2.3rem;
+    font-size: 1.8rem;
     width: 100%;
     letter-spacing: 0;
     line-height: 1.2;
     margin-top: 2rem;
+    text-align: center;
   }
   color: #f6f6f6;
   font-weight: bold;
@@ -52,6 +53,7 @@ export const Overview = styled.p`
   @media (max-width: 345px) {
     font-size: 0.75rem;
     margin-top: 1rem;
+    text-align: center;
   }
   color: #e5e5e5;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -99,6 +101,7 @@ export const BoxButtons = styled(Box)`
   @media (max-width: 345px) {
     gap: 1rem;
     margin-top: 1rem;
+    align-items: center;
   }
   gap: 1.5rem;
   margin-top: 2rem;

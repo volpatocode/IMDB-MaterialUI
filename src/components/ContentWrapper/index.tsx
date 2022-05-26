@@ -1,6 +1,6 @@
 import * as React from "react";
-import MovieSection from "../../components/MovieSection";
-import MovieQuery from "../../components/MovieQuery";
+import MovieSection from "../MovieSection";
+import MovieQuery from "../MovieQuery";
 import { ContentWrapper, PaddingProvider } from "./styles";
 
 export type propsType = {
