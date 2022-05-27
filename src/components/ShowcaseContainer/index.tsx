@@ -15,6 +15,7 @@ import { PaddingProvider } from "../ContentWrapper/styles";
 import AdultWarning from "../AdultWarning";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import Link from "next/link";
 
 export type propsType = {
   src?: any;
@@ -56,14 +57,18 @@ export default function index({}: propsType) {
                 </Overview>
               </BoxInfo>
               <BoxButtons>
-                <WatchButton variant="text">
-                  <PlayArrowIcon fontSize="large" />
-                  Watch now
-                </WatchButton>
-                <DetailsButton variant="text">
-                  <InfoOutlinedIcon fontSize="large" />
-                  More details
-                </DetailsButton>
+                <Link href={`https://www.google.com.br/search?q=${movie.title}` + ` trailer`}>
+                  <WatchButton variant="text">
+                    <PlayArrowIcon fontSize="large" />
+                    Watch now
+                  </WatchButton>
+                </Link>
+                <Link href={`/movies/movie?movie=${movie.id}`}>
+                  <DetailsButton variant="text">
+                    <InfoOutlinedIcon fontSize="large" />
+                    More details
+                  </DetailsButton>
+                </Link>
               </BoxButtons>
             </BoxContent>
           </PaddingProvider>

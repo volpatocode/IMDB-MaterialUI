@@ -19,9 +19,10 @@ type propsType = {
     | "weekRated"
     | "nowPlaying"
     | "latest";
+    id?: string;
 };
 
-export default function index({ section }: propsType) {
+export default function index({ section, id }: propsType) {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
   const [upcomingMovies, setUpcomingMovies] = useState<movieSectionType[]>([]);
   const [weekRatedMovies, setWeekRatedMovies] = useState<movieSectionType[]>(
@@ -108,7 +109,7 @@ export default function index({ section }: propsType) {
 
   return (
     mapCondition[section].length > 0 && (
-    <MovieSection>
+    <MovieSection id={id}>
       <SectionBoxInfo>
         <SectionInfo>{stringCondition[section]}</SectionInfo>
         <ShowMoreButton

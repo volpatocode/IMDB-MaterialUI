@@ -79,11 +79,21 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
               </Link>
               <MenuNav />
               <LeftStack>
+                <Link href="#nowPlaying">
                 <NavButton variant="text">Now playing</NavButton>
+                </Link>
+                <Link href="#upcoming">
                 <NavButton variant="text">Upcoming</NavButton>
+                </Link>
+                <Link href="#weekRated">
                 <NavButton variant="text">Week rated</NavButton>
+                </Link>
+                <Link href="#topRated">
                 <NavButton variant="text">Top rated</NavButton>
+                </Link>
+                <Link href="#popular">
                 <NavButton variant="text">Popular</NavButton>
+                </Link>
               </LeftStack>
             </LeftSide>
             <RightStack spacing={0.5} direction="row">

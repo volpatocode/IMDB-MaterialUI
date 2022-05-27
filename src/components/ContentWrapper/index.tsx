@@ -13,11 +13,11 @@ export default function index({ movies, setMovies }: propsType) {
     <PaddingProvider>
       <ContentWrapper>
         <MovieQuery movies={movies} setMovies={setMovies} />
-        <MovieSection section="nowPlaying" />
-        <MovieSection section="upcoming" />
-        <MovieSection section="weekRated" />
-        <MovieSection section="topRated" />
-        <MovieSection section="popular" />
+        <MovieSection id="nowPlaying" section="nowPlaying" />
+        <MovieSection id="upcoming" section="upcoming" />
+        <MovieSection id="weekRated" section="weekRated" />
+        <MovieSection id="topRated" section="topRated" />
+        <MovieSection id="popular" section="popular" />
       </ContentWrapper>
     </PaddingProvider>
   );

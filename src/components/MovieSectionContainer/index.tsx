@@ -14,14 +14,9 @@ export type propsType = {
   movieId: string;
 };
 
-export default function index({
-  src,
-  title,
-  movieId,
-}: propsType) {
+export default function index({ src, title, movieId }: propsType) {
   return (
     <Link href={`/movies/movie?movie=${movieId}`}>
-      
       <MovieSectionContainer>
         <BoxImage>
           <MovieContainerImage src={src} />

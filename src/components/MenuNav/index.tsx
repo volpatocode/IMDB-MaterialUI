@@ -1,9 +1,10 @@
 import * as React from "react";
-import { MenuNav,TextNavigation  } from "./styles";
-import { NavButton} from "../Appbar/styles";
+import { MenuNav, TextNavigation } from "./styles";
+import { NavButton } from "../Appbar/styles";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import Link from "next/link";
 
 export type propsType = {};
 
@@ -43,11 +44,21 @@ export default function index({}: propsType) {
         onClose={handleClose}
         sx={{ color: "#262626" }}
       >
-        <MenuItem onClick={handleClose}>Now playing</MenuItem>
-        <MenuItem onClick={handleClose}>Upcoming</MenuItem>
-        <MenuItem onClick={handleClose}>Week rated</MenuItem>
-        <MenuItem onClick={handleClose}>Top rated</MenuItem>
-        <MenuItem onClick={handleClose}>Popular</MenuItem>
+        <Link href="#nowPlaying">
+          <MenuItem onClick={handleClose}>Now playing</MenuItem>
+        </Link>
+        <Link href="#nowPlaying">
+          <MenuItem onClick={handleClose}>Upcoming</MenuItem>
+        </Link>
+        <Link href="#nowPlaying">
+          <MenuItem onClick={handleClose}>Week rated</MenuItem>
+        </Link>
+        <Link href="#nowPlaying">
+          <MenuItem onClick={handleClose}>Top rated</MenuItem>
+        </Link>
+        <Link href="#nowPlaying">
+          <MenuItem onClick={handleClose}>Popular</MenuItem>
+        </Link>
       </Menu>
     </MenuNav>
   );
