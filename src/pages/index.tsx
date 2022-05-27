@@ -13,7 +13,6 @@ export default function index({}: propsType) {
 
   return (
     <>
-      <Appbar movies={movies} setMovies={setMovies} page="index" />
       <ShowcaseContainer/>
       <ContentWrapper movies={movies} setMovies={setMovies} />
     </>

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBack from "../ArrowBack";
 import Link from "next/link";
@@ -29,13 +29,16 @@ export type propsType = {
   page: "index" | "details" | "seeMore";
   movies?: any;
   setMovies?: any;
+  refProp: any;
 };
 
 export const Logo = "VMovies";
 
-export default function SearchAppBar({ movies, setMovies, page }: propsType) {
+export default function SearchAppBar({ movies, setMovies, page, refProp }: propsType) {
   const [query, setQuery] = useState("");
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
+  const handleScroll = () => refProp.current.scrollIntoView();
 
   const forceHome = () => {
     alert("No results found");
@@ -44,7 +47,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
 
   const searchMovie = async (e) => {
     e.preventDefault();
-    console.log("Searching");
+    handleScroll();
     try {
       const url = `https://api.themoviedb.org/3/search/movie?api_key=f04297956f564d66b4a51ff3da1c6c30&query=${query}`;
       const res = await fetch(url);

@@ -113,7 +113,7 @@ export default function index({ section, id, showMore }: propsType) {
       <MovieSection id={id}>
         <SectionBoxInfo>
           <SectionInfo>{stringCondition[section]}</SectionInfo>
-          {showMore  && (
+          {showMore && (
             <ShowMoreButton
               href={`/category/${categoryCondition[section]}`}
               variant="text"
