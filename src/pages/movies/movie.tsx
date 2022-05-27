@@ -50,6 +50,10 @@ export default function movie() {
         });
   }, [router]);
 
+  useEffect(() => {
+    movieDetails.title && (document.title = `VMovies - ${movieDetails.title}`);
+  }, [movieDetails]);
+
   if (!movieDetails.title) {
     return (
       <>

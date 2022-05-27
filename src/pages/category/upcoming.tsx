@@ -24,6 +24,11 @@ export default function movie() {
 
   const [upcomingMovies, setUpcomingMovies] = useState<movieSectionType[]>([]);
 
+
+  useEffect(() => {
+    document.title = `VMovies - Upcoming`;
+  }, []);
+
   useEffect(() => {
     const getUpcomingMovies = () => {
       setLoading(true);

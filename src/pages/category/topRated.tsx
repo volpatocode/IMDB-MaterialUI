@@ -24,6 +24,11 @@ export default function movie() {
 
   const [topRatedMovies, setTopRatedMovies] = useState<movieSectionType[]>([]);
 
+
+  useEffect(() => {
+    document.title = `VMovies - Top rated`;
+  }, []);
+
   useEffect(() => {
     const getTopRatedMovies = () => {
       setLoading(true);

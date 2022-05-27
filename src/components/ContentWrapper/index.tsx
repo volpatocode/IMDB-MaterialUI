@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, {useEffect} from "react";
 import MovieSection from "../MovieSection";
 import MovieQuery from "../MovieQuery";
 import { ContentWrapper, PaddingProvider } from "./styles";
@@ -9,10 +9,11 @@ export type propsType = {
 };
 
 export default function index({ movies, setMovies }: propsType) {
+
   return (
     <PaddingProvider>
       <ContentWrapper>
-        <MovieQuery movies={movies} setMovies={setMovies} />
+        <MovieQuery id="search" movies={movies} setMovies={setMovies} />
         <MovieSection showMore={true} id="nowPlaying" section="nowPlaying" />
         <MovieSection showMore={true} id="upcoming" section="upcoming" />
         <MovieSection id="weekRated" section="weekRated" />

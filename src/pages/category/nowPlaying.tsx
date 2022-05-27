@@ -28,6 +28,10 @@ export default function movie() {
   );
 
   useEffect(() => {
+    document.title = `VMovies - Now Playing`;
+  }, []);
+
+  useEffect(() => {
     const getNowPlayingMovies = () => {
       setLoading(true);
       fetch(

@@ -24,6 +24,11 @@ export default function movie() {
 
   const [popularMovies, setPopularMovies] = useState<movieSectionType[]>([]);
 
+
+  useEffect(() => {
+    document.title = `VMovies - Popular`;
+  }, []);
+
   useEffect(() => {
     const getPopularMovies = () => {
       fetch(
