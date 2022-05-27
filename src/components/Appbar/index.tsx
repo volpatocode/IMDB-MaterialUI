@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBack from "../ArrowBack";
 import Link from "next/link";
@@ -23,6 +23,7 @@ import {
   LeftSide,
   AvatarIcon,
 } from "./styles";
+import { MovieQuery } from "../MovieQuery/styles";
 
 export type propsType = {
   page: "index" | "details" | "seeMore";
@@ -49,6 +50,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
       const res = await fetch(url);
       const data = await res.json();
       setMovies(data.results);
+
       if (!data.results || data.results.length === 0) {
         return forceHome();
       }
@@ -80,19 +82,19 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
               <MenuNav />
               <LeftStack>
                 <Link href="#nowPlaying">
-                <NavButton variant="text">Now playing</NavButton>
+                  <NavButton variant="text">Now playing</NavButton>
                 </Link>
                 <Link href="#upcoming">
-                <NavButton variant="text">Upcoming</NavButton>
+                  <NavButton variant="text">Upcoming</NavButton>
                 </Link>
                 <Link href="#weekRated">
-                <NavButton variant="text">Week rated</NavButton>
+                  <NavButton variant="text">Week rated</NavButton>
                 </Link>
                 <Link href="#topRated">
-                <NavButton variant="text">Top rated</NavButton>
+                  <NavButton variant="text">Top rated</NavButton>
                 </Link>
                 <Link href="#popular">
-                <NavButton variant="text">Popular</NavButton>
+                  <NavButton variant="text">Popular</NavButton>
                 </Link>
               </LeftStack>
             </LeftSide>

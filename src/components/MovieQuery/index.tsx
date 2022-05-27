@@ -6,14 +6,15 @@ import { Grid } from "@mui/material";
 type propsType = {
   movies: any;
   setMovies: any;
+  id?: string;
 };
 
-export default function index({ movies, setMovies }: propsType) {
+export default function index({ movies, setMovies, id }: propsType) {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
 
   return (
     movies.length != 0 && (
-      <MovieQuery>
+      <MovieQuery id={id}>
         {movies.length != 0 && <QueryInfo>Search</QueryInfo>}
         <StyledGrid wrap="wrap" container columnSpacing={1}>
           {movies?.map(
