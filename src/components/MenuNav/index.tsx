@@ -47,16 +47,16 @@ export default function index({}: propsType) {
         <Link href="#nowPlaying">
           <MenuItem onClick={handleClose}>Now playing</MenuItem>
         </Link>
-        <Link href="#nowPlaying">
+        <Link href="#upcoming">
           <MenuItem onClick={handleClose}>Upcoming</MenuItem>
         </Link>
-        <Link href="#nowPlaying">
+        <Link href="#weekRated">
           <MenuItem onClick={handleClose}>Week rated</MenuItem>
         </Link>
-        <Link href="#nowPlaying">
+        <Link href="#topRated">
           <MenuItem onClick={handleClose}>Top rated</MenuItem>
         </Link>
-        <Link href="#nowPlaying">
+        <Link href="#popular">
           <MenuItem onClick={handleClose}>Popular</MenuItem>
         </Link>
       </Menu>

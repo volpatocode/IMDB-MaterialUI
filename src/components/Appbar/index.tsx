@@ -197,7 +197,7 @@ export default function SearchAppBar({ movies, setMovies, page }: propsType) {
   } else {
     return (
       <Box>
-        <AppBarDetails color="transparent" position="absolute">
+        <AppBarDetails elevation={0} color="transparent" position="absolute">
           <StyledToolbar>
             <ArrowBack />
             <Stack spacing={2} direction="row">
