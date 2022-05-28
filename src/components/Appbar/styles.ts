@@ -197,6 +197,9 @@ export const StyledToolbar = styled(Toolbar)`
   padding: 0px 2rem 0px 2rem;
   transition: 0.2s ease;
 
+  @media (max-width: 300px) {
+    padding: 0 1rem 0 1rem;
+  }
   @media (min-width: 600px) {
     padding: 0 2rem 0 2rem;
   }

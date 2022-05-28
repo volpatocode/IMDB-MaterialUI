@@ -70,6 +70,9 @@ export const BoxContent = styled(Box)`
   height: 95vh;
   max-height: 100vh;
   justify-content: center;
+  @media (max-width: 300px) {
+    align-items: center;
+  }
 `;
 
 export const BoxInfo = styled(Box)`

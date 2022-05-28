@@ -21,8 +21,7 @@ export const MovieContainerImage = styled.img<Pick<propsType, "src">>`
   border-radius: 2px;
 `;
 
-export const BoxImage = styled(Box)`
-`;
+export const BoxImage = styled(Box)``;
 
 export const BoxContent = styled(Box)`
   background: transparent;
@@ -46,4 +45,14 @@ export const BoxTitle = styled(Box)`
     color: #ba0001;
     transition: 0.2s ease;
   }
+  @media (max-width: 650px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 450px) {
+    font-size: 0.7rem;
+  }
+  @media (max-width: 300px) {
+    font-size: 0.6rem;
+  }
 `;
+

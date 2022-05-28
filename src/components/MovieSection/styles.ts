@@ -23,6 +23,15 @@ export const SectionInfo = styled.h2`
   letter-spacing: 0.5px;
   padding-bottom: 0.4rem;
   line-height: 1.5;
+  @media (max-width: 650px) {
+    font-size: 1.2rem;
+  }
+  @media (max-width: 450px) {
+    font-size: 1.1rem;
+  }
+  @media (max-width: 320px) {
+    font-size: 1rem;
+  }
 `;
 
 export const ShowMoreButton = styled(Button)`
@@ -36,6 +45,15 @@ export const ShowMoreButton = styled(Button)`
     transition: 200ms ease;
     color: #ba0001;
     background-color: transparent;
+  }
+  @media (max-width: 650px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 450px) {
+    font-size: 0.7rem;
+  }
+  @media (max-width: 320px) {
+    font-size: 0.6rem;
   }
 `;
 

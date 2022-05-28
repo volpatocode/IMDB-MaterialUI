@@ -10,6 +10,9 @@ export const CopyWrapper = styled(Box)`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 685px) {
+    flex-direction: column;
+  }
 `;
 
 export const Copyright = styled(Typography)`
@@ -17,6 +20,9 @@ export const Copyright = styled(Typography)`
   color: #919496;
   font-weight: 400;
   font-size: 0.7rem;
+  @media (max-width: 685px) {
+    margin-top: 1rem;
+  }
 `;
 
 export const FooterCopyAnchor = styled.a`
@@ -28,5 +34,28 @@ export const FooterCopyAnchor = styled.a`
   :hover {
     transition: 200ms ease;
     color: #eaebe5;
+  }
+  @media (max-width: 685px) {
+    text-align: center;
+  }
+`;
+
+export const CopyStack = styled(Stack)`
+  column-gap: 0.3rem;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  @media (max-width: 685px) {
+    column-gap: 0.7rem;
+  }
+`;
+
+export const HalfStack = styled(Stack)`
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+  @media (max-width: 645px) {
+    flex-direction: column;
   }
 `;
