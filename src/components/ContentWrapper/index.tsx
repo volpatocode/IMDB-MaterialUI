@@ -3,6 +3,7 @@ import MovieSection from "../MovieSection";
 import MovieQuery from "../MovieQuery";
 import { ContentWrapper, PaddingProvider } from "./styles";
 import Appbar from "../Appbar";
+import Footer from "../Footer";
 
 export type propsType = {
   movies: any;
@@ -25,6 +26,8 @@ export default function index({ movies, setMovies }: propsType) {
           <MovieSection showMore={true} id="popular" section="popular" />
         </ContentWrapper>
       </PaddingProvider>
+      <Footer/>
     </>
   );
 }
+
