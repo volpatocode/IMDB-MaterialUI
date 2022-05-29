@@ -34,7 +34,12 @@ export type propsType = {
 
 export const Logo = "VMovies";
 
-export default function SearchAppBar({ movies, setMovies, page, refProp }: propsType) {
+export default function SearchAppBar({
+  movies,
+  setMovies,
+  page,
+  refProp,
+}: propsType) {
   const [query, setQuery] = useState("");
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -57,8 +62,8 @@ export default function SearchAppBar({ movies, setMovies, page, refProp }: props
       if (!data.results || data.results.length === 0) {
         return forceHome();
       }
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.log(error);
     }
   };
 

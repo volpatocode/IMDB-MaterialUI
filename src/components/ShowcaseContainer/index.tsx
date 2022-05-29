@@ -32,7 +32,6 @@ export default function index({}: propsType) {
       .then((res) => res.json())
       .then((trending) => {
         setTrendingMovies(trending.results);
-        console.log(trending);
       });
   }, []);
 
