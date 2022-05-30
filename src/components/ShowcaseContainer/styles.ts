@@ -26,6 +26,7 @@ export const Title = styled.h2`
   }
   @media (max-width: 720px) {
     font-size: 3.1rem;
+    line-height: 1.2;
   }
   @media (max-width: 515px) {
     font-size: 2.6rem;
@@ -34,7 +35,6 @@ export const Title = styled.h2`
     font-size: 1.8rem;
     width: 100%;
     letter-spacing: 0;
-    line-height: 1.2;
     margin-top: 2rem;
     text-align: center;
   }

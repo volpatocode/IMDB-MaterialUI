@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/contexts/PopularMoviesContext.js", "src/contexts/WeekRatedMoviesContext.js", "src/contexts/PopularMoviesContext.js"  ],
+, "src/stores/PopularMoviesContext.js", "src/stores/WeekRatedMoviesContext.js", "src/stores/PopularMoviesContext.js"  ],
   "exclude": [
     "node_modules"
   ]
