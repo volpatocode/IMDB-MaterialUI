@@ -31,15 +31,13 @@ export default function index({}: propsType) {
           </WrapperLogo>
           <WrapperContent>
             <FirstStack>
-              <FooterStack
-              >
+              <FooterStack>
                 <AnchorTitle>About Us</AnchorTitle>
                 <FooterAnchor>Our Company</FooterAnchor>
                 <FooterAnchor>Privacy Policy</FooterAnchor>
                 <FooterAnchor>Terms of Use</FooterAnchor>
               </FooterStack>
-              <FooterStack
-              >
+              <FooterStack>
                 <AnchorTitle>Social Media</AnchorTitle>
                 <FooterAnchor>Investors</FooterAnchor>
                 <FooterAnchor>Providers</FooterAnchor>
@@ -48,15 +46,13 @@ export default function index({}: propsType) {
               </FooterStack>
             </FirstStack>
             <SecondStack>
-              <FooterStack
-              >
+              <FooterStack>
                 <AnchorTitle>Links</AnchorTitle>
                 <FooterAnchor>Support</FooterAnchor>
                 <FooterAnchor>Web Player</FooterAnchor>
                 <FooterAnchor>Our App</FooterAnchor>
               </FooterStack>
-              <FooterStack
-              >
+              <FooterStack>
                 <AnchorTitle>VMovies Rewards</AnchorTitle>
                 <FooterAnchor>TV Shows</FooterAnchor>
                 <FooterAnchor>TV Movies</FooterAnchor>
@@ -68,15 +64,36 @@ export default function index({}: propsType) {
           </WrapperContent>
           <SocialStack>
             <TwitterIcon
-              sx={{ color: "#f80000", cursor: "pointer" }}
+              sx={{
+                color: "#f80000",
+                cursor: "pointer",
+                transition: "0.2s ease",
+                ":hover": {
+                  transform: "scale(0.95)",
+                },
+              }}
               fontSize="large"
             />
             <InstagramIcon
-              sx={{ color: "#f80000", cursor: "pointer" }}
+              sx={{
+                color: "#f80000",
+                cursor: "pointer",
+                transition: "0.2s ease",
+                ":hover": {
+                  transform: "scale(0.95)",
+                },
+              }}
               fontSize="large"
             />
             <LinkedinIcon
-              sx={{ color: "#f80000", cursor: "pointer" }}
+              sx={{
+                color: "#f80000",
+                cursor: "pointer",
+                transition: "0.2s ease",
+                ":hover": {
+                  transform: "scale(0.95)",
+                },
+              }}
               fontSize="large"
             />
           </SocialStack>

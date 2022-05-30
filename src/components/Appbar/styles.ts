@@ -194,7 +194,7 @@ export const StyledToolbar = styled(Toolbar)<Pick<propsType, "page">>`
   padding: 0px 2rem 0px 2rem;
   transition: 0.2s ease;
 
-  @media (max-width: 300px) {
+  @media (min-width: 300px) {
     padding: ${(props) =>
       props.page === "details" ? "0 .5rem 0 0.5rem" : "0 1rem 0 1rem"};
   }

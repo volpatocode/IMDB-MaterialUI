@@ -17,7 +17,7 @@ export const ContainerDetails = styled.div`
   display: flex;
   align-items: stretch;
 
-  @media (max-width: 300px) {
+  @media (min-width: 300px) {
     padding: 0 0.5rem 0 0.5rem;
   }
   @media (min-width: 600px) {
