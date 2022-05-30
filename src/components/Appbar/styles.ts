@@ -9,7 +9,7 @@ import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import {IconButton} from "@mui/material";
+import { IconButton } from "@mui/material";
 
 export const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -72,7 +72,6 @@ export const LeftStack = styled(Stack)`
   @media (max-width: 1020px) {
     display: none;
   }
-
 `;
 
 export const LeftSide = styled(Box)`
@@ -100,7 +99,6 @@ export const NavButton = styled(Button)`
     min-width: 0;
     padding: 0;
   }
-  
 `;
 
 export const ButtonOutlined = styled(Button)`
@@ -173,7 +171,6 @@ export const AvatarIcon = styled(IconButton)`
   }
 `;
 
-
 export const AppBarIndex = styled(AppBar)`
   background-image: linear-gradient(
     to bottom,
@@ -192,21 +189,22 @@ export const AppBarDetails = styled(AppBar)`
   color: #fff;
 `;
 
-export const StyledToolbar = styled(Toolbar)`
+export const StyledToolbar = styled(Toolbar)<Pick<propsType, "page">>`
   justify-content: space-between;
   padding: 0px 2rem 0px 2rem;
   transition: 0.2s ease;
 
   @media (max-width: 300px) {
-    padding: 0 1rem 0 1rem;
+    padding: ${(props) =>
+      props.page === "details" ? "0 .5rem 0 0.5rem" : "0 1rem 0 1rem"};
   }
   @media (min-width: 600px) {
-    padding: 0 2rem 0 2rem;
+    padding: ${(props) =>
+      props.page === "details" ? "0 1rem 0 1rem" : "0 2rem 0 2rem"};
   }
   @media (min-width: 1200px) {
-    padding: 0px 7rem 0px 7rem;
+    padding: ${(props) =>
+      props.page === "details" ? "0 3.5rem 0 3.5rem" : "0 7rem 0 7rem"};
     transition: 0.2s ease;
   }
-  
-
 `;

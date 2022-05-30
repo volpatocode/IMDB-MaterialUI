@@ -71,51 +71,49 @@ export default function movie() {
           }
         >
           <Appbar page="details" />
-          <PaddingProvider>
-            <ContainerDetails>
-              <StyledGrid>
-                <BoxWrapper>
-                  <BoxTitle>
-                    <TitleTypography variant="h1">
-                      {movieDetails.title
-                        ? movieDetails.title
-                        : "No title provided"}
-                    </TitleTypography>
-                  </BoxTitle>
-                  <BoxDetailsMovie>
-                    <DetailsTypography variant="h6">
-                      {movieDetails.release_date
-                        ? movieDetails.release_date.slice(0, 4)
-                        : "No release date provided"}
-                    </DetailsTypography>
-                    <DetailsTypography variant="h6">
-                      {movieDetails.runtime
-                        ? movieDuration
-                        : "No duration provided"}
-                    </DetailsTypography>
-                  </BoxDetailsMovie>
-                  <BoxDetailsGenre>
-                    {movieDetails?.genres?.map((genre) => (
-                      <BadgeGenre key={genre.id} genre={genre.name} />
-                    ))}
-                  </BoxDetailsGenre>
-                  <BoxOverview>
-                    <OverviewTypography variant="h6">
-                      {movieDetails.overview
-                        ? movieDetails.overview
-                        : "No overview provided"}
-                    </OverviewTypography>
-                  </BoxOverview>
-                  <BoxCastCrew>
-                    <CastCrew movie={movieDetails.id} />
-                  </BoxCastCrew>
-                </BoxWrapper>
-                <BoxSimilarMovie>
-                  <SimilarMovie movie={movieDetails.id} />
-                </BoxSimilarMovie>
-              </StyledGrid>
-            </ContainerDetails>
-          </PaddingProvider>
+          <ContainerDetails>
+            <StyledGrid>
+              <BoxWrapper>
+                <BoxTitle>
+                  <TitleTypography variant="h1">
+                    {movieDetails.title
+                      ? movieDetails.title
+                      : "No title provided"}
+                  </TitleTypography>
+                </BoxTitle>
+                <BoxDetailsMovie>
+                  <DetailsTypography variant="h6">
+                    {movieDetails.release_date
+                      ? movieDetails.release_date.slice(0, 4)
+                      : "No release date provided"}
+                  </DetailsTypography>
+                  <DetailsTypography variant="h6">
+                    {movieDetails.runtime
+                      ? movieDuration
+                      : "No duration provided"}
+                  </DetailsTypography>
+                </BoxDetailsMovie>
+                <BoxDetailsGenre>
+                  {movieDetails?.genres?.map((genre) => (
+                    <BadgeGenre key={genre.id} genre={genre.name} />
+                  ))}
+                </BoxDetailsGenre>
+                <BoxOverview>
+                  <OverviewTypography variant="h6">
+                    {movieDetails.overview
+                      ? movieDetails.overview
+                      : "No overview provided"}
+                  </OverviewTypography>
+                </BoxOverview>
+                <BoxCastCrew>
+                  <CastCrew movie={movieDetails.id} />
+                </BoxCastCrew>
+              </BoxWrapper>
+              <BoxSimilarMovie>
+                <SimilarMovie movie={movieDetails.id} />
+              </BoxSimilarMovie>
+            </StyledGrid>
+          </ContainerDetails>
         </MovieContainer>
       </>
     );

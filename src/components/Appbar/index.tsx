@@ -26,10 +26,10 @@ import {
 import { MovieQuery } from "../MovieQuery/styles";
 
 export type propsType = {
-  page: "index" | "details" | "seeMore";
+  page?: "index" | "details" | "seeMore";
   movies?: any;
   setMovies?: any;
-  refProp: any;
+  refProp?: any;
 };
 
 export const Logo = "VMovies";
@@ -207,8 +207,8 @@ export default function SearchAppBar({
   } else {
     return (
       <Box>
-        <AppBarDetails elevation={0} color="transparent" position="absolute">
-          <StyledToolbar>
+        <AppBarDetails elevation={0} color="transparent" position="static">
+          <StyledToolbar page="details">
             <ArrowBack />
             <Stack spacing={2} direction="row">
               <Box

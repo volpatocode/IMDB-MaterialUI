@@ -12,11 +12,21 @@ export const MovieContainer = styled.div<movieDetailsType>`
 export const ContainerDetails = styled.div`
   padding-top: 64px;
   width: 100%;
-
   min-height: 100vh;
   position: relative;
   display: flex;
   align-items: stretch;
+
+  @media (max-width: 300px) {
+    padding: 0 0.5rem 0 0.5rem;
+  }
+  @media (min-width: 600px) {
+    padding: 0 1rem 0 1rem;
+  }
+  @media (min-width: 1200px) {
+    padding: 0 3.5rem 0 3.5rem;
+    transition: 0.2s ease;
+  }
 `;
 
 export const StyledGrid = styled(Box)`
@@ -33,8 +43,7 @@ export const OpacityProvider = styled(Box)`
   width: 100%;
 `;
 
-export const BoxTitle = styled(Box)`
-`;
+export const BoxTitle = styled(Box)``;
 
 export const TitleTypography = styled(Typography)`
   font-size: 3rem;
@@ -109,5 +118,4 @@ export const BoxWrapper = styled(Box)`
   @media (max-width: 310px) {
     width: 75vw;
   }
- 
 `;
