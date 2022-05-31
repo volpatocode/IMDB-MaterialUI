@@ -2,7 +2,6 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { SimilarMovie, StyledStack } from "./styles";
 import { similarMoviesType } from "../../types/services";
-import SimilarMovieContainer from "../SimilarMovieContainer";
 import { useRouter } from "next/router";
 import { StyledGrid } from "../MovieSection/styles";
 import Grid from "@mui/material/Grid";
@@ -31,8 +30,8 @@ export default function index({ movie }: propsType) {
   return (
     <SimilarMovie>
       <StyledGrid wrap="wrap" container columnSpacing={1} rowSpacing={1}>
-        {similarMovies?.slice(0, 6).map((movie) => (
-          <Grid item xs={4} md={3} lg={2} key={movie.id}>
+        {similarMovies?.slice(0, 8).map((movie) => (
+          <Grid item xs={4} md={4} lg={3} key={movie.id}>
             <MovieSectionContainer
               movieId={movie.id}
               src={

@@ -15,7 +15,6 @@ export const ContainerDetails = styled.div`
   min-height: 100vh;
   position: relative;
   display: flex;
-  align-items: stretch;
 
   @media (min-width: 300px) {
     padding: 0 0.5rem 0 0.5rem;
@@ -33,7 +32,7 @@ export const StyledGrid = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
 `;
 
@@ -43,7 +42,11 @@ export const OpacityProvider = styled(Box)`
   width: 100%;
 `;
 
-export const BoxTitle = styled(Box)``;
+export const BoxTitle = styled(Box)`
+  @media (max-width: 736px) {
+    text-align: center;
+  }
+`;
 
 export const TitleTypography = styled(Typography)`
   font-size: 3rem;
@@ -82,6 +85,9 @@ export const DetailsTypography = styled(Typography)`
 
 export const BoxOverview = styled(Box)`
   text-align: left;
+  @media (max-width: 736px) {
+    text-align: center;
+  }
 `;
 
 export const OverviewTypography = styled(Typography)`
@@ -93,29 +99,21 @@ export const OverviewTypography = styled(Typography)`
 
 export const BoxCastCrew = styled(Box)`
   margin-top: 0.7rem;
-  max-height: 500px;
-  flex-grow: 1;
   display: flex;
 `;
 
-export const BoxSimilarMovie = styled(Box)`
-  margin-top: 0.7rem;
-  display: flex;
-  width: 100%;
-`;
 
 export const BoxWrapper = styled(Box)`
-  width: 40vw;
-  @media (max-width: 1450px) {
-    width: 50vw;
-  }
-  @media (max-width: 720px) {
+  width: 45vw;
+  @media (max-width: 736px) {
     width: 70vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  @media (max-width: 515px) {
-    width: 80vw;
-  }
-  @media (max-width: 310px) {
-    width: 75vw;
+  @media (max-width: 550px) {
+    width: 90vw;
   }
 `;
