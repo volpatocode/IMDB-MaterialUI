@@ -3,16 +3,18 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { castCrewType } from "../../types/services";
 import {
-  StyledStack,
   ButtonOutlined,
   CastCrew,
   BoxModal,
+  GridTitle,
   GridCast,
   GridCrew,
-  GridTitle,
+  BoxCast,
+  BoxCrew,
 } from "./styles";
 import CastCrewContainer from "../CastCrewContainer";
 import Modal from "@mui/material/Modal";
+import Grid from "@mui/material/Grid";
 
 export type propsType = {
   movie: any;
@@ -38,6 +40,8 @@ export default function index({ movie }: propsType) {
       });
   }, [router]);
 
+  console.log(castCrew);
+
   return (
     <>
       <CastCrew>
@@ -51,68 +55,62 @@ export default function index({ movie }: propsType) {
           aria-describedby="modal-modal-description"
         >
           <BoxModal>
-            <GridTitle>Cast</GridTitle>
-            <GridCast
-              container
-              direction="row"
-              justifyContent="flex-start"
-              alignItems="center"
-              rowGap={2}
-            >
-              <StyledStack direction="row" spacing={1}>
-                {castCrew?.cast?.map(
+            <BoxCast>
+              <GridTitle>Cast</GridTitle>
+              <GridCast wrap="wrap" container columnSpacing={1} rowSpacing={1}>
+                {castCrew?.cast?.slice(0, 6).map(
                   (cast) =>
                     cast.profile_path && (
-                      <CastCrewContainer
-                        key={cast.id}
-                        name={cast.name ? cast.name : "No name provided"}
-                        info={
-                          <span>
-                            as:{" "}
-                            {cast.character
-                              ? cast.character
-                              : "No character provided"}
-                          </span>
-                        }
-                        src={
-                          cast.profile_path
-                            ? API_IMG + cast.profile_path
-                            : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-                        }
-                      />
+                      <Grid item xs={4} md={3} lg={2} key={movie.id}>
+                        <CastCrewContainer
+                          key={cast.id}
+                          name={cast.name ? cast.name : "No name provided"}
+                          info={
+                            <span>
+                              as:{" "}
+                              {cast.character
+                                ? cast.character
+                                : "No character provided"}
+                            </span>
+                          }
+                          src={
+                            cast.profile_path
+                              ? API_IMG + cast.profile_path
+                              : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
+                          }
+                        />
+                      </Grid>
                     )
                 )}
-              </StyledStack>
-            </GridCast>
-            <GridTitle>Crew</GridTitle>
-            <GridCrew
-              container
-              direction="row"
-              justifyContent="flex-start"
-              alignItems="center"
-            >
-              <StyledStack direction="row" spacing={1}>
-                {castCrew?.crew?.map(
+              </GridCast>
+            </BoxCast>
+
+            <BoxCrew>
+              <GridTitle>Crew</GridTitle>
+              <GridCrew wrap="wrap" container columnSpacing={1} rowSpacing={1}>
+                {castCrew?.crew?.slice(0, 6).map(
                   (crew) =>
                     crew.profile_path && (
-                      <CastCrewContainer
-                        key={crew.id}
-                        name={crew.name ? crew.name : "No name provided"}
-                        info={
-                          <span>
-                            {crew.job ? crew.job : "No character provided"}
-                          </span>
-                        }
-                        src={
-                          crew.profile_path
-                            ? API_IMG + crew.profile_path
-                            : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-                        }
-                      />
+                      <Grid item xs={4} md={3} lg={2} key={movie.id}>
+                        <CastCrewContainer
+                          key={crew.id}
+                          name={crew.name ? crew.name : "No name provided"}
+                          info={
+                            <span>
+                              {crew.job ? crew.job : "No character provided"}
+                            </span>
+                          }
+                          src={
+                            crew.profile_path
+                              ? API_IMG + crew.profile_path
+                              : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
+                          }
+                        />
+                      </Grid>
                     )
                 )}
-              </StyledStack>
-            </GridCrew>
+              </GridCrew>
+            </BoxCrew>
           </BoxModal>
         </Modal>
       </CastCrew>

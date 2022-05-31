@@ -26,6 +26,7 @@ type propsType = {
 
 export default function index({ section, id, showMore }: propsType) {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
+  
   const {
     nowPlayingMovies,
     setNowPlayingMovies,

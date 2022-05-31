@@ -4,15 +4,15 @@ import create from "zustand";
 
 type State = {
   popularMovies: movieSectionType[];
-  setPopularMovies: (popularMovies: movieSectionType) => void;
+  setPopularMovies: () => void;
   topRatedMovies: movieSectionType[];
-  setTopRatedMovies: (topRatedMovies: movieSectionType) => void;
+  setTopRatedMovies: () => void;
   weekRatedMovies: movieSectionType[];
-  setWeekRatedMovies: (weekRatedMovies: movieSectionType) => void;
+  setWeekRatedMovies: () => void;
   upcomingMovies: movieSectionType[];
-  setUpcomingMovies: (upcomingMovies: movieSectionType) => void;
+  setUpcomingMovies: () => void;
   nowPlayingMovies: movieSectionType[];
-  setNowPlayingMovies: (nowPlayingMovies: movieSectionType) => void;
+  setNowPlayingMovies: () => void;
 };
 
 const useMovieStore = create<State>((set) => ({

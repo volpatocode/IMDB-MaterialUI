@@ -22,6 +22,7 @@ import CastCrew from "../../components/CastCrew";
 import SimilarMovie from "../../components/SimilarMovie";
 import Appbar from "../../components/Appbar";
 import { PaddingProvider } from "../../components/ContentWrapper/styles";
+import { OpacityBottomProvider } from "../../components/ShowcaseContainer/styles";
 
 export default function movie() {
   const [movieDetails, setMovieDetails] = useState({} as movieDetailsType);

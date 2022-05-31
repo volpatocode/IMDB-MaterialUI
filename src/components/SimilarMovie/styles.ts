@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 
 export const SimilarMovie = styled(Box)`
-  width: 100%;
+  width: 50%;
   max-height: 250px;
 `;
 

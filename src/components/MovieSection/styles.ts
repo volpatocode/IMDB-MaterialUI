@@ -59,6 +59,8 @@ export const ShowMoreButton = styled(Button)`
 
 export const StyledGrid = styled(Grid)`
   overflow-y: hidden;
+  height: 100%;
+  width: 100%;
   overflow: auto;
   ::-webkit-scrollbar {
     width: 12px;

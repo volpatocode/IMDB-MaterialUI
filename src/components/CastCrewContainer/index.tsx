@@ -1,11 +1,12 @@
 import * as React from "react";
+import { CastCrewContainer, BoxSubtitle } from "./styles";
+
 import {
-  CastCrewContainer,
-  MovieContainerImage,
   BoxContent,
   BoxTitle,
-  BoxInfo,
-} from "./styles";
+  BoxImage,
+  MovieContainerImage,
+} from "../../components/MovieSectionContainer/styles";
 
 export type propsType = {
   name: string;
@@ -16,12 +17,14 @@ export type propsType = {
 export default function index({ src, name, info }: propsType) {
   return (
     <CastCrewContainer>
-      <MovieContainerImage src={src} />
+      <BoxImage>
+        <MovieContainerImage src={src} />
+      </BoxImage>
       <BoxContent>
         <BoxTitle>
           <h3>{name}</h3>
         </BoxTitle>
-        <BoxInfo>{info}</BoxInfo>
+        <BoxSubtitle>{info}</BoxSubtitle>
       </BoxContent>
     </CastCrewContainer>
   );

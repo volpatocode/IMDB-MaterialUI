@@ -18,6 +18,7 @@ import {
   FirstStack,
   SecondStack,
 } from "./styles";
+import { OpacityBottomProvider } from "../ShowcaseContainer/styles";
 
 export type propsType = {};
 

@@ -11,14 +11,23 @@ export type propsType = {
 };
 
 export default function index({ movies, setMovies }: propsType) {
-
   const searchRef = useRef(null);
   return (
     <>
-      <Appbar refProp={searchRef} movies={movies} setMovies={setMovies} page="index" />
+      <Appbar
+        refProp={searchRef}
+        movies={movies}
+        setMovies={setMovies}
+        page="index"
+      />
       <PaddingProvider>
         <ContentWrapper>
-          <MovieQuery refProp={searchRef} id="search" movies={movies} setMovies={setMovies} />
+          <MovieQuery
+            refProp={searchRef}
+            id="search"
+            movies={movies}
+            setMovies={setMovies}
+          />
           <MovieSection showMore={true} id="nowPlaying" section="nowPlaying" />
           <MovieSection showMore={true} id="upcoming" section="upcoming" />
           <MovieSection id="weekRated" section="weekRated" />
@@ -26,8 +35,7 @@ export default function index({ movies, setMovies }: propsType) {
           <MovieSection showMore={true} id="popular" section="popular" />
         </ContentWrapper>
       </PaddingProvider>
-      <Footer/>
+      <Footer />
     </>
   );
 }
-

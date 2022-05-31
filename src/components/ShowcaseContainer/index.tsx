@@ -71,7 +71,7 @@ export default function index({}: propsType) {
               </BoxButtons>
             </BoxContent>
           </PaddingProvider>
-          <OpacityBottomProvider />
+          <OpacityBottomProvider/>
         </ShowcaseContainer>
       ))}
     </>

@@ -4,7 +4,9 @@ import { SimilarMovie, StyledStack } from "./styles";
 import { similarMoviesType } from "../../types/services";
 import SimilarMovieContainer from "../SimilarMovieContainer";
 import { useRouter } from "next/router";
-
+import { StyledGrid } from "../MovieSection/styles";
+import Grid from "@mui/material/Grid";
+import MovieSectionContainer from "../MovieSectionContainer";
 
 type propsType = {
   movie: any;
@@ -14,7 +16,6 @@ export default function index({ movie }: propsType) {
   const [similarMovies, setSimilarMovies] = useState<similarMoviesType[]>([]);
   const API_IMG = "http://image.tmdb.org/t/p/original/";
   const router = useRouter();
-
 
   useEffect(() => {
     fetch(
@@ -29,31 +30,22 @@ export default function index({ movie }: propsType) {
 
   return (
     <SimilarMovie>
-      <StyledStack direction="row" spacing={1}>
-        {similarMovies?.map((movie) => (
-          <SimilarMovieContainer
-            movieId={movie.id}
-            src={
-              movie.backdrop_path
-                ? API_IMG + movie.backdrop_path
-                : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-            }
-            key={movie.id}
-            title={movie.title ? movie.title : "No title provided"}
-            year={
-              movie.release_date
-                ? movie.release_date.slice(0, 4)
-                : "No year provided"
-            }
-            voteAv={
-              movie.vote_average
-                ? movie.vote_average.toString().slice(0, 3)
-                : "No rating provided"
-            }
-            overview={movie.overview ? movie.overview : "No overview provided"}
-          ></SimilarMovieContainer>
+      <StyledGrid wrap="wrap" container columnSpacing={1} rowSpacing={1}>
+        {similarMovies?.slice(0, 6).map((movie) => (
+          <Grid item xs={4} md={3} lg={2} key={movie.id}>
+            <MovieSectionContainer
+              movieId={movie.id}
+              src={
+                movie.poster_path
+                  ? API_IMG + movie.poster_path
+                  : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
+              }
+              title={movie.title ? movie.title : "No title provided"}
+            />
+          </Grid>
         ))}
-      </StyledStack>
+      </StyledGrid>
     </SimilarMovie>
   );
 }
+

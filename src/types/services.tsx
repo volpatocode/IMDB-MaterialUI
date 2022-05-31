@@ -38,7 +38,7 @@ export type crewType = {
 export type similarMoviesType = {
   id?: string;
   title?: string;
-  backdrop_path?: string;
+  poster_path?: string;
   vote_average?: number;
   overview?: string;
   release_date?: string;
@@ -55,4 +55,3 @@ export type movieSectionType = {
   adult?: boolean;
   backdrop_path?: string;
 };
-
