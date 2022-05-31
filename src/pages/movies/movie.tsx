@@ -12,17 +12,14 @@ import {
   BoxDetailsMovie,
   BoxDetailsGenre,
   BoxCastCrew,
-  BoxSimilarMovie,
   ContainerDetails,
   StyledGrid,
   BoxWrapper,
 } from "./styles";
 import BadgeGenre from "../../components/BadgeGenre";
 import CastCrew from "../../components/CastCrew";
-import SimilarMovie from "../../components/SimilarMovie";
 import Appbar from "../../components/Appbar";
-import { PaddingProvider } from "../../components/ContentWrapper/styles";
-import { OpacityBottomProvider } from "../../components/ShowcaseContainer/styles";
+import MovieSection from "../../components/MovieSection";
 
 export default function movie() {
   const [movieDetails, setMovieDetails] = useState({} as movieDetailsType);
@@ -110,9 +107,7 @@ export default function movie() {
                   <CastCrew movie={movieDetails.id} />
                 </BoxCastCrew>
               </BoxWrapper>
-              <BoxSimilarMovie>
-                <SimilarMovie movie={movieDetails.id} />
-              </BoxSimilarMovie>
+              <MovieSection movie={movieDetails.id} section="similar" />
             </StyledGrid>
           </ContainerDetails>
         </MovieContainer>
