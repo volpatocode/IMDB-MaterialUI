@@ -112,6 +112,7 @@ export const BoxWrapper = styled(Box)`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
   }
   @media (max-width: 550px) {
     width: 90vw;

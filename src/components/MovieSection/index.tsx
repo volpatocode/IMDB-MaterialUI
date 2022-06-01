@@ -108,7 +108,7 @@ export default function index({ section, id, showMore }: propsType) {
     </MovieSection>
   ) : (
     <Box sx={{ display: "flex", height: "100vh", width: "100vw", justifyContent: "center", alignItems: "" }}>
-      <CircularProgress color="error" />
+      {/* <CircularProgress color="error" /> */}
     </Box>
   );
 }
