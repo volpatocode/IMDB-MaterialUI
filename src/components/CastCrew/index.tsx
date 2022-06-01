@@ -21,14 +21,17 @@ export type propsType = {
 };
 
 export default function index({ movie }: propsType) {
+  const API_IMG = "http://image.tmdb.org/t/p/original/";
   const [castCrew, setCastCrew] = useState({} as castCrewType);
   const router = useRouter();
 
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [openCast, setOpenCast] = useState(false);
+  const handleCastOpen = () => setOpenCast(true);
+  const handleCastClose = () => setOpenCast(false);
 
-  const API_IMG = "http://image.tmdb.org/t/p/original/";
+  const [openCrew, setOpenCrew] = useState(false);
+  const handleCrewOpen = () => setOpenCrew(true);
+  const handleCrewClose = () => setOpenCrew(false);
 
   useEffect(() => {
     fetch(
@@ -40,28 +43,26 @@ export default function index({ movie }: propsType) {
       });
   }, [router]);
 
-  console.log(castCrew);
-
   return (
     <>
       <CastCrew>
-        <ButtonOutlined variant="text" onClick={handleOpen}>
-          Cast & Crew
+        <ButtonOutlined variant="text" onClick={handleCastOpen}>
+          Cast
         </ButtonOutlined>
         <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
+          open={openCast}
+          onClose={handleCastClose}
+          aria-labelledby="Cast"
+          aria-describedby="Cast"
         >
           <BoxModal>
             <BoxCast>
               <GridTitle>Cast</GridTitle>
               <GridCast wrap="wrap" container columnSpacing={1} rowSpacing={1}>
-                {castCrew?.cast?.slice(0, 6).map(
+                {castCrew?.cast?.slice(0, 12).map(
                   (cast) =>
                     cast.profile_path && (
-                      <Grid item xs={4} md={3} lg={2} key={movie.id}>
+                      <Grid item xs={6} md={4} lg={3} key={movie.id}>
                         <CastCrewContainer
                           key={cast.id}
                           name={cast.name ? cast.name : "No name provided"}
@@ -84,14 +85,26 @@ export default function index({ movie }: propsType) {
                 )}
               </GridCast>
             </BoxCast>
+          </BoxModal>
+        </Modal>
 
+        <ButtonOutlined variant="text" onClick={handleCrewOpen}>
+          Crew
+        </ButtonOutlined>
+        <Modal
+          open={openCrew}
+          onClose={handleCrewClose}
+          aria-labelledby="Crew"
+          aria-describedby="Crew"
+        >
+          <BoxModal>
             <BoxCrew>
               <GridTitle>Crew</GridTitle>
               <GridCrew wrap="wrap" container columnSpacing={1} rowSpacing={1}>
-                {castCrew?.crew?.slice(0, 6).map(
+                {castCrew?.crew?.slice(0, 12).map(
                   (crew) =>
                     crew.profile_path && (
-                      <Grid item xs={4} md={3} lg={2} key={movie.id}>
+                      <Grid item xs={6} md={4} lg={3} key={movie.id}>
                         <CastCrewContainer
                           key={crew.id}
                           name={crew.name ? crew.name : "No name provided"}

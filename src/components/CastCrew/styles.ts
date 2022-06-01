@@ -6,9 +6,9 @@ import Grid from "@mui/material/Grid";
 
 export const CastCrew = styled(Box)`
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   align-items: flex-start;
+  gap: 1rem;
 `;
 
 export const BoxModal = styled(Box)`
@@ -16,8 +16,8 @@ export const BoxModal = styled(Box)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90vw;
-  height: 90vh;
+  width: 70vw;
+  height: 80vh;
   background-color: #0f0f0f;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -31,12 +31,12 @@ export const BoxModal = styled(Box)`
 
 export const BoxCast = styled(Box)`
   width: 100%;
-  height: 45%;
+  height: 100%;
 `;
 
 export const BoxCrew = styled(Box)`
   width: 100%;
-  height: 45%;
+  height: 100%;
 `;
 
 export const GridCast = styled(Grid)`
