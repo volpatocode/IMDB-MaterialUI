@@ -75,7 +75,7 @@ export default function SearchAppBar({
     setAnchorEl(null);
   };
 
-  if (page === "index" || page === "seeMore") {
+  if (page === "index") {
     return (
       <Box sx={{ flexGrow: 1 }}>
         <AppBarIndex

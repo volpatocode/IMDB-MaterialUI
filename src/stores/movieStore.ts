@@ -3,6 +3,8 @@ import axios from "axios";
 import create from "zustand";
 
 type State = {
+  similarMovies: movieSectionType[];
+  setSimilarMovies: (movieId: string) => void;
   popularMovies: movieSectionType[];
   setPopularMovies: () => void;
   topRatedMovies: movieSectionType[];
@@ -16,6 +18,14 @@ type State = {
 };
 
 const useMovieStore = create<State>((set) => ({
+  similarMovies: [],
+  setSimilarMovies: async (movieId) => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=1`
+    );
+    set({ similarMovies: response.data.results });
+  },
+
   popularMovies: [],
   setPopularMovies: async () => {
     const response = await axios.get(
@@ -57,4 +67,6 @@ const useMovieStore = create<State>((set) => ({
   },
 }));
 
+
 export default useMovieStore;
+

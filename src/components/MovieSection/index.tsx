@@ -10,6 +10,7 @@ import MovieSectionContainer from "../MovieSectionContainer";
 import { Grid, Skeleton } from "@mui/material";
 import useMovieStore from "../../stores/movieStore";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 import { movieSectionType } from "../../types/services";
 import { Box } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -25,7 +26,6 @@ type propsType = {
     | "similar";
   id?: string;
   showMore?: boolean;
-  movie?: any;
 };
 
 export default function index({ section, id, showMore }: propsType) {
@@ -45,20 +45,28 @@ export default function index({ section, id, showMore }: propsType) {
   } = useMovieStore((state) => state);
 
   useEffect(() => {
-    setNowPlayingMovies();
-    setPopularMovies();
-    setTopRatedMovies();
-    setUpcomingMovies();
-    setWeekRatedMovies();
+    setNowPlayingMovies(),
+      setPopularMovies(),
+      setTopRatedMovies(),
+      setWeekRatedMovies(),
+      setUpcomingMovies();
   }, []);
 
   const categoryCondition = {
     upcoming: "upcoming",
-    topRated: "topRated",
+    topRated: "toprated",
     popular: "popular",
-    nowPlaying: "nowPlaying",
-    weekRated: "weekRated",
+    nowPlaying: "nowplaying",
+    weekRated: "weekrated",
   };
+
+  // const mapCallCondition = {
+  //   upcoming: setUpcomingMovies(),
+  //   weekRated: setWeekRatedMovies(),
+  //   topRated: setTopRatedMovies(),
+  //   popular: setPopularMovies(),
+  //   nowPlaying: setNowPlayingMovies(),
+  // };
 
   const mapCondition = {
     upcoming: upcomingMovies,
@@ -74,8 +82,6 @@ export default function index({ section, id, showMore }: propsType) {
     popular: "Popular",
     nowPlaying: "Now Playing",
   };
-
-  console.log(mapCondition.nowPlaying.map((movie) => movie.id));
 
   return mapCondition[section]?.length > 0 ? (
     <MovieSection id={id}>
@@ -107,7 +113,15 @@ export default function index({ section, id, showMore }: propsType) {
       </StyledGrid>
     </MovieSection>
   ) : (
-    <Box sx={{ display: "flex", height: "100vh", width: "100vw", justifyContent: "center", alignItems: "" }}>
+    <Box
+      sx={{
+        display: "flex",
+        height: "100vh",
+        width: "100vw",
+        justifyContent: "center",
+        alignItems: "",
+      }}
+    >
       {/* <CircularProgress color="error" /> */}
     </Box>
   );

@@ -16,11 +16,9 @@ import CastCrewContainer from "../CastCrewContainer";
 import Modal from "@mui/material/Modal";
 import Grid from "@mui/material/Grid";
 
-export type propsType = {
-  movie: any;
-};
+export type propsType = {};
 
-export default function index({ movie }: propsType) {
+export default function index({}: propsType) {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
   const [castCrew, setCastCrew] = useState({} as castCrewType);
   const router = useRouter();
@@ -35,7 +33,9 @@ export default function index({ movie }: propsType) {
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${movie}/credits?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US`
+      `https://api.themoviedb.org/3/movie/${
+        router.query.movie as string
+      }/credits?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -62,9 +62,8 @@ export default function index({ movie }: propsType) {
                 {castCrew?.cast?.slice(0, 12).map(
                   (cast) =>
                     cast.profile_path && (
-                      <Grid item xs={6} md={4} lg={3} key={movie.id}>
+                      <Grid item xs={6} md={4} lg={3} key={cast.id}>
                         <CastCrewContainer
-                          key={cast.id}
                           name={cast.name ? cast.name : "No name provided"}
                           info={
                             <span>
@@ -104,9 +103,8 @@ export default function index({ movie }: propsType) {
                 {castCrew?.crew?.slice(0, 12).map(
                   (crew) =>
                     crew.profile_path && (
-                      <Grid item xs={6} md={4} lg={3} key={movie.id}>
+                      <Grid item xs={6} md={4} lg={3} key={crew.id}>
                         <CastCrewContainer
-                          key={crew.id}
                           name={crew.name ? crew.name : "No name provided"}
                           info={
                             <span>

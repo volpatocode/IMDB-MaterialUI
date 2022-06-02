@@ -104,10 +104,10 @@ export default function movie() {
                   </OverviewTypography>
                 </BoxOverview>
                 <BoxCastCrew>
-                  <CastCrew movie={movieDetails.id} />
+                  <CastCrew/>
                 </BoxCastCrew>
               </BoxWrapper>
-              <MovieSection movie={movieDetails.id} section="similar" />
+              <MovieSection section="similar" />
             </StyledGrid>
           </ContainerDetails>
         </MovieContainer>

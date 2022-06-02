@@ -1,30 +1,23 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { SimilarMovie, StyledStack } from "./styles";
+import { SimilarMovie } from "./styles";
 import { similarMoviesType } from "../../types/services";
 import { useRouter } from "next/router";
 import { StyledGrid } from "../MovieSection/styles";
 import Grid from "@mui/material/Grid";
 import MovieSectionContainer from "../MovieSectionContainer";
+import useMovieStore from "../../stores/movieStore";
 
-type propsType = {
-  movie: any;
-};
+type propsType = {};
 
-export default function index({ movie }: propsType) {
-  const [similarMovies, setSimilarMovies] = useState<similarMoviesType[]>([]);
+export default function index({}: propsType) {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
   const router = useRouter();
 
+  const { similarMovies, setSimilarMovies } = useMovieStore((state) => state);
+
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${movie}/similar?api_key=f04297956f564d66b4a51ff3da1c6c30&language=en-US&page=1`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setSimilarMovies(data.results);
-        console.log(data.results);
-      });
+    setSimilarMovies(router.query.movie as string);
   }, [router]);
 
   return (
@@ -47,4 +40,3 @@ export default function index({ movie }: propsType) {
     </SimilarMovie>
   );
 }
-
