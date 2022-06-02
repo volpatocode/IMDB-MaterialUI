@@ -1,5 +1,4 @@
 import React from "react";
-import { FooterStack } from "../Footer/styles";
 
 import {
   FooterCopy,

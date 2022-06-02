@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
-import { propsType } from "./index";
 
 export const MovieSectionContainer = styled(Box)`
   margin: 0;
@@ -53,4 +52,3 @@ export const BoxTitle = styled(Box)`
     font-size: 0.6rem;
   }
 `;
-

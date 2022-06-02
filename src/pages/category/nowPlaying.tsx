@@ -1,25 +1,24 @@
-import * as React from "react";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import { movieSectionType } from "../../types/services";
+
 import { ShowMoreButton } from "./styles";
 import { PaddingProvider } from "../../components/ContentWrapper/styles";
+import MovieSectionContainer from "../../components/MovieSectionContainer";
+import Appbar from "../../components/Appbar";
+
+import Grid from "@mui/material/Grid";
+import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
+import PendingOutlinedIcon from "@mui/icons-material/PendingOutlined";
+
 import {
   MovieSection,
   SectionBoxInfo,
   SectionInfo,
   StyledGrid,
 } from "../../components/MovieSection/styles";
-import MovieSectionContainer from "../../components/MovieSectionContainer";
-import Grid from "@mui/material/Grid";
-import Appbar from "../../components/Appbar";
-import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
-import PendingOutlinedIcon from "@mui/icons-material/PendingOutlined";
-import Skeleton from "@mui/material/Skeleton";
 
-export default function movie() {
+export default function nowplaying() {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
-  const router = useRouter();
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
@@ -66,16 +65,6 @@ export default function movie() {
                         : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
                     }
                     title={movie.title ? movie.title : "No title provided"}
-                    // year={
-                    //   movie.release_date
-                    //     ? movie.release_date.slice(0, 4)
-                    //     : "No year provided"
-                    // }
-                    // voteAv={
-                    //   movie.vote_average
-                    //     ? movie.vote_average.toString().slice(0, 3)
-                    //     : "No rating provided"
-                    // }
                   ></MovieSectionContainer>
                 </Grid>
               ))}

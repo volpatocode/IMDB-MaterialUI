@@ -1,10 +1,13 @@
 import React from "react";
-import { Logo } from "../Appbar";
 import { PaddingProvider } from "../ContentWrapper/styles";
+
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedinIcon from "@mui/icons-material/Linkedin";
+
 import FooterCopy from "../FooterCopy";
+import { Logo } from "../Appbar";
+
 import {
   Footer,
   FooterContent,
@@ -18,7 +21,6 @@ import {
   FirstStack,
   SecondStack,
 } from "./styles";
-import { OpacityBottomProvider } from "../ShowcaseContainer/styles";
 
 export type propsType = {};
 

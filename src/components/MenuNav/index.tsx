@@ -1,10 +1,12 @@
-import * as React from "react";
+import React from "react";
+import Link from "next/link";
+
 import { MenuNav, TextNavigation } from "./styles";
 import { NavButton } from "../Appbar/styles";
+
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import Link from "next/link";
 
 export type propsType = {};
 

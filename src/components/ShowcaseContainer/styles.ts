@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { propsType } from "./index";
 import { Box, Button } from "@mui/material";
+import { propsType } from "./index";
 
 export const ShowcaseContainer = styled.div<Pick<propsType, "src">>`
   width: 100%;

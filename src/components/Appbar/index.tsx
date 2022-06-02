@@ -1,12 +1,13 @@
-import * as React from "react";
-import { useState, useEffect, useRef } from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import ArrowBack from "../ArrowBack";
+import React, { useState } from "react";
 import Link from "next/link";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import MenuNav from "../MenuNav";
+
 import { Box, IconButton, Menu, Tooltip, Avatar, Stack } from "@mui/material";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import SearchIcon from "@mui/icons-material/Search";
+import GitHubIcon from "@mui/icons-material/GitHub";
+
+import MenuNav from "../MenuNav";
+import ArrowBack from "../ArrowBack";
 
 import {
   SearchIconWrapper,
@@ -23,7 +24,6 @@ import {
   LeftSide,
   AvatarIcon,
 } from "./styles";
-import { MovieQuery } from "../MovieQuery/styles";
 
 export type propsType = {
   page?: "index" | "details" | "seeMore";

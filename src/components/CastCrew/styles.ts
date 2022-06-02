@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 
 export const CastCrew = styled(Box)`

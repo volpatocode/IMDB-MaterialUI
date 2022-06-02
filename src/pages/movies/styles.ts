@@ -102,7 +102,6 @@ export const BoxCastCrew = styled(Box)`
   display: flex;
 `;
 
-
 export const BoxWrapper = styled(Box)`
   width: 45vw;
   @media (max-width: 736px) {

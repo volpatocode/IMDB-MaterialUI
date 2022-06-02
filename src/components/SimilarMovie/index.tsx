@@ -1,12 +1,12 @@
-import * as React from "react";
-import { useEffect, useState } from "react";
-import { SimilarMovie } from "./styles";
-import { similarMoviesType } from "../../types/services";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import { StyledGrid } from "../MovieSection/styles";
-import Grid from "@mui/material/Grid";
-import MovieSectionContainer from "../MovieSectionContainer";
 import useMovieStore from "../../stores/movieStore";
+
+import Grid from "@mui/material/Grid";
+
+import { SimilarMovie } from "./styles";
+import { StyledGrid } from "../MovieSection/styles";
+import MovieSectionContainer from "../MovieSectionContainer";
 
 type propsType = {};
 

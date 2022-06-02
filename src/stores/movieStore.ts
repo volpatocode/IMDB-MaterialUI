@@ -67,6 +67,4 @@ const useMovieStore = create<State>((set) => ({
   },
 }));
 
-
 export default useMovieStore;
-

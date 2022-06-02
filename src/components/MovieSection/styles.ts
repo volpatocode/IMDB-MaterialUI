@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
-import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
 
 export const MovieSection = styled.div`
   width: 100%;

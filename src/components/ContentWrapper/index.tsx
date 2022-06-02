@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
+import { ContentWrapper, PaddingProvider } from "./styles";
+
 import MovieSection from "../MovieSection";
 import MovieQuery from "../MovieQuery";
-import { ContentWrapper, PaddingProvider } from "./styles";
 import Appbar from "../Appbar";
 import Footer from "../Footer";
 

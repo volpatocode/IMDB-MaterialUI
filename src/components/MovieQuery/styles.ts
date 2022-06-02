@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
 
 export const MovieQuery = styled.div`
   width: 100%;

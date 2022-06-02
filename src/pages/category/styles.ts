@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { movieDetailsType } from "../../types/services";
-import { Button } from "@mui/material";
+import Button from "@mui/material/Button";
 
 export const MovieContainer = styled.div<movieDetailsType>`
   width: 100%;
@@ -24,4 +24,3 @@ export const ShowMoreButton = styled(Button)`
   width: 100%;
   margin-top: 1rem;
 `;
-

@@ -1,4 +1,6 @@
-import * as React from "react";
+import React from "react";
+import Link from "next/link";
+
 import {
   MovieSectionContainer,
   MovieContainerImage,
@@ -6,7 +8,6 @@ import {
   BoxTitle,
   BoxImage,
 } from "./styles";
-import Link from "next/link";
 
 export type propsType = {
   src: string;

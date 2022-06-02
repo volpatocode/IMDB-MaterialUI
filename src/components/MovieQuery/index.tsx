@@ -1,7 +1,10 @@
-import * as React from "react";
-import { MovieQuery, StyledGrid, QueryInfo } from "./styles";
+import React from "react";
+
+import Grid from "@mui/material/Grid";
+
 import MovieSectionContainer from "../MovieSectionContainer";
-import { Grid } from "@mui/material";
+
+import { MovieQuery, StyledGrid, QueryInfo } from "./styles";
 
 type propsType = {
   movies: any;
@@ -10,7 +13,7 @@ type propsType = {
   refProp: any;
 };
 
-export default function index({ movies, setMovies, id, refProp }: propsType) {
+export default function index({ movies, id, refProp }: propsType) {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
 
   return (
@@ -29,16 +32,6 @@ export default function index({ movies, setMovies, id, refProp }: propsType) {
                       : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
                   }
                   title={movie.title ? movie.title : "No title provided"}
-                  // year={
-                  //   movie.release_date
-                  //     ? movie.release_date.slice(0, 4)
-                  //     : "No year provided"
-                  // }
-                  // voteAv={
-                  //   movie.vote_average
-                  //     ? movie.vote_average.toString().slice(0, 3)
-                  //     : "No rating provided"
-                  // }
                 ></MovieSectionContainer>
               </Grid>
             )

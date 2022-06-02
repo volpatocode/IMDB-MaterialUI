@@ -1,7 +1,11 @@
-import * as React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { movieDetailsType } from "../../types/services";
 import { useRouter } from "next/router";
+
+import BadgeGenre from "../../components/BadgeGenre";
+import CastCrew from "../../components/CastCrew";
+import Appbar from "../../components/Appbar";
+import MovieSection from "../../components/MovieSection";
 import {
   BoxTitle,
   BoxOverview,
@@ -16,17 +20,14 @@ import {
   StyledGrid,
   BoxWrapper,
 } from "./styles";
-import BadgeGenre from "../../components/BadgeGenre";
-import CastCrew from "../../components/CastCrew";
-import Appbar from "../../components/Appbar";
-import MovieSection from "../../components/MovieSection";
 
 export default function movie() {
-  const [movieDetails, setMovieDetails] = useState({} as movieDetailsType);
-  const router = useRouter();
   const API_IMG = "http://image.tmdb.org/t/p/original/";
-  const movieDuration = timeConvert();
+  const router = useRouter();
 
+  const [movieDetails, setMovieDetails] = useState({} as movieDetailsType);
+
+  const movieDuration = timeConvert();
   function timeConvert() {
     var num = movieDetails.runtime;
     var hours = num / 60;
@@ -52,66 +53,56 @@ export default function movie() {
     movieDetails.title && (document.title = `VMovies - ${movieDetails.title}`);
   }, [movieDetails]);
 
-  if (!movieDetails.title) {
-    return (
-      <>
+  return (
+    <>
+      <MovieContainer
+        backdrop_path={
+          movieDetails.backdrop_path ? API_IMG + movieDetails.backdrop_path : ""
+        }
+      >
         <Appbar page="details" />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <MovieContainer
-          backdrop_path={
-            movieDetails.backdrop_path
-              ? API_IMG + movieDetails.backdrop_path
-              : ""
-          }
-        >
-          <Appbar page="details" />
-          <ContainerDetails>
-            <StyledGrid>
-              <BoxWrapper>
-                <BoxTitle>
-                  <TitleTypography variant="h1">
-                    {movieDetails.title
-                      ? movieDetails.title
-                      : "No title provided"}
-                  </TitleTypography>
-                </BoxTitle>
-                <BoxDetailsMovie>
-                  <DetailsTypography variant="h6">
-                    {movieDetails.release_date
-                      ? movieDetails.release_date.slice(0, 4)
-                      : "No release date provided"}
-                  </DetailsTypography>
-                  <DetailsTypography variant="h6">
-                    {movieDetails.runtime
-                      ? movieDuration
-                      : "No duration provided"}
-                  </DetailsTypography>
-                </BoxDetailsMovie>
-                <BoxDetailsGenre>
-                  {movieDetails?.genres?.map((genre) => (
-                    <BadgeGenre key={genre.id} genre={genre.name} />
-                  ))}
-                </BoxDetailsGenre>
-                <BoxOverview>
-                  <OverviewTypography variant="h6">
-                    {movieDetails.overview
-                      ? movieDetails.overview
-                      : "No overview provided"}
-                  </OverviewTypography>
-                </BoxOverview>
-                <BoxCastCrew>
-                  <CastCrew/>
-                </BoxCastCrew>
-              </BoxWrapper>
-              <MovieSection section="similar" />
-            </StyledGrid>
-          </ContainerDetails>
-        </MovieContainer>
-      </>
-    );
-  }
+        <ContainerDetails>
+          <StyledGrid>
+            <BoxWrapper>
+              <BoxTitle>
+                <TitleTypography variant="h1">
+                  {movieDetails.title
+                    ? movieDetails.title
+                    : "No title provided"}
+                </TitleTypography>
+              </BoxTitle>
+              <BoxDetailsMovie>
+                <DetailsTypography variant="h6">
+                  {movieDetails.release_date
+                    ? movieDetails.release_date.slice(0, 4)
+                    : "No release date provided"}
+                </DetailsTypography>
+                <DetailsTypography variant="h6">
+                  {movieDetails.runtime
+                    ? movieDuration
+                    : "No duration provided"}
+                </DetailsTypography>
+              </BoxDetailsMovie>
+              <BoxDetailsGenre>
+                {movieDetails?.genres?.map((genre) => (
+                  <BadgeGenre key={genre.id} genre={genre.name} />
+                ))}
+              </BoxDetailsGenre>
+              <BoxOverview>
+                <OverviewTypography variant="h6">
+                  {movieDetails.overview
+                    ? movieDetails.overview
+                    : "No overview provided"}
+                </OverviewTypography>
+              </BoxOverview>
+              <BoxCastCrew>
+                <CastCrew />
+              </BoxCastCrew>
+            </BoxWrapper>
+            <MovieSection section="similar" />
+          </StyledGrid>
+        </ContainerDetails>
+      </MovieContainer>
+    </>
+  );
 }

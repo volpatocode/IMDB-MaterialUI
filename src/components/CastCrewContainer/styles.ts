@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
-import { propsType } from "./index";
 
 export const CastCrewContainer = styled(Box)`
   margin: 0;

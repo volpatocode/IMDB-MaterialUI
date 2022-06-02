@@ -1,4 +1,13 @@
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { movieSectionType } from "../../types/services";
+
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+
+import AdultWarning from "../AdultWarning";
+import { PaddingProvider } from "../ContentWrapper/styles";
+
 import {
   OpacityBottomProvider,
   ShowcaseContainer,
@@ -10,15 +19,9 @@ import {
   WatchButton,
   DetailsButton,
 } from "./styles";
-import { movieSectionType } from "../../types/services";
-import { PaddingProvider } from "../ContentWrapper/styles";
-import AdultWarning from "../AdultWarning";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import Link from "next/link";
 
 export type propsType = {
-  src?: any;
+  src?: string;
 };
 
 export default function index({}: propsType) {
@@ -56,7 +59,12 @@ export default function index({}: propsType) {
                 </Overview>
               </BoxInfo>
               <BoxButtons>
-                <Link href={`https://www.google.com.br/search?q=${movie.title}` + ` trailer`}>
+                <Link
+                  href={
+                    `https://www.google.com.br/search?q=${movie.title}` +
+                    ` trailer`
+                  }
+                >
                   <WatchButton variant="text">
                     <PlayArrowIcon fontSize="large" />
                     Watch now
@@ -71,7 +79,7 @@ export default function index({}: propsType) {
               </BoxButtons>
             </BoxContent>
           </PaddingProvider>
-          <OpacityBottomProvider/>
+          <OpacityBottomProvider />
         </ShowcaseContainer>
       ))}
     </>

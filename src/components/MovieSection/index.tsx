@@ -1,4 +1,10 @@
-import * as React from "react";
+import React, { useEffect } from "react";
+import useMovieStore from "../../stores/movieStore";
+
+import { Grid, CircularProgress, Box } from "@mui/material";
+
+import MovieSectionContainer from "../MovieSectionContainer";
+
 import {
   MovieSection,
   StyledGrid,
@@ -6,14 +12,6 @@ import {
   SectionInfo,
   ShowMoreButton,
 } from "./styles";
-import MovieSectionContainer from "../MovieSectionContainer";
-import { Grid, Skeleton } from "@mui/material";
-import useMovieStore from "../../stores/movieStore";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import { movieSectionType } from "../../types/services";
-import { Box } from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
 
 type propsType = {
   section:
@@ -52,12 +50,28 @@ export default function index({ section, id, showMore }: propsType) {
       setUpcomingMovies();
   }, []);
 
+  const mapCondition = {
+    upcoming: upcomingMovies,
+    weekRated: weekRatedMovies,
+    topRated: topRatedMovies,
+    popular: popularMovies,
+    nowPlaying: nowPlayingMovies,
+  };
+
   const categoryCondition = {
     upcoming: "upcoming",
     topRated: "toprated",
     popular: "popular",
     nowPlaying: "nowplaying",
     weekRated: "weekrated",
+  };
+
+  const stringCondition = {
+    upcoming: "Upcoming",
+    weekRated: "Week Rated",
+    topRated: "Top Rated",
+    popular: "Popular",
+    nowPlaying: "Now Playing",
   };
 
   // const mapCallCondition = {
@@ -67,21 +81,6 @@ export default function index({ section, id, showMore }: propsType) {
   //   popular: setPopularMovies(),
   //   nowPlaying: setNowPlayingMovies(),
   // };
-
-  const mapCondition = {
-    upcoming: upcomingMovies,
-    weekRated: weekRatedMovies,
-    topRated: topRatedMovies,
-    popular: popularMovies,
-    nowPlaying: nowPlayingMovies,
-  };
-  const stringCondition = {
-    upcoming: "Upcoming",
-    weekRated: "Week Rated",
-    topRated: "Top Rated",
-    popular: "Popular",
-    nowPlaying: "Now Playing",
-  };
 
   return mapCondition[section]?.length > 0 ? (
     <MovieSection id={id}>
@@ -122,7 +121,7 @@ export default function index({ section, id, showMore }: propsType) {
         alignItems: "",
       }}
     >
-      {/* <CircularProgress color="error" /> */}
+      <CircularProgress color="error" />
     </Box>
   );
 }

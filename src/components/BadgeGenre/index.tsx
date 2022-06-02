@@ -1,10 +1,10 @@
-import * as React from "react";
-import * as S from "./styles";
+import React from "react";
+import { BadgeGenre } from "./styles";
 
 type propsType = {
   genre: string;
 };
 
 export default function index({ genre }: propsType) {
-  return <S.BadgeGenre>{genre}</S.BadgeGenre>;
+  return <BadgeGenre>{genre}</BadgeGenre>;
 }
