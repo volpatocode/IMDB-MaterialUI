@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { movieDetailsType } from "../../types/services";
 import { useRouter } from "next/router";
+import useMovieStore from "../../stores/movieStore";
 
 import BadgeGenre from "../../components/BadgeGenre";
 import CastCrew from "../../components/CastCrew";
@@ -27,6 +28,8 @@ export default function movie() {
 
   const [movieDetails, setMovieDetails] = useState({} as movieDetailsType);
 
+  const { setSimilarMovies } = useMovieStore((state) => state);
+
   const movieDuration = timeConvert();
   function timeConvert() {
     var num = movieDetails.runtime;
@@ -52,6 +55,8 @@ export default function movie() {
   useEffect(() => {
     movieDetails.title && (document.title = `VMovies - ${movieDetails.title}`);
   }, [movieDetails]);
+
+  console.log(router.query.movie);
 
   return (
     <>
@@ -99,7 +104,13 @@ export default function movie() {
                 <CastCrew />
               </BoxCastCrew>
             </BoxWrapper>
-            <MovieSection section="similar" />
+            <MovieSection
+              fetchFunction={() =>
+                setSimilarMovies(router.query.movie as string)
+              }
+              section="similar"
+              listener={router.query.movie as string}
+            />
           </StyledGrid>
         </ContainerDetails>
       </MovieContainer>

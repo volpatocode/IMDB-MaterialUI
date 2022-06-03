@@ -24,31 +24,31 @@ type propsType = {
     | "similar";
   id?: string;
   showMore?: boolean;
+  fetchFunction: () => void;
+  listener?: any;
 };
 
-export default function index({ section, id, showMore }: propsType) {
+export default function index({
+  section,
+  id,
+  showMore,
+  fetchFunction,
+  listener,
+}: propsType) {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
 
   const {
     nowPlayingMovies,
-    setNowPlayingMovies,
     popularMovies,
-    setPopularMovies,
     topRatedMovies,
-    setTopRatedMovies,
     upcomingMovies,
-    setUpcomingMovies,
     weekRatedMovies,
-    setWeekRatedMovies,
+    similarMovies,
   } = useMovieStore((state) => state);
 
   useEffect(() => {
-    setNowPlayingMovies(),
-      setPopularMovies(),
-      setTopRatedMovies(),
-      setWeekRatedMovies(),
-      setUpcomingMovies();
-  }, []);
+    fetchFunction();
+  }, [listener]);
 
   const mapCondition = {
     upcoming: upcomingMovies,
@@ -56,6 +56,7 @@ export default function index({ section, id, showMore }: propsType) {
     topRated: topRatedMovies,
     popular: popularMovies,
     nowPlaying: nowPlayingMovies,
+    similar: similarMovies,
   };
 
   const categoryCondition = {
@@ -64,6 +65,7 @@ export default function index({ section, id, showMore }: propsType) {
     popular: "popular",
     nowPlaying: "nowplaying",
     weekRated: "weekrated",
+    similar: "similar",
   };
 
   const stringCondition = {
@@ -72,15 +74,8 @@ export default function index({ section, id, showMore }: propsType) {
     topRated: "Top Rated",
     popular: "Popular",
     nowPlaying: "Now Playing",
+    similar: "Similar Movies",
   };
-
-  // const mapCallCondition = {
-  //   upcoming: setUpcomingMovies(),
-  //   weekRated: setWeekRatedMovies(),
-  //   topRated: setTopRatedMovies(),
-  //   popular: setPopularMovies(),
-  //   nowPlaying: setNowPlayingMovies(),
-  // };
 
   return mapCondition[section]?.length > 0 ? (
     <MovieSection id={id}>
@@ -115,10 +110,10 @@ export default function index({ section, id, showMore }: propsType) {
     <Box
       sx={{
         display: "flex",
-        height: "100vh",
-        width: "100vw",
+        height: "100%",
+        width: "100%",
         justifyContent: "center",
-        alignItems: "",
+        alignItems: "center",
       }}
     >
       <CircularProgress color="error" />
