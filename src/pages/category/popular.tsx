@@ -9,6 +9,7 @@ import { ShowMoreButton } from "./styles";
 import { PaddingProvider } from "../../components/ContentWrapper/styles";
 import MovieSectionContainer from "../../components/MovieSectionContainer";
 import Appbar from "../../components/Appbar";
+import Footer from "../../components/Footer";
 
 import {
   MovieSection,
@@ -16,6 +17,7 @@ import {
   SectionInfo,
   StyledGrid,
 } from "../../components/MovieSection/styles";
+
 
 export default function popular() {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
@@ -78,6 +80,7 @@ export default function popular() {
         )}
         ;
       </PaddingProvider>
+      <Footer/>
       );
     </>
   );

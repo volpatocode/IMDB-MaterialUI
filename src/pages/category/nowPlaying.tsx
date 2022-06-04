@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { movieSectionType } from "../../types/services";
 
+import Grid from "@mui/material/Grid";
+import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
+import PendingOutlinedIcon from "@mui/icons-material/PendingOutlined";
+
 import { ShowMoreButton } from "./styles";
 import { PaddingProvider } from "../../components/ContentWrapper/styles";
 import MovieSectionContainer from "../../components/MovieSectionContainer";
 import Appbar from "../../components/Appbar";
-
-import Grid from "@mui/material/Grid";
-import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
-import PendingOutlinedIcon from "@mui/icons-material/PendingOutlined";
+import Footer from "../../components/Footer";
 
 import {
   MovieSection,
@@ -81,6 +82,7 @@ export default function nowplaying() {
         )}
         ;
       </PaddingProvider>
+      <Footer />
       );
     </>
   );

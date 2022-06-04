@@ -9,6 +9,7 @@ import { ShowMoreButton } from "./styles";
 import { PaddingProvider } from "../../components/ContentWrapper/styles";
 import MovieSectionContainer from "../../components/MovieSectionContainer";
 import Appbar from "../../components/Appbar";
+import Footer from "../../components/Footer";
 import {
   MovieSection,
   SectionBoxInfo,
@@ -77,6 +78,7 @@ export default function upcoming() {
         )}
         ;
       </PaddingProvider>
+      <Footer />
       );
     </>
   );
