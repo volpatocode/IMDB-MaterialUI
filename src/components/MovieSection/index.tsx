@@ -62,10 +62,10 @@ export default function MovieSectionC({
 
   const categoryCondition = {
     upcoming: "upcoming",
-    topRated: "toprated",
+    topRated: "topRated",
     popular: "popular",
-    nowPlaying: "nowplaying",
-    weekRated: "weekrated",
+    nowPlaying: "nowPlaying",
+    weekRated: "weekRated",
     similar: "similar",
   };
 
