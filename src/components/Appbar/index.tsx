@@ -35,7 +35,6 @@ export type propsType = {
 export const Logo = "VMovies";
 
 export default function SearchAppBar({
-  movies,
   setMovies,
   page,
   refProp,

@@ -17,7 +17,7 @@ import {
   StyledGrid,
 } from "../../components/MovieSection/styles";
 
-export default function toprated() {
+export default function TopRated() {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);

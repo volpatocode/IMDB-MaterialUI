@@ -5,7 +5,7 @@ export type propsType = {
   year: any;
 };
 
-export default function index(props: propsType) {
+export default function MovieYearC(props: propsType) {
   const { year } = props;
   return (
     <MovieYear {...props}>

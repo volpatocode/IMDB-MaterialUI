@@ -4,7 +4,7 @@ import ShowcaseContainer from "../components/ShowcaseContainer";
 
 type propsType = {};
 
-export default function index({}: propsType) {
+export default function Index({}: propsType) {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     document.title = "VMovies";

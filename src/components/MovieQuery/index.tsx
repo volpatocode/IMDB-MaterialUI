@@ -13,7 +13,7 @@ type propsType = {
   refProp: any;
 };
 
-export default function index({ movies, id, refProp }: propsType) {
+export default function MovieQueryC({ movies, id, refProp }: propsType) {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
 
   return (

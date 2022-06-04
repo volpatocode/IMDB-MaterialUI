@@ -14,7 +14,7 @@ export type propsType = {
   info: any;
 };
 
-export default function index({ src, name, info }: propsType) {
+export default function CastCrewContainerC({ src, name, info }: propsType) {
   return (
     <CastCrewContainer>
       <BoxImage>

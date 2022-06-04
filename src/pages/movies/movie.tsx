@@ -8,24 +8,23 @@ import CastCrew from "../../components/CastCrew";
 import Appbar from "../../components/Appbar";
 import MovieSection from "../../components/MovieSection";
 import { PaddingProvider } from "../../components/ContentWrapper/styles";
-import Footer from "../../components/Footer";
 import {
   BoxTitle,
   BoxOverview,
-  MovieContainer,
   TitleTypography,
   OverviewTypography,
   DetailsTypography,
   BoxDetailsMovie,
   BoxDetailsGenre,
   BoxCastCrew,
+  MovieContainer,
   ContainerDetails,
   StyledGrid,
   BoxWrapper,
   BoxMovieSection,
 } from "./styles";
 
-export default function movie() {
+export default function MovieDetails() {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
   const router = useRouter();
 

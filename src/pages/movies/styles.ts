@@ -7,7 +7,7 @@ export const MovieContainer = styled.div<movieDetailsType>`
   height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)),
     url(${(props) => props.backdrop_path}) no-repeat center center / cover;
-    padding-bottom: 2rem;
+  padding-bottom: 2rem;
 `;
 
 export const BoxMovieSection = styled.div`
@@ -17,7 +17,6 @@ export const BoxMovieSection = styled.div`
   @media (min-width: 736px) {
     margin-top: 10rem;
   }
-  
 `;
 
 export const ContainerDetails = styled.div`
@@ -26,7 +25,6 @@ export const ContainerDetails = styled.div`
   min-height: 100vh;
   position: relative;
   display: flex;
-
 `;
 
 export const StyledGrid = styled(Box)`
@@ -119,3 +117,7 @@ export const BoxWrapper = styled(Box)`
     width: 90vw;
   }
 `;
+
+const MovieDetailsStyles = styled.div``;
+
+export default MovieDetailsStyles;

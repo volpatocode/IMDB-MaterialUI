@@ -28,7 +28,7 @@ type propsType = {
   listener?: any;
 };
 
-export default function index({
+export default function MovieSectionC({
   section,
   id,
   showMore,

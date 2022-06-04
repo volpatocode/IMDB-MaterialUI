@@ -5,7 +5,7 @@ import Link from "next/link";
 
 type propsType = {};
 
-export default function index({}: propsType) {
+export default function ArrowBackC({}: propsType) {
   return (
     <Link href="/">
       <ArrowBack>

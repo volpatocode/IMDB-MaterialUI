@@ -11,7 +11,7 @@ import {
 
 export type propsType = {};
 
-export default function index({}: propsType) {
+export default function FooterCopyC({}: propsType) {
   return (
     <FooterCopy>
       <CopyWrapper>

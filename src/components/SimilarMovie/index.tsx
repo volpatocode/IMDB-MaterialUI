@@ -10,7 +10,7 @@ import MovieSectionContainer from "../MovieSectionContainer";
 
 type propsType = {};
 
-export default function index({}: propsType) {
+export default function SimilarMovieC({}: propsType) {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
   const router = useRouter();
 

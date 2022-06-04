@@ -20,7 +20,7 @@ import {
 
 export type propsType = {};
 
-export default function index({}: propsType) {
+export default function CastCrewC({}: propsType) {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
   const router = useRouter();
   const [castCrew, setCastCrew] = useState({} as castCrewType);

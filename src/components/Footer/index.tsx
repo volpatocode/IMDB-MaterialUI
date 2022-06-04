@@ -24,7 +24,7 @@ import {
 
 export type propsType = {};
 
-export default function index({}: propsType) {
+export default function FooterC({}: propsType) {
   return (
     <Footer>
       <PaddingProvider>

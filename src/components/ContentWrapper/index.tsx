@@ -10,10 +10,10 @@ import Footer from "../Footer";
 export type propsType = {
   movies: any;
   setMovies: any;
-  page: "index" | "details" | "seeMore";
+  page?: "index" | "details" | "seeMore";
 };
 
-export default function index({ movies, setMovies }: propsType) {
+export default function ContentWrapperC({ movies, setMovies }: propsType) {
   const searchRef = useRef(null);
   const {
     setNowPlayingMovies,

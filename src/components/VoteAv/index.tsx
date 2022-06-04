@@ -5,7 +5,7 @@ export type propsType = {
   voteAv: any;
 };
 
-export default function index(props: propsType) {
+export default function VoteAvC(props: propsType) {
   const { voteAv } = props;
   return (
     <VoteAv {...props}>

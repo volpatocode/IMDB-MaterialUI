@@ -5,6 +5,6 @@ type propsType = {
   genre: string;
 };
 
-export default function index({ genre }: propsType) {
+export default function BadgeGenreC({ genre }: propsType) {
   return <BadgeGenre>{genre}</BadgeGenre>;
 }

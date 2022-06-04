@@ -15,7 +15,6 @@ import {
   BoxContent,
   BoxInfo,
   Title,
-  Overview,
   BoxButtons,
   WatchButton,
   DetailsButton,
@@ -25,7 +24,7 @@ export type propsType = {
   src?: string;
 };
 
-export default function index({}: propsType) {
+export default function ShowcaseContainerC({}: propsType) {
   const API_IMG = "http://image.tmdb.org/t/p/original/";
   const [trendingMovies, setTrendingMovies] = useState<movieSectionType[]>([]);
 
