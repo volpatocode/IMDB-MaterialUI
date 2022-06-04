@@ -27,8 +27,14 @@ A movie site with the IMDB database. Personal project developed with inspiration
 This is one of my first major projects, which took longer than usual to produce, but that was because I didn't plan very well. In the middle of the development I realized that I should have planned it better so that I could make better use of my time and have my goals with the project clearer. Using some new technologies and techniques such as MaterialUI and Zustand contributed a little to the long development time, but they added a lot to my overall development experience
 <br/><br/>
 ## How can i see it
-The project was deployed on [Vercel](https://vercel.com), you can check the page on [https://twitch-volpatocode.vercel.app](https://vmovies-volpatocode.vercel.app) or u can just download/fork here, install the dependencies by typing "npm install" and run it with "npm run dev". The project is fully responsive, which means you can view it on the device of your choice.
+The project was deployed on [Vercel](https://vercel.com), you can check the page on [VMovies](https://vmovies-volpatocode.vercel.app) or u can just download/fork here, install the dependencies by typing "npm install" and run it with "npm run dev". The project is fully responsive, which means you can view it on the device of your choice.
 <br/><br/>
+
+## Get in touch :)
++55(48)988701083
+<br><br>
+<a href="mailto:volpatocode@gmail.com"><img height="30" alt="EMAIL" src="https://camo.githubusercontent.com/c2084ea08158c801f97554d2e2bcc38da2cd1cd845932eeeb8244adb3309cf3b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d456d61696c2d6331343433383f7374796c653d666f722d7468652d6261646765266c6f676f3d476d61696c266c6f676f436f6c6f723d7768697465266c696e6b3d6d61696c746f3a6f694076696e7061632e696f"></a>
+<a href="https://www.linkedin.com/in/joaovolpatocode/"><img alt="code-Linkedin" height="30" width="110" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
 
 ## Technologies
 <ul>
