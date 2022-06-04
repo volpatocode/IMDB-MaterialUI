@@ -3,7 +3,7 @@ import { PaddingProvider } from "../ContentWrapper/styles";
 
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedinIcon from "@mui/icons-material/Linkedin";
+import LinkedinIcon from "@mui/icons-material/LinkedIn";
 
 import FooterCopy from "../FooterCopy";
 import { Logo } from "../Appbar";
