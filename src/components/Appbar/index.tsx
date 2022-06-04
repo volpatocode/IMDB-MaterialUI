@@ -82,7 +82,7 @@ export default function SearchAppBar({
           elevation={0}
           position={page === "index" ? "absolute" : "static"}
         >
-          <StyledToolbar>
+          <StyledToolbar page="index">
             <LeftSide>
               <Link href="/">
                 <StyledLogo>{Logo}</StyledLogo>
@@ -204,11 +204,103 @@ export default function SearchAppBar({
         </AppBarIndex>
       </Box>
     );
-  } else {
+  }
+  if (page === "details") {
     return (
       <Box>
         <AppBarDetails elevation={0} color="transparent" position="static">
           <StyledToolbar page="details">
+            <ArrowBack />
+            <Stack spacing={2} direction="row">
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  textAlign: "center",
+                }}
+              >
+                <Tooltip title="Account settings">
+                  <IconButton
+                    onClick={handleClick}
+                    size="small"
+                    sx={{ ml: 2 }}
+                    aria-controls={open ? "account-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? "true" : undefined}
+                  >
+                    <Avatar
+                      src="https://avatars.githubusercontent.com/u/102267019?v=4"
+                      sx={{ width: 28, height: 28, borderRadius: "5px" }}
+                    />
+                  </IconButton>
+                </Tooltip>
+              </Box>
+              <Menu
+                anchorEl={anchorEl}
+                id="account-menu"
+                open={open}
+                onClose={handleClose}
+                onClick={handleClose}
+                PaperProps={{
+                  elevation: 0,
+                  sx: {
+                    overflow: "visible",
+                    bgcolor: "#262626",
+                    filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                    mt: 1.5,
+                    "& .MuiAvatar-root": {
+                      width: 32,
+                      height: 32,
+                      ml: -0.5,
+                      mr: 1,
+                    },
+                    "&:before": {
+                      content: '""',
+                      display: "block",
+                      position: "absolute",
+                      top: 0,
+                      right: 14,
+                      width: 10,
+                      height: 10,
+                      bgcolor: "#262626",
+                      transform: "translateY(-50%) rotate(45deg)",
+                      zIndex: 0,
+                    },
+                  },
+                }}
+                transformOrigin={{ horizontal: "right", vertical: "top" }}
+                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+              >
+                <Link href="https://github.com/volpatocode">
+                  <StyledMenuItem>
+                    <GitHubIcon
+                      sx={{ mr: 0.6, cursor: "pointer" }}
+                      fontSize="large"
+                    />
+                    My Github
+                  </StyledMenuItem>
+                </Link>
+                <Link href="https://www.linkedin.com/in/joaovolpatocode/">
+                  <StyledMenuItem>
+                    <LinkedInIcon
+                      sx={{ mr: 0.5, cursor: "pointer" }}
+                      fontSize="large"
+                    />
+                    My Linkedin
+                  </StyledMenuItem>
+                </Link>
+              </Menu>
+            </Stack>
+          </StyledToolbar>
+        </AppBarDetails>
+      </Box>
+    );
+  }
+  if (page === "seeMore") {
+    return (
+      <Box>
+        <AppBarDetails elevation={0} color="transparent" position="static">
+          <StyledToolbar page="seeMore">
             <ArrowBack />
             <Stack spacing={2} direction="row">
               <Box

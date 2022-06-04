@@ -45,7 +45,7 @@ export default function popular() {
   return (
     <>
       <Appbar page="seeMore" />
-      <PaddingProvider>
+      <PaddingProvider page="index">
         {popularMovies.length != 0 && (
           <MovieSection>
             <SectionBoxInfo>

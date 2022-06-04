@@ -4,7 +4,6 @@ import { Box, Stack, Typography } from "@mui/material";
 export const Footer = styled(Box)`
   width: 100%;
   background: #000;
-  margin-top: 3rem;
   padding: 2rem 0rem 3.5rem 0rem;
 `;
 

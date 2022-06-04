@@ -44,7 +44,7 @@ export default function upcoming() {
   return (
     <>
       <Appbar page="seeMore" />
-      <PaddingProvider>
+      <PaddingProvider page="index">
         {upcomingMovies.length != 0 && (
           <MovieSection>
             <SectionBoxInfo>

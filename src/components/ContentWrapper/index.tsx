@@ -10,6 +10,7 @@ import Footer from "../Footer";
 export type propsType = {
   movies: any;
   setMovies: any;
+  page: "index" | "details" | "seeMore";
 };
 
 export default function index({ movies, setMovies }: propsType) {
@@ -30,7 +31,7 @@ export default function index({ movies, setMovies }: propsType) {
         setMovies={setMovies}
         page="index"
       />
-      <PaddingProvider>
+      <PaddingProvider page="index">
         <ContentWrapper>
           <MovieQuery
             refProp={searchRef}

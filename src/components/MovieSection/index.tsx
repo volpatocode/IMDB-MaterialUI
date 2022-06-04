@@ -77,6 +77,42 @@ export default function index({
     similar: "Similar Movies",
   };
 
+  const sliceCondition = {
+    upcoming: 6,
+    weekRated: 6,
+    topRated: 6,
+    popular: 6,
+    nowPlaying: 6,
+    similar: 12,
+  };
+
+  const sizeXSCondition = {
+    upcoming: 4,
+    weekRated: 4,
+    topRated: 4,
+    popular: 4,
+    nowPlaying: 4,
+    similar: 4,
+  };
+
+  const sizeMDCondition = {
+    upcoming: 3,
+    weekRated: 3,
+    topRated: 3,
+    popular: 3,
+    nowPlaying: 3,
+    similar: 2,
+  };
+
+  const sizeLGCondition = {
+    upcoming: 2,
+    weekRated: 2,
+    topRated: 2,
+    popular: 2,
+    nowPlaying: 2,
+    similar: 1,
+  };
+
   return mapCondition[section]?.length > 0 ? (
     <MovieSection id={id}>
       <SectionBoxInfo>
@@ -91,19 +127,27 @@ export default function index({
         )}
       </SectionBoxInfo>
       <StyledGrid wrap="wrap" container columnSpacing={1} rowSpacing={1}>
-        {mapCondition[section]?.slice(0, 6).map((movie) => (
-          <Grid item xs={4} md={3} lg={2} key={movie.id}>
-            <MovieSectionContainer
-              movieId={movie.id}
-              src={
-                movie.poster_path
-                  ? API_IMG + movie.poster_path
-                  : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
-              }
-              title={movie.title ? movie.title : "No title provided"}
-            />
-          </Grid>
-        ))}
+        {mapCondition[section]
+          ?.slice(0, sliceCondition[section])
+          .map((movie) => (
+            <Grid
+              item
+              xs={sizeXSCondition[section]}
+              md={sizeMDCondition[section]}
+              lg={sizeLGCondition[section]}
+              key={movie.id}
+            >
+              <MovieSectionContainer
+                movieId={movie.id}
+                src={
+                  movie.poster_path
+                    ? API_IMG + movie.poster_path
+                    : "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg"
+                }
+                title={movie.title ? movie.title : "No title provided"}
+              />
+            </Grid>
+          ))}
       </StyledGrid>
     </MovieSection>
   ) : (

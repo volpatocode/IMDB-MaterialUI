@@ -7,6 +7,8 @@ import BadgeGenre from "../../components/BadgeGenre";
 import CastCrew from "../../components/CastCrew";
 import Appbar from "../../components/Appbar";
 import MovieSection from "../../components/MovieSection";
+import { PaddingProvider } from "../../components/ContentWrapper/styles";
+import Footer from "../../components/Footer";
 import {
   BoxTitle,
   BoxOverview,
@@ -20,6 +22,7 @@ import {
   ContainerDetails,
   StyledGrid,
   BoxWrapper,
+  BoxMovieSection,
 } from "./styles";
 
 export default function movie() {
@@ -66,53 +69,57 @@ export default function movie() {
         }
       >
         <Appbar page="details" />
-        <ContainerDetails>
-          <StyledGrid>
-            <BoxWrapper>
-              <BoxTitle>
-                <TitleTypography variant="h1">
-                  {movieDetails.title
-                    ? movieDetails.title
-                    : "No title provided"}
-                </TitleTypography>
-              </BoxTitle>
-              <BoxDetailsMovie>
-                <DetailsTypography variant="h6">
-                  {movieDetails.release_date
-                    ? movieDetails.release_date.slice(0, 4)
-                    : "No release date provided"}
-                </DetailsTypography>
-                <DetailsTypography variant="h6">
-                  {movieDetails.runtime
-                    ? movieDuration
-                    : "No duration provided"}
-                </DetailsTypography>
-              </BoxDetailsMovie>
-              <BoxDetailsGenre>
-                {movieDetails?.genres?.map((genre) => (
-                  <BadgeGenre key={genre.id} genre={genre.name} />
-                ))}
-              </BoxDetailsGenre>
-              <BoxOverview>
-                <OverviewTypography variant="h6">
-                  {movieDetails.overview
-                    ? movieDetails.overview
-                    : "No overview provided"}
-                </OverviewTypography>
-              </BoxOverview>
-              <BoxCastCrew>
-                <CastCrew />
-              </BoxCastCrew>
-            </BoxWrapper>
-            <MovieSection
-              fetchFunction={() =>
-                setSimilarMovies(router.query.movie as string)
-              }
-              section="similar"
-              listener={router.query.movie as string}
-            />
-          </StyledGrid>
-        </ContainerDetails>
+        <PaddingProvider page="details">
+          <ContainerDetails>
+            <StyledGrid>
+              <BoxWrapper>
+                <BoxTitle>
+                  <TitleTypography variant="h1">
+                    {movieDetails.title
+                      ? movieDetails.title
+                      : "No title provided"}
+                  </TitleTypography>
+                </BoxTitle>
+                <BoxDetailsMovie>
+                  <DetailsTypography variant="h6">
+                    {movieDetails.release_date
+                      ? movieDetails.release_date.slice(0, 4)
+                      : "No release date provided"}
+                  </DetailsTypography>
+                  <DetailsTypography variant="h6">
+                    {movieDetails.runtime
+                      ? movieDuration
+                      : "No duration provided"}
+                  </DetailsTypography>
+                </BoxDetailsMovie>
+                <BoxDetailsGenre>
+                  {movieDetails?.genres?.map((genre) => (
+                    <BadgeGenre key={genre.id} genre={genre.name} />
+                  ))}
+                </BoxDetailsGenre>
+                <BoxOverview>
+                  <OverviewTypography variant="h6">
+                    {movieDetails.overview
+                      ? movieDetails.overview
+                      : "No overview provided"}
+                  </OverviewTypography>
+                </BoxOverview>
+                <BoxCastCrew>
+                  <CastCrew />
+                </BoxCastCrew>
+              </BoxWrapper>
+              <BoxMovieSection>
+                <MovieSection
+                  fetchFunction={() =>
+                    setSimilarMovies(router.query.movie as string)
+                  }
+                  section="similar"
+                  listener={router.query.movie as string}
+                />
+              </BoxMovieSection>
+            </StyledGrid>
+          </ContainerDetails>
+        </PaddingProvider>
       </MovieContainer>
     </>
   );

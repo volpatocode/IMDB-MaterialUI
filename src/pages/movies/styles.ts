@@ -7,6 +7,17 @@ export const MovieContainer = styled.div<movieDetailsType>`
   height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)),
     url(${(props) => props.backdrop_path}) no-repeat center center / cover;
+    padding-bottom: 2rem;
+`;
+
+export const BoxMovieSection = styled.div`
+  @media (max-width: 1200px) {
+    margin-top: 5rem;
+  }
+  @media (min-width: 736px) {
+    margin-top: 10rem;
+  }
+  
 `;
 
 export const ContainerDetails = styled.div`
@@ -16,24 +27,15 @@ export const ContainerDetails = styled.div`
   position: relative;
   display: flex;
 
-  @media (min-width: 300px) {
-    padding: 0 0.5rem 0 0.5rem;
-  }
-  @media (min-width: 600px) {
-    padding: 0 1rem 0 1rem;
-  }
-  @media (min-width: 1200px) {
-    padding: 0 3.5rem 0 3.5rem;
-    transition: 0.2s ease;
-  }
 `;
 
 export const StyledGrid = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%;
+  min-height: 100vh;
 `;
 
 export const OpacityProvider = styled(Box)`

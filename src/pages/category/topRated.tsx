@@ -44,7 +44,7 @@ export default function toprated() {
   return (
     <>
       <Appbar page="seeMore" />
-      <PaddingProvider>
+      <PaddingProvider page="index">
         {topRatedMovies.length != 0 && (
           <MovieSection>
             <SectionBoxInfo>

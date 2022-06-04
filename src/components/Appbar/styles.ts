@@ -191,20 +191,25 @@ export const AppBarDetails = styled(AppBar)`
 
 export const StyledToolbar = styled(Toolbar)<Pick<propsType, "page">>`
   justify-content: space-between;
-  padding: 0px 2rem 0px 2rem;
   transition: 0.2s ease;
-
-  @media (min-width: 300px) {
-    padding: ${(props) =>
-      props.page === "details" ? "0 .5rem 0 0.5rem" : "0 1rem 0 1rem"};
-  }
   @media (min-width: 600px) {
+    padding: ${(props) =>
+      props.page === "details" ? "0 4rem 0 4rem" : "0 7rem 0 7rem"};
+  }
+  @media (max-width: 1200px) {
+    padding: ${(props) =>
+      props.page === "details" ? "0 3.5rem 0 3.5rem" : "0 5rem 0 5rem"};
+  }
+  @media (max-width: 850px) {
+    padding: ${(props) =>
+      props.page === "details" ? "0 1rem 0 1rem" : "0 3.5rem 0 3.5rem"};
+  }
+  @media (max-width: 600px) {
     padding: ${(props) =>
       props.page === "details" ? "0 1rem 0 1rem" : "0 2rem 0 2rem"};
   }
-  @media (min-width: 1200px) {
+  @media (max-width: 300px) {
     padding: ${(props) =>
-      props.page === "details" ? "0 3.5rem 0 3.5rem" : "0 7rem 0 7rem"};
-    transition: 0.2s ease;
+      props.page === "details" ? "0 1rem 0 1rem" : "0 .5rem 0 .5rem"};
   }
 `;
