@@ -4,11 +4,6 @@
 <br><br><br>
 ![Screenshot_2](https://user-images.githubusercontent.com/102267019/171991042-de593793-6a5d-4473-bcff-b2127c4c416d.jpg)
 
-
-
-
-
-
 <h3 align="center">Developed by João Volpato ❤</h3>
 
 ## VMovies
