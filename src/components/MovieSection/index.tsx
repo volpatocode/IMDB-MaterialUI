@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import useMovieStore from "../../stores/movieStore";
+import Link from "next/link";
 
 import { Grid, CircularProgress, Box } from "@mui/material";
 
@@ -118,12 +119,9 @@ export default function MovieSectionC({
       <SectionBoxInfo>
         <SectionInfo>{stringCondition[section]}</SectionInfo>
         {showMore && (
-          <ShowMoreButton
-            href={`/category/${categoryCondition[section]}`}
-            variant="text"
-          >
-            Show more
-          </ShowMoreButton>
+          <Link href={`/category/${categoryCondition[section]}`}>
+            <ShowMoreButton variant="text">Show more</ShowMoreButton>
+          </Link>
         )}
       </SectionBoxInfo>
       <StyledGrid wrap="wrap" container columnSpacing={1} rowSpacing={1}>
