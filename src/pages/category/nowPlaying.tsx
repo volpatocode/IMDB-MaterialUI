@@ -53,7 +53,7 @@ export default function NowPlaying() {
         {nowPlayingMovies.length != 0 && (
           <MovieSection>
             <SectionBoxInfo>
-              <SectionInfo>Now playing</SectionInfo>
+              <SectionInfo></SectionInfo>
             </SectionBoxInfo>
             <StyledGrid wrap="wrap" container columnSpacing={1} rowSpacing={1}>
               {nowPlayingMovies?.map((movie) => (

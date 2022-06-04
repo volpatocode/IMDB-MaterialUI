@@ -51,7 +51,7 @@ export default function Popular() {
         {popularMovies.length != 0 && (
           <MovieSection>
             <SectionBoxInfo>
-              <SectionInfo>Popular</SectionInfo>
+              <SectionInfo></SectionInfo>
             </SectionBoxInfo>
             <StyledGrid wrap="wrap" container columnSpacing={1} rowSpacing={1}>
               {popularMovies?.map((movie) => (

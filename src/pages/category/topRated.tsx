@@ -49,7 +49,7 @@ export default function TopRated() {
         {topRatedMovies.length != 0 && (
           <MovieSection>
             <SectionBoxInfo>
-              <SectionInfo>Top rated</SectionInfo>
+              <SectionInfo></SectionInfo>
             </SectionBoxInfo>
             <StyledGrid wrap="wrap" container columnSpacing={1} rowSpacing={1}>
               {topRatedMovies?.map((movie) => (

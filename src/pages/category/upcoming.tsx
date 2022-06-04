@@ -49,7 +49,7 @@ export default function Upcoming() {
         {upcomingMovies.length != 0 && (
           <MovieSection>
             <SectionBoxInfo>
-              <SectionInfo>Upcoming</SectionInfo>
+              <SectionInfo></SectionInfo>
             </SectionBoxInfo>
             <StyledGrid wrap="wrap" container columnSpacing={1} rowSpacing={1}>
               {upcomingMovies?.map((movie) => (
